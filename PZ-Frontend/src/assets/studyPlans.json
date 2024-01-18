@@ -1,0 +1,57 @@
+[
+  {
+    "id": "1",
+    "academicYear": "2023/2024",
+    "version": "1",
+    "status": "AKTUALNY",
+    "fieldOfStudy": "Informatyka Stosowana",
+    "faculty": "Informatyki i Telekomunikacji",
+    "educationLevel": "Inżynierskie",
+    "studyMode": "Dzienne",
+    "semester": "5"
+  },
+  {
+    "id": "2",
+    "academicYear": "2023/2024",
+    "version": "1",
+    "status": "AKTUALNY",
+    "fieldOfStudy": "Telekomunikacja",
+    "faculty": "Informatyki i Telekomunikacji",
+    "educationLevel": "Inżynierskie",
+    "studyMode": "Dzienne",
+    "semester": "5"
+  },
+  {
+    "id": "3",
+    "academicYear": "2023/2024",
+    "version": "1",
+    "status": "ARCHIWALNY",
+    "fieldOfStudy": "Informatyka Techniczna",
+    "faculty": "Informatyki i Telekomunikacji",
+    "educationLevel": "Inżynierskie",
+    "studyMode": "Dzienne",
+    "semester": "6"
+  },
+  {
+    "id": "4",
+    "academicYear": "2023/2024",
+    "version": "2",
+    "status": "AKTUALNY",
+    "fieldOfStudy": "Informatyka Techniczna",
+    "faculty": "Informatyki i Telekomunikacji",
+    "educationLevel": "Inżynierskie",
+    "studyMode": "Dzienne",
+    "semester": "6"
+  },
+  {
+    "id": "5",
+    "academicYear": "2022/2023",
+    "version": "1",
+    "status": "ARCHIWALNY",
+    "fieldOfStudy": "Zarządzanie",
+    "faculty": "Zarządzania",
+    "educationLevel": "Magisterskie",
+    "studyMode": "Zaoczne",
+    "semester": "2"
+  }
+]

@@ -1,0 +1,16 @@
+/* app.component.css */
+@import 'ag-grid-community/styles/ag-grid.css';
+@import 'ag-grid-community/styles/ag-theme-quartz.css';
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; /* Unikaj paska przewijania na poziomej osi */
+}
+
+.main-content {
+  padding: 20px;
+  height: calc(100%); /* Odjęcie wysokości paska nawigacyjnego od 100% widocznej wysokości */
+  overflow-y: auto; /* Dodaj pasek przewijania tylko w razie potrzeby */
+}
