@@ -1,6 +1,5 @@
 package com.example.EduManagmentSystem.model;
 
-import jakarta.persistence.Id;
 
 public class PersonalData {
     Long id;

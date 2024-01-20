@@ -1,5 +1,6 @@
 package com.example.EduManagmentSystem.model;
 
+import com.example.EduManagmentSystem.enums.AccountType;
 import com.example.EduManagmentSystem.enums.TeacherPosition;
 
 public class Teacher extends Account{
@@ -8,4 +9,8 @@ public class Teacher extends Account{
     String title;
     String academicDegree;
     Long accountId;
+
+    public Teacher(String username, AccountType accountType) {
+        super(username, accountType);
+    }
 }
