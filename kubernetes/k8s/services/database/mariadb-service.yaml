@@ -5,6 +5,7 @@ metadata:
   name: mariadb
   namespace: database
 spec:
+  type: LoadBalancer
   ports:
     - port: 3306
       targetPort: 3306
