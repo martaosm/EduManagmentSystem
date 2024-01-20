@@ -21,4 +21,13 @@ public class Grade {
     Long teacherId;
     String classGroupCode;
 
+    public Grade(Double gradeValue, String comment, String gradedElement, Long gradeTypeId, String studentIndex, Long teacherId, String classGroupCode) {
+        this.gradeValue = gradeValue;
+        this.comment = comment;
+        this.gradedElement = gradedElement;
+        this.gradeTypeId = gradeTypeId;
+        this.studentIndex = studentIndex;
+        this.teacherId = teacherId;
+        this.classGroupCode = classGroupCode;
+    }
 }
