@@ -1,8 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: mariadb-config
-data:
-  my.cnf: |
-    [mysqld]
-    # Twoje konfiguracje bazy danych

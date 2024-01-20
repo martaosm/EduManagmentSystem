@@ -1,25 +1,12 @@
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: mariadb-pv
-spec:
-  accessModes:
-    - ReadWriteOnce
-  capacity:
-    storage: 1Gi
-  persistentVolumeReclaimPolicy: Retain
-  storageClassName: standard
-  hostPath:
-    path: "/mnt/data"
----
+#mariadb-persistent-volume.yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: mariadb-pvc
+  namespace: database
 spec:
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
       storage: 1Gi
-  storageClassName: standard
