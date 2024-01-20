@@ -20,4 +20,6 @@ public class StudyPlan {
     String inMotionSinceEduCycle;
     Long planStatusId;
     String majorCode;
+
+
 }
