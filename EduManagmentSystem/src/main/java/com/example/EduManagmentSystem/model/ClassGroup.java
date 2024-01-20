@@ -1,9 +1,14 @@
 package com.example.EduManagmentSystem.model;
 
 import com.example.EduManagmentSystem.enums.ClassType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 public class ClassGroup {
-    Long id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     String groupCode;
     int placeLimit;
     int registeredStudents;
