@@ -22,7 +22,7 @@ public class StudyPlanController {
     }
 
     @PutMapping("/archiveStudyPlan")
-    public void archiveStudyPlan(@RequestParam Long studyPlanId){
-        studyPlanService.archiveStudyPlan(studyPlanId);
+    public void archiveStudyPlan(@RequestParam String studyPlanCode){
+        studyPlanService.archiveStudyPlan(studyPlanCode);
     }
 }

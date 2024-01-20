@@ -18,13 +18,13 @@ public class StudyPlanService {
         return studyPlanRepository.findAll();
     }
 
-    public void archiveStudyPlan(Long studyPlanId){
-        if(studyPlanRepository.findById(studyPlanId).isPresent()){
-            StudyPlan studyPlan = studyPlanRepository.findById(studyPlanId).get();
+    public void archiveStudyPlan(String studyPlanCode){
+        if(studyPlanRepository.findById(studyPlanCode).isPresent()){
+            StudyPlan studyPlan = studyPlanRepository.findById(studyPlanCode).get();
             studyPlan.setPlanStatusId(PlanStatus.ARCHIVAL.getId());
             studyPlanRepository.save(studyPlan);
         }
     }
 
-    public void addCourseToStudyPlan(String )
+    //public void addCourseToStudyPlan(String )
 }
