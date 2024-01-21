@@ -11,8 +11,6 @@ spec:
     - protocol: TCP
       port: 3306
       targetPort: 3306
-      # Opcjonalnie możesz określić konkretny port nodePort, jak poniżej:
-      nodePort: 30036
-  type: NodePort
+  type: LoadBalancer
 
 
