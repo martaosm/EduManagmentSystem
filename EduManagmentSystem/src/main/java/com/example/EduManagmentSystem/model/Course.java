@@ -7,7 +7,7 @@ import jakarta.persistence.Id;
 
 public class Course {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.UUID)
     String courseCode;
     String nameInPolish;
     String nameInEnglish;
