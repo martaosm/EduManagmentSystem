@@ -2,8 +2,8 @@
 
 ## Database connection credentials
 ```
-host: 7.tcp.eu.ngrok.io
-port: 13953
+host: 54.161.160.184
+port: 30036
 root user: root
 root password: root
 database: edu-system-db
