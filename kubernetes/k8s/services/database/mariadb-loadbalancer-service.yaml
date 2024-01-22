@@ -1,8 +1,8 @@
-#mariadb-clusterip-service.yaml
+#mariadb-loadbalancer-service.yaml
 apiVersion: v1
 kind: Service
 metadata:
-  name: mariadb-clusterip-service
+  name: mariadb-loadbalancer-service
   namespace: database
 spec:
   selector:
@@ -11,4 +11,4 @@ spec:
     - protocol: TCP
       port: 3306
       targetPort: 3306
-  type: ClusterIP
+  type: LoadBalancer
