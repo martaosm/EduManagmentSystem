@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 import java.util.Date;
 
 @Entity
-public class Student extends Account{
+public class Student{
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     String indexNumber;
