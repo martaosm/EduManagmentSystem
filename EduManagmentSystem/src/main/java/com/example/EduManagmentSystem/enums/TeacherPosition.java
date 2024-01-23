@@ -17,5 +17,4 @@ public enum TeacherPosition {
 
     TeacherPosition(Long id, String name) {
     }
-    
 }
