@@ -27,5 +27,17 @@ public class StudyPlan {
     Long planStatusId;
     String majorCode;
 
+    public StudyPlan() {
+    }
 
+    public StudyPlan(String department, String educationLevel, String studyForm, String studyProfile, String studyLanguage, String inMotionSinceEduCycle, Long planStatusId, String majorCode) {
+        this.department = department;
+        this.educationLevel = educationLevel;
+        this.studyForm = studyForm;
+        this.studyProfile = studyProfile;
+        this.studyLanguage = studyLanguage;
+        this.inMotionSinceEduCycle = inMotionSinceEduCycle;
+        this.planStatusId = planStatusId;
+        this.majorCode = majorCode;
+    }
 }

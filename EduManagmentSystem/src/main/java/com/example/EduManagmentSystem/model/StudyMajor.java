@@ -12,4 +12,12 @@ public class StudyMajor {
     String majorCode;
     String name;
     String description;
+
+    public StudyMajor() {
+    }
+
+    public StudyMajor(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
 }
