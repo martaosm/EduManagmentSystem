@@ -2,6 +2,7 @@
   class="ag-theme-quartz study-plan-table"
   [rowData]="studyPlans"
   [columnDefs]="colDefs"
+  (gridReady)="onGridReady($event)"
   domLayout="autoHeight"
 >
 </ag-grid-angular>

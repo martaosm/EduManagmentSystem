@@ -1,1 +1,15 @@
-<mat-icon>archive</mat-icon>
+<span>
+  <button mat-icon-button
+          matTooltip="Archiwizacja planu"
+          matTooltipShowDelay="1000"
+          (click)="onArchiveClicked($event)">
+    <mat-icon>archive</mat-icon>
+  </button>
+
+  <button mat-icon-button
+          matTooltip="Dodaj prowadzącego do zajęć"
+          matTooltipShowDelay="1000"
+          (click)="onAddLecturerClicked($event)">
+    <mat-icon matTooltip="Dodaj prowadzącego do zajęć">person_add</mat-icon>
+  </button>
+</span>

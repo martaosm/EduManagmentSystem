@@ -23,6 +23,10 @@ export class StudyPlanRestService {
       );
   }
 
+  archivePlan(studyPlanId: number) {
+    // TODO WB: Send http request to backend to archive the plan
+  }
+
   private loadStudyPlansFromFile(): Observable<StudyPlanQueryModel[]> {
     return this.http.get<StudyPlanQueryModel[]>('/assets/studyPlans.json')
   }

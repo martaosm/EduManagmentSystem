@@ -23,18 +23,17 @@ export class StudyPlanTableComponent {
     {field: "version", headerName: "Wersja"},
     {field: "status", headerName: "Status"},
     {field: "fieldOfStudy", headerName: "Kierunek Studiów"},
-    {field: "faculty", headerName: "Wydział", width: 300},
+    {field: "faculty", headerName: "Wydział"},
     {field: "educationLevel", headerName: "Poziom Kształcenia"},
     {field: "studyMode", headerName: "Forma Studiów"},
-    {field: "semester", headerName: "Semestr", width: 170},
+    {field: "semester", headerName: "Semestr"},
     {
-      field: "actions", headerName: "", width: 50,
+      field: "actions", headerName: "",
       cellRenderer: ActionButtonCellRendererComponent,
-      cellRendererParams: {
-        clicked: (field: any) => {
-          console.log('clicked')
-        }
-      },
     }
   ];
+
+  onGridReady(params: any) {
+    params.api.sizeColumnsToFit();
+  }
 }
