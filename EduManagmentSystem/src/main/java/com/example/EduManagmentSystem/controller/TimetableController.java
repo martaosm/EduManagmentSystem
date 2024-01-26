@@ -1,5 +1,6 @@
 package com.example.EduManagmentSystem.controller;
 
+import com.example.EduManagmentSystem.model.Course;
 import com.example.EduManagmentSystem.response.ClassGroupResponse;
 import com.example.EduManagmentSystem.service.TimetableService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,5 +24,10 @@ public class TimetableController {
     @PostMapping("/setTeacherForClassGroup")
     public void setTeacherForClassGroup(@RequestParam String groupCode, @RequestParam Long teacherId) throws Exception {
         timetableService.setTeacherIdForClassGroup(groupCode, teacherId);
+    }
+
+    @GetMapping("/getCoursesAssignedToStudyPlan")
+    public List<Course> getCoursesAssignedToStudyPlan(@RequestParam String majorCode){
+        return timetableService.getCoursesAssignedToStudyPlan(majorCode);
     }
 }
