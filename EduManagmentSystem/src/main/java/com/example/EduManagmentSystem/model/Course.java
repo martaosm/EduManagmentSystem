@@ -1,11 +1,16 @@
 package com.example.EduManagmentSystem.model;
 
-import com.example.EduManagmentSystem.enums.ClassType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
+@Data
+@Setter
+@Getter
 @Entity
 public class Course {
     @Id
@@ -15,9 +20,8 @@ public class Course {
     String nameInEnglish;
     int numberOfHoursZZU;
     int numberOfHoursCNPS;
-    int numberOfHoursECTS;
+    int numberOfPointsECTS;
     Long classTypeId;
-    Long selectableBlockId;
-    Long mandatoryBlockId;
     Long courseGroupId;
+
 }
