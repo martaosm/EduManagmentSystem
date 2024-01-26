@@ -3,6 +3,7 @@ package com.example.EduManagmentSystem.controller;
 import com.example.EduManagmentSystem.model.Course;
 import com.example.EduManagmentSystem.model.CourseMandBlockAssign;
 import com.example.EduManagmentSystem.model.StudyPlan;
+import com.example.EduManagmentSystem.response.CoursesListResponse;
 import com.example.EduManagmentSystem.service.StudyPlanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,7 +33,7 @@ public class StudyPlanController {
     }
 
     @GetMapping("/getAllCoursesStudyPlan")
-    public List<Course> getAllCoursesStudyPlan(@RequestParam String studyPlanCode) throws Exception {
+    public CoursesListResponse getAllCoursesStudyPlan(@RequestParam String studyPlanCode) throws Exception {
         return studyPlanService.getAllCoursesAssignedToStudyPlan(studyPlanCode);
     }
 

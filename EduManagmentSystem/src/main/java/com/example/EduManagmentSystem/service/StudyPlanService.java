@@ -3,6 +3,7 @@ package com.example.EduManagmentSystem.service;
 import com.example.EduManagmentSystem.enums.PlanStatus;
 import com.example.EduManagmentSystem.model.*;
 import com.example.EduManagmentSystem.repository.*;
+import com.example.EduManagmentSystem.response.CoursesListResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -76,11 +77,13 @@ public class StudyPlanService {
         }
     }
 
-    public List<Course> getAllCoursesAssignedToStudyPlan(String studyPlanCode) throws Exception {
+    public CoursesListResponse getAllCoursesAssignedToStudyPlan(String studyPlanCode) throws Exception {
         if (semesterRepository.findByStudyPlanCode(studyPlanCode).isPresent()) {
             Semester semester = semesterRepository.findByStudyPlanCode(studyPlanCode).get();
             MandatoryBlock mandatoryBlock = mandatoryBlockRepository.findBySemesterId(semester.getId()).get();
-            return courseRepository.findAllByMandatoryBlockId(mandatoryBlock.getId());
+            CoursesListResponse coursesListResponse = new CoursesListResponse();
+            coursesListResponse.setCourseList(courseRepository.findAllByMandatoryBlockId(mandatoryBlock.getId()));
+            return coursesListResponse;
         } else {
             throw new Exception("Semester with this id doesn't exist");
         }
