@@ -35,4 +35,9 @@ public class StudyPlanController {
     public List<Course> getAllCoursesStudyPlan(@RequestParam String studyPlanCode) throws Exception {
         return studyPlanService.getAllCoursesAssignedToStudyPlan(studyPlanCode);
     }
+
+    @GetMapping("/getStudyPlanByMajorCode")
+    public StudyPlan getStudyPlanByMajorCode(@RequestParam String majorCode) throws Exception {
+        return  studyPlanService.getStudyPlanByMajorCode(majorCode);
+    }
 }

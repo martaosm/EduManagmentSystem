@@ -19,6 +19,7 @@ public class StudyPlanService {
 
     @Autowired
     MandatoryBlockRepository mandatoryBlockRepository;
+
     @Autowired
     CourseMandBlockAssignRepository cmaRepository;
 
@@ -82,6 +83,14 @@ public class StudyPlanService {
             return courseRepository.findAllByMandatoryBlockId(mandatoryBlock.getId());
         } else {
             throw new Exception("Semester with this id doesn't exist");
+        }
+    }
+
+    public StudyPlan getStudyPlanByMajorCode(String majorCode) throws Exception {
+        if (studyPlanRepository.findByMajorCode(majorCode).isPresent()) {
+            return studyPlanRepository.findByMajorCode(majorCode).get();
+        } else {
+            throw new Exception("Study plan assigned to this major code doesn't exist");
         }
     }
 }
