@@ -71,18 +71,21 @@ public class TimetableService {
     }
 
     public List<Course> getCoursesAssignedToStudyPlan(String majorCode) {
-        HashMap<String, String> params = new HashMap<>();
-        params.put("majorCode", majorCode);
+        HashMap<String, String> params1 = new HashMap<>();
+        params1.put("majorCode", majorCode);
 
         ResponseEntity<StudyPlan> studyPlan
                 = new RestTemplate().getForEntity(
-                "http://localhost:8081/getStudyPlanByMajorCode",
-                StudyPlan.class, params);
+                "http://localhost:8081/getStudyPlanByMajorCode?majorCode={majorCode}",
+                StudyPlan.class, params1);
+
+        HashMap<String, String> params2 = new HashMap<>();
+        params2.put("studyPlanCode", studyPlan.getBody().getStudyPlanCode());
 
         ResponseEntity<CoursesListResponse> courses
                 = new RestTemplate().getForEntity(
-                "http://localhost:8081//getAllCoursesStudyPlan",
-                CoursesListResponse.class, studyPlan.getBody().getStudyPlanCode());
+                "http://localhost:8081//getAllCoursesStudyPlan?studyPlanCode={studyPlanCode}",
+                CoursesListResponse.class, params2);
 
         return courses.getBody().getCourseList();
     }
