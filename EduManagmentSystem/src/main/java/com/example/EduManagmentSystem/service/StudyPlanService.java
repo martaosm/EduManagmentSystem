@@ -60,7 +60,9 @@ public class StudyPlanService {
                     if (cmaRepository.findByMandBlockIdAndCourseCode(mandatoryBlock.getId(), courseCode).isEmpty()) {
                         cmaRepository.save(new CourseMandBlockAssign(mandatoryBlock.getId(), courseCode));
                         Course course = courseRepository.findByCourseCode(courseCode).get();
-                        course.setMandatoryBlockId(mandatoryBlock.getId());
+
+                        //TODO: assign course to mandatory block when adding
+
                         courseRepository.save(course);
                     } else {
                         throw new Exception("Course is already assigned to this study plan");
@@ -82,7 +84,10 @@ public class StudyPlanService {
             Semester semester = semesterRepository.findByStudyPlanCode(studyPlanCode).get();
             MandatoryBlock mandatoryBlock = mandatoryBlockRepository.findBySemesterId(semester.getId()).get();
             CoursesListResponse coursesListResponse = new CoursesListResponse();
-            coursesListResponse.setCourseList(courseRepository.findAllByMandatoryBlockId(mandatoryBlock.getId()));
+            List<CourseMandBlockAssign> cms = cmaRepository.findAllByMandBlockId(mandatoryBlock.getId());
+            for(CourseMandBlockAssign cm : cms){
+                //TODO: add course finding
+            }
             return coursesListResponse;
         } else {
             throw new Exception("Semester with this id doesn't exist");

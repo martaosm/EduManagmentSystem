@@ -10,5 +10,4 @@ import java.util.Optional;
 @Repository
 public interface CourseRepository extends JpaRepository<Course, String> {
     Optional<Course> findByCourseCode(String courseCode);
-    List<Course> findAllByMandatoryBlockId(Long mandatoryBlockId);
 }
