@@ -1,0 +1,13 @@
+<h2 mat-dialog-title class="dialog-title">Dodaj prowadzącego</h2>
+<div mat-dialog-content class="dialog-content">
+  <mat-form-field>
+    <mat-label>Wybierz</mat-label>
+    <mat-select [(ngModel)]="data.selectedOption">
+      <mat-option *ngFor="let option of data.options" [value]="option">{{formatValue(option)}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions class="dialog-actions">
+  <button mat-button class="cancel-button" (click)="close()">Anuluj</button>
+  <button mat-button mat-dialog-close class="save-button" (click)="save()">Zapisz</button>
+</div>

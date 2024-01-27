@@ -12,6 +12,7 @@
     "classType": "Seminarium",
     "classId": "W04IST-SM0214S",
     "lecturer": {
+      "lecturerId": 1,
       "firstName": "Michał",
       "secondName": "Kędziora",
       "academicTitle": "dr inż."
@@ -23,6 +24,7 @@
     "classType": "Wykład",
     "classId": "W04IST-SM0214W",
     "lecturer": {
+      "lecturerId": 1,
       "firstName": "Michał",
       "secondName": "Kędziora",
       "academicTitle": "dr inż."
@@ -34,6 +36,7 @@
     "classType": "Projekt",
     "classId": "W04IST-SM0212P",
     "lecturer": {
+      "lecturerId": 2,
       "firstName": "Arkadiusz",
       "secondName": "Liber",
       "academicTitle": "dr inż."
@@ -52,6 +55,7 @@
     "classType": "Wykład",
     "classId": "W04IST-SM0213W",
     "lecturer": {
+      "lecturerId": 2,
       "firstName": "Arkadiusz",
       "secondName": "Liber",
       "academicTitle": "dr inż."

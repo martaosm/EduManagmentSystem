@@ -4,8 +4,11 @@ import {MatTooltip} from "@angular/material/tooltip";
 import {MatIcon} from "@angular/material/icon";
 import {ICellRendererAngularComp} from "ag-grid-angular";
 import {MatDialog} from "@angular/material/dialog";
-import {Router} from "@angular/router";
 import {CommonModule} from "@angular/common";
+import {ClassesRestService} from "../../../rest/classes-rest.service";
+import {LecturerQueryModel} from "../../../interface/lecturer-query-model";
+import {AddLecturerDialogComponent} from "../../dialog/add-lecturer-dialog.component";
+import {AssignLecturerToClassCommand} from "../../comand/assign-lecturer-to-class.command";
 
 @Component({
   selector: 'action-button-cell-renderer',
@@ -24,14 +27,17 @@ export class ActionButtonCellRendererComponent implements ICellRendererAngularCo
 
   shouldAddLecturerButtonBeActive: boolean = false;
 
-  private dialog = inject(MatDialog);
+  lecturers: LecturerQueryModel[] = [];
 
-  private router = inject(Router)
+  private dialog: MatDialog = inject(MatDialog);
+  private classesRestService: ClassesRestService = inject(ClassesRestService);
+
   private params: any;
 
   agInit(params: any): void {
     this.params = params;
-    this.shouldAddLecturerButtonBeActive=params.data.lecturer;
+    this.shouldAddLecturerButtonBeActive = params.data.lecturer;
+    this.lecturers = params.lecturers;
   }
 
   refresh(params: any): boolean {
@@ -39,5 +45,25 @@ export class ActionButtonCellRendererComponent implements ICellRendererAngularCo
   }
 
   onAddLecturerClicked($event: MouseEvent) {
+    this.classesRestService.getLecturers().subscribe((lecturers: LecturerQueryModel[]) => {
+      const dialogRef = this.dialog.open(AddLecturerDialogComponent, {
+        width: '500px',
+        height: 'auto',
+        data: {
+          selectedOption: '',
+          options: lecturers,
+        },
+      });
+
+      dialogRef.afterClosed().subscribe(selectedLecturer => {
+        if (selectedLecturer) {
+          const assignLecturerToClassCommand = {
+            lecturerId: selectedLecturer.lecturerId,
+            classId: this.params.data.classId
+          } as AssignLecturerToClassCommand;
+          this.classesRestService.assignLecturerToClass(assignLecturerToClassCommand)
+        }
+      });
+    });
   }
 }

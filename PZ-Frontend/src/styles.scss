@@ -6,11 +6,11 @@ body, html {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow: hidden; /* Unikaj paska przewijania na poziomej osi */
+  overflow: hidden;
 }
 
 .main-content {
   padding: 20px;
-  height: calc(100%); /* Odjęcie wysokości paska nawigacyjnego od 100% widocznej wysokości */
-  overflow-y: auto; /* Dodaj pasek przewijania tylko w razie potrzeby */
+  height: calc(100%);
+  overflow-y: auto;
 }

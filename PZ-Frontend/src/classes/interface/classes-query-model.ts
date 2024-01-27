@@ -4,6 +4,6 @@ export interface ClassesQueryModel {
   courseName: string,
   classDate: string,
   classType: string,
-  clasId: string,
+  classId: string,
   lecturer: LecturerQueryModel | null
 }
