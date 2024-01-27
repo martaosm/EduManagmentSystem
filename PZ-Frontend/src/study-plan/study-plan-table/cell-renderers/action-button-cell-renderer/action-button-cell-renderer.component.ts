@@ -4,9 +4,10 @@ import {MatButton, MatIconButton} from "@angular/material/button";
 import {MatIcon} from "@angular/material/icon";
 import {MatTooltip} from "@angular/material/tooltip";
 import {MatDialog} from "@angular/material/dialog";
-import {DialogComponent} from "../../../../shared/dialog.component";
-import {DialogInterface} from "../../../../shared/dialog.interface";
+import {DialogComponent} from "../../../../shared/dialog/dialog.component";
+import {DialogInterface} from "../../../../shared/dialog/dialog.interface";
 import {StudyPlanRestService} from "../../../rest/study-plan-rest.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'action-button-cell-renderer',
@@ -24,6 +25,7 @@ export class ActionButtonCellRendererComponent implements ICellRendererAngularCo
 
   private dialog = inject(MatDialog);
   private restService = inject(StudyPlanRestService);
+  private router = inject(Router)
 
   private params: any;
 
@@ -55,7 +57,8 @@ export class ActionButtonCellRendererComponent implements ICellRendererAngularCo
 
   }
 
-  onAddLecturerClicked($event: MouseEvent) {
-    // TODO WB: navigate to another component to add lecturer
+  onShowClassesClicked($event: MouseEvent) {
+    const studyPlanId = this.params.node.data.id;
+    this.router.navigate(['/classes/' + studyPlanId])
   }
 }

@@ -9,13 +9,14 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  overflow: hidden; /* Dodaj overflow: hidden, aby zdjęcie wypełniło cały baner */
+  overflow: hidden;
 }
 
 .banner img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Zapewnia, że zdjęcie wypełni całe miejsce, bez zniekształceń */
+  object-fit: cover;
+  filter: blur(4px);
 }
 
 .banner-content {

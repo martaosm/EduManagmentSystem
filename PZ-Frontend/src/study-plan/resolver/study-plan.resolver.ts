@@ -2,7 +2,7 @@ import {ActivatedRouteSnapshot, ResolveFn, RouterStateSnapshot} from '@angular/r
 import {StudyPlanRestService} from "../rest/study-plan-rest.service";
 import {Observable} from "rxjs";
 import {inject} from "@angular/core";
-import {StudyPlanQueryModel} from "../study-plan-query-model";
+import {StudyPlanQueryModel} from "../interface/study-plan-query-model";
 
 export const StudyPlanResolver: ResolveFn<StudyPlanQueryModel[]> = (
   route: ActivatedRouteSnapshot,

@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {AgGridAngular} from 'ag-grid-angular';
 import {ColDef} from 'ag-grid-community';
-import {StudyPlanQueryModel} from "../study-plan-query-model";
+import {StudyPlanQueryModel} from "../interface/study-plan-query-model";
 import {
   ActionButtonCellRendererComponent
 } from "./cell-renderers/action-button-cell-renderer/action-button-cell-renderer.component";
@@ -22,8 +22,8 @@ export class StudyPlanTableComponent {
     {field: "academicYear", headerName: "Rok akademicki"},
     {field: "version", headerName: "Wersja"},
     {field: "status", headerName: "Status"},
-    {field: "fieldOfStudy", headerName: "Kierunek Studiów"},
-    {field: "faculty", headerName: "Wydział"},
+    {field: "fieldOfStudy", headerName: "Kierunek Studiów", tooltipValueGetter: params => params.value},
+    {field: "faculty", headerName: "Wydział", tooltipValueGetter: params => params.value},
     {field: "educationLevel", headerName: "Poziom Kształcenia"},
     {field: "studyMode", headerName: "Forma Studiów"},
     {field: "semester", headerName: "Semestr"},

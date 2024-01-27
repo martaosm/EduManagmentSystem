@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {StudyPlanQueryModel} from "../study-plan-query-model";
+import {StudyPlanQueryModel} from "../interface/study-plan-query-model";
 import {catchError, Observable} from "rxjs";
 
 @Injectable({
@@ -11,7 +11,7 @@ export class StudyPlanRestService {
   constructor(private http: HttpClient) {
   }
 
-  studyPlanUrl = 'http://localhost:4200/study-plans' // TODO WB: Adjust integration with backend
+  studyPlanUrl = 'http://localhost:8080/study-plans' // TODO WB: Adjust integration with backend
 
   getStudyPlans(): Observable<StudyPlanQueryModel[]> {
     return this.http.get<StudyPlanQueryModel[]>(this.studyPlanUrl)
@@ -28,6 +28,6 @@ export class StudyPlanRestService {
   }
 
   private loadStudyPlansFromFile(): Observable<StudyPlanQueryModel[]> {
-    return this.http.get<StudyPlanQueryModel[]>('/assets/studyPlans.json')
+    return this.http.get<StudyPlanQueryModel[]>('/assets/data/studyPlans.json')
   }
 }

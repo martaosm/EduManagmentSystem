@@ -1,0 +1,67 @@
+[
+  {
+    "courseName": "Bezpieczeństwo systemów webowych i mobilnych",
+    "classDate": "środa, 7:30-9:00",
+    "classType": "Laboratorium",
+    "classId": "W04IST-SM0214L",
+    "lecturer": null
+  },
+  {
+    "courseName": "Bezpieczeństwo systemów webowych i mobilnych",
+    "classDate": "piątek, 9:15-11:00",
+    "classType": "Seminarium",
+    "classId": "W04IST-SM0214S",
+    "lecturer": {
+      "firstName": "Michał",
+      "secondName": "Kędziora",
+      "academicTitle": "dr inż."
+    }
+  },
+  {
+    "courseName": "Bezpieczeństwo systemów webowych i mobilnych",
+    "classDate": "piątek, 7:30-9:00",
+    "classType": "Wykład",
+    "classId": "W04IST-SM0214W",
+    "lecturer": {
+      "firstName": "Michał",
+      "secondName": "Kędziora",
+      "academicTitle": "dr inż."
+    }
+  },
+  {
+    "courseName": "Inżynieria pozyskiwania i ochrony wiedzy z danych i baz danych",
+    "classDate": "poniedziałek, 11:15-13:00",
+    "classType": "Projekt",
+    "classId": "W04IST-SM0212P",
+    "lecturer": {
+      "firstName": "Arkadiusz",
+      "secondName": "Liber",
+      "academicTitle": "dr inż."
+    }
+  },
+  {
+    "courseName": "Inżynieria pozyskiwania i ochrony wiedzy z danych i baz danych",
+    "classDate": "czwartek, 13:15-14:45",
+    "classType": "Projekt",
+    "classId": "W04IST-SM0213P",
+    "lecturer": null
+  },
+  {
+    "courseName": "Inżynieria pozyskiwania i ochrony wiedzy z danych i baz danych",
+    "classDate": "poniedziałek, 13:15-15:00",
+    "classType": "Wykład",
+    "classId": "W04IST-SM0213W",
+    "lecturer": {
+      "firstName": "Arkadiusz",
+      "secondName": "Liber",
+      "academicTitle": "dr inż."
+    }
+  },
+  {
+    "courseName": "Podstawy biznesu i ochrona własności intelektualnej",
+    "classDate": "piątek 11:15-13:00",
+    "classType": "Wykład",
+    "classId": "W08IST-SM0004W",
+    "lecturer": null
+  }
+]

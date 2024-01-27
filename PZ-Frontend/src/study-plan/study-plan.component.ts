@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {StudyPlanQueryModel} from "./study-plan-query-model";
+import {StudyPlanQueryModel} from "./interface/study-plan-query-model";
 import {StudyPlanTableComponent} from "./study-plan-table/study-plan-table.component";
-import {StudyPlanBannerComponent} from "./study-plan-table/baner/study-plan-banner.component";
+import {StudyPlanBannerComponent} from "./study-plan-table/banner/study-plan-banner.component";
 
 @Component({
   selector: 'app-study-plan',
