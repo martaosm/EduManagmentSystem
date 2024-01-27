@@ -5,5 +5,7 @@ export interface ClassesQueryModel {
   classDate: string,
   classType: string,
   classId: string,
-  lecturer: LecturerQueryModel | null
+  lecturer: LecturerQueryModel | null,
+  numberOfPlacesTaken: number,
+  numberOfPlacesOverall: number
 }

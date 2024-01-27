@@ -4,6 +4,9 @@ import {catchError, Observable} from "rxjs";
 import {ClassesQueryModel} from "../interface/classes-query-model";
 import {LecturerQueryModel} from "../interface/lecturer-query-model";
 import {AssignLecturerToClassCommand} from "../classes-table/comand/assign-lecturer-to-class.command";
+import {
+  IncreaseLimitOfStudentsInGroupCommand
+} from "../classes-table/comand/increase-limit-of-students-in-group.command";
 
 @Injectable({
   providedIn: 'root',
@@ -39,6 +42,11 @@ export class ClassesRestService {
 
   assignLecturerToClass(assignLecturerToClassCommand: AssignLecturerToClassCommand) {
     console.log(assignLecturerToClassCommand);
+    // TODO WB: send update to backend
+  }
+
+  increaseLimitOfStudentsInGroup(increaseLimitOfStudentsInGroupCommand: IncreaseLimitOfStudentsInGroupCommand) {
+    console.log(increaseLimitOfStudentsInGroupCommand);
     // TODO WB: send update to backend
   }
 

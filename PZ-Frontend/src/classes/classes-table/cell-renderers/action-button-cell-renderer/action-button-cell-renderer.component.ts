@@ -7,8 +7,12 @@ import {MatDialog} from "@angular/material/dialog";
 import {CommonModule} from "@angular/common";
 import {ClassesRestService} from "../../../rest/classes-rest.service";
 import {LecturerQueryModel} from "../../../interface/lecturer-query-model";
-import {AddLecturerDialogComponent} from "../../dialog/add-lecturer-dialog.component";
+import {AddLecturerDialogComponent} from "../../dialog/add-lecturer-dialog/add-lecturer-dialog.component";
 import {AssignLecturerToClassCommand} from "../../comand/assign-lecturer-to-class.command";
+import {
+  IncreaseLimitOfStudentsInGroupDialogComponent
+} from "../../dialog/increase-limit-of-students-in-group-dialog/increase-limit-of-students-in-group-dialog.component";
+import {IncreaseLimitOfStudentsInGroupCommand} from "../../comand/increase-limit-of-students-in-group.command";
 
 @Component({
   selector: 'action-button-cell-renderer',
@@ -44,7 +48,7 @@ export class ActionButtonCellRendererComponent implements ICellRendererAngularCo
     return false;
   }
 
-  onAddLecturerClicked($event: MouseEvent) {
+  onAddLecturerClicked($event: MouseEvent): void {
     this.classesRestService.getLecturers().subscribe((lecturers: LecturerQueryModel[]) => {
       const dialogRef = this.dialog.open(AddLecturerDialogComponent, {
         width: '500px',
@@ -64,6 +68,25 @@ export class ActionButtonCellRendererComponent implements ICellRendererAngularCo
           this.classesRestService.assignLecturerToClass(assignLecturerToClassCommand)
         }
       });
+    });
+  }
+
+  onIncreaseLimitOfStudentsInGroupClicked($event: MouseEvent): void {
+    const dialogRef = this.dialog.open(IncreaseLimitOfStudentsInGroupDialogComponent, {
+      width: '500px',
+      height: 'auto',
+      data: {
+        initialValue: this.params.data.numberOfPlacesOverall
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(newGroupOccupancyLimit => {
+      const increaseLimitOfStudentsInGroupCommand = {
+        newGroupOccupancyLimit: newGroupOccupancyLimit,
+        classId: this.params.data.classId
+      } as IncreaseLimitOfStudentsInGroupCommand;
+      this.classesRestService.increaseLimitOfStudentsInGroup(increaseLimitOfStudentsInGroupCommand)
+
     });
   }
 }

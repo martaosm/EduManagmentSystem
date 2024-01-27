@@ -1,9 +1,15 @@
-<div>
+<span>
   <button mat-icon-button
           matTooltip="Dodaj prowadzącego"
           matTooltipShowDelay="1000"
           [disabled]="shouldAddLecturerButtonBeActive"
           (click)="onAddLecturerClicked($event)">
-    <mat-icon>person_add</mat-icon>
+    <mat-icon>school</mat-icon>
   </button>
-</div>
+    <button mat-icon-button
+            matTooltip="Zwiększ limit miejsc"
+            matTooltipShowDelay="1000"
+            (click)="onIncreaseLimitOfStudentsInGroupClicked($event)">
+    <mat-icon>group_add</mat-icon>
+  </button>
+</span>

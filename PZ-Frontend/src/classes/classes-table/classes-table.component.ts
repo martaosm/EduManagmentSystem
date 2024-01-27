@@ -6,6 +6,7 @@ import {
   ActionButtonCellRendererComponent
 } from "./cell-renderers/action-button-cell-renderer/action-button-cell-renderer.component";
 import {LecturerUtils} from "../../shared/util/lecturer.utils";
+import {ClassesUtil} from "../../shared/util/classes.util";
 
 @Component({
   selector: 'classes-table',
@@ -25,6 +26,7 @@ export class StudyPlanTableComponent {
     {field: "classType", headerName: "Typ zajęć"},
     {field: "classId", headerName: "Kod grupy zajęciowej"},
     {field: "lecturer", headerName: "Prowadzący", valueFormatter: (params: any) => LecturerUtils.formatLecturer(params.data.lecturer)},
+    {field: "groupOccupancy", headerName: "Zajętość grupy", valueFormatter: (params: any) => ClassesUtil.formatGroupOccupancy(params.data.numberOfPlacesTaken, params.data.numberOfPlacesOverall)},
     {
       field: "actions", headerName: "", width: 100,
       cellRenderer: ActionButtonCellRendererComponent,

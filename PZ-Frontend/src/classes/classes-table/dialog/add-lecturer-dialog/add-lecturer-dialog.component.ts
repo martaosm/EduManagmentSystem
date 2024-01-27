@@ -5,8 +5,8 @@ import {MatOption, MatSelect} from "@angular/material/select";
 import {FormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
 import {MatButton} from "@angular/material/button";
-import {LecturerQueryModel} from "../../interface/lecturer-query-model";
-import {LecturerUtils} from "../../../shared/util/lecturer.utils";
+import {LecturerQueryModel} from "../../../interface/lecturer-query-model";
+import {LecturerUtils} from "../../../../shared/util/lecturer.utils";
 
 @Component({
   selector: 'add-lecturer-dialog',
