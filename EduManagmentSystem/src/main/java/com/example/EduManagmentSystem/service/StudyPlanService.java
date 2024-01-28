@@ -1,9 +1,12 @@
 package com.example.EduManagmentSystem.service;
 
+import com.example.EduManagmentSystem.enums.ClassType;
 import com.example.EduManagmentSystem.enums.PlanStatus;
 import com.example.EduManagmentSystem.model.*;
 import com.example.EduManagmentSystem.repository.*;
+import com.example.EduManagmentSystem.response.CourseResponse;
 import com.example.EduManagmentSystem.response.CoursesListResponse;
+import com.example.EduManagmentSystem.response.StudyPlanResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,8 +35,13 @@ public class StudyPlanService {
     StudyMajorRepository studyMajorRepository;
 
 
-    public List<StudyPlan> getAllStudyPlans() {
-        return studyPlanRepository.findAll();
+    public List<StudyPlanResponse> getAllStudyPlans() {
+        List<StudyPlan> studyPlans = studyPlanRepository.findAll();
+        List<StudyPlanResponse> response = new ArrayList<>();
+        for(StudyPlan studyPlan : studyPlans){
+            response.add(StudyPlanMapper(studyPlan));
+        }
+        return response;
     }
 
     public void archiveStudyPlan(String studyPlanCode) {
@@ -78,23 +86,23 @@ public class StudyPlanService {
         }
     }
 
-    public CoursesListResponse getAllCoursesAssignedToStudyPlan(String studyPlanCode) throws Exception {
+    public List<CourseResponse> getAllCoursesAssignedToStudyPlan(String studyPlanCode) throws Exception {
         if (semesterRepository.findByStudyPlanCode(studyPlanCode).isPresent()) {
             Semester semester = semesterRepository.findByStudyPlanCode(studyPlanCode).get();
             if(mandatoryBlockRepository.findBySemesterId(semester.getId()).isPresent()){
                 MandatoryBlock mandatoryBlock = mandatoryBlockRepository.findBySemesterId(semester.getId()).get();
-                CoursesListResponse coursesListResponse = new CoursesListResponse();
+                //CoursesListResponse coursesListResponse = new CoursesListResponse();
                 List<CourseMandBlockAssign> cms = cmaRepository.findAllByMandBlockId(mandatoryBlock.getId());
-                List<Course> courses = new ArrayList<>();
+                List<CourseResponse> courses = new ArrayList<>();
                 for(CourseMandBlockAssign cm : cms){
                     if(courseRepository.findByCourseCode(cm.getCourseCode()).isPresent()){
-                        courses.add(courseRepository.findByCourseCode(cm.getCourseCode()).get());
+                        courses.add(CourseMapper(courseRepository.findByCourseCode(cm.getCourseCode()).get()));
                     }else{
                         throw new Exception("Course with this id doesn't exist");
                     }
                 }
-                coursesListResponse.setCourseList(courses);
-                return coursesListResponse;
+                //coursesListResponse.setCourseList(courses);
+                return courses;
             }else{
                 throw new Exception("Mandatory block assigned to this semester doesn't exist");
             }
@@ -103,11 +111,25 @@ public class StudyPlanService {
         }
     }
 
-    public StudyPlan getStudyPlanByMajorCode(String majorCode) throws Exception {
+    public StudyPlanResponse getStudyPlanByMajorCode(String majorCode) throws Exception {
         if (studyPlanRepository.findByMajorCode(majorCode).isPresent()) {
-            return studyPlanRepository.findByMajorCode(majorCode).get();
+            return StudyPlanMapper(studyPlanRepository.findByMajorCode(majorCode).get());
         } else {
             throw new Exception("Study plan assigned to this major code doesn't exist");
         }
+    }
+
+    public StudyPlanResponse StudyPlanMapper(StudyPlan studyPlan){
+        StudyMajor studyMajor = studyMajorRepository.getStudyMajorByMajorCode(studyPlan.getMajorCode());
+        Semester semester = semesterRepository.findByStudyPlanCode(studyPlan.getStudyPlanCode()).get();
+        return new StudyPlanResponse(studyPlan.getStudyPlanCode(), studyMajor.getName(), studyPlan.getEducationLevel(),
+                PlanStatus.values()[studyPlan.getPlanStatusId().intValue()-1],semester.getSemesterNumber(),
+                studyPlan.getEducationLevel(), studyPlan.getSpecialization());
+    }
+
+    public CourseResponse CourseMapper(Course course){
+        return new CourseResponse(course.getCourseCode(), course.getNameInPolish(),
+                course.getNumberOfHoursZZU(), course.getNumberOfHoursCNPS(), course.getNumberOfPointsECTS(),
+                ClassType.values()[course.getClassTypeId().intValue()-1]);
     }
 }

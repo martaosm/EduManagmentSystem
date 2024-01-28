@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface StudyMajorRepository extends JpaRepository<StudyMajor, String> {
+    StudyMajor getStudyMajorByMajorCode(String majorCode);
 }

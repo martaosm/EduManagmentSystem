@@ -23,15 +23,4 @@ public class Course {
     int numberOfPointsECTS;
     Long classTypeId;
 
-    public Course() {
-    }
-
-    public Course(String nameInPolish, String nameInEnglish, int numberOfHoursZZU, int numberOfHoursCNPS, int numberOfPointsECTS, Long classTypeId) {
-        this.nameInPolish = nameInPolish;
-        this.nameInEnglish = nameInEnglish;
-        this.numberOfHoursZZU = numberOfHoursZZU;
-        this.numberOfHoursCNPS = numberOfHoursCNPS;
-        this.numberOfPointsECTS = numberOfPointsECTS;
-        this.classTypeId = classTypeId;
-    }
 }
