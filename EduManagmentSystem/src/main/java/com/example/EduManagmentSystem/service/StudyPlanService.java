@@ -7,6 +7,7 @@ import com.example.EduManagmentSystem.response.CoursesListResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -58,12 +59,10 @@ public class StudyPlanService {
                 MandatoryBlock mandatoryBlock = mandatoryBlockRepository.findBySemesterId(semester.getId()).get();
                 if (courseRepository.findByCourseCode(courseCode).isPresent()) {
                     if (cmaRepository.findByMandBlockIdAndCourseCode(mandatoryBlock.getId(), courseCode).isEmpty()) {
-                        cmaRepository.save(new CourseMandBlockAssign(mandatoryBlock.getId(), courseCode));
-                        Course course = courseRepository.findByCourseCode(courseCode).get();
-
-                        //TODO: assign course to mandatory block when adding
-
-                        courseRepository.save(course);
+                        CourseMandBlockAssign cmba = new CourseMandBlockAssign();
+                        cmba.setMandBlockId(mandatoryBlock.getId());
+                        cmba.setCourseCode(courseCode);
+                        cmaRepository.save(cmba);
                     } else {
                         throw new Exception("Course is already assigned to this study plan");
                     }
@@ -82,13 +81,23 @@ public class StudyPlanService {
     public CoursesListResponse getAllCoursesAssignedToStudyPlan(String studyPlanCode) throws Exception {
         if (semesterRepository.findByStudyPlanCode(studyPlanCode).isPresent()) {
             Semester semester = semesterRepository.findByStudyPlanCode(studyPlanCode).get();
-            MandatoryBlock mandatoryBlock = mandatoryBlockRepository.findBySemesterId(semester.getId()).get();
-            CoursesListResponse coursesListResponse = new CoursesListResponse();
-            List<CourseMandBlockAssign> cms = cmaRepository.findAllByMandBlockId(mandatoryBlock.getId());
-            for(CourseMandBlockAssign cm : cms){
-                //TODO: add course finding
+            if(mandatoryBlockRepository.findBySemesterId(semester.getId()).isPresent()){
+                MandatoryBlock mandatoryBlock = mandatoryBlockRepository.findBySemesterId(semester.getId()).get();
+                CoursesListResponse coursesListResponse = new CoursesListResponse();
+                List<CourseMandBlockAssign> cms = cmaRepository.findAllByMandBlockId(mandatoryBlock.getId());
+                List<Course> courses = new ArrayList<>();
+                for(CourseMandBlockAssign cm : cms){
+                    if(courseRepository.findByCourseCode(cm.getCourseCode()).isPresent()){
+                        courses.add(courseRepository.findByCourseCode(cm.getCourseCode()).get());
+                    }else{
+                        throw new Exception("Course with this id doesn't exist");
+                    }
+                }
+                coursesListResponse.setCourseList(courses);
+                return coursesListResponse;
+            }else{
+                throw new Exception("Mandatory block assigned to this semester doesn't exist");
             }
-            return coursesListResponse;
         } else {
             throw new Exception("Semester with this id doesn't exist");
         }
