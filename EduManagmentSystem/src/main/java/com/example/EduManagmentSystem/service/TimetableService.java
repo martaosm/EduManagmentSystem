@@ -9,11 +9,14 @@ import com.example.EduManagmentSystem.repository.TeacherRepository;
 import com.example.EduManagmentSystem.response.ClassGroupResponse;
 import com.example.EduManagmentSystem.response.ClassTimeResponse;
 import com.example.EduManagmentSystem.response.CoursesListResponse;
+import com.example.EduManagmentSystem.response.StudyPlanResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -32,6 +35,11 @@ public class TimetableService {
 
     @Autowired
     ClassGroupStudentAssignRepository cgsRepository;
+
+    private final String HOSTNAME = InetAddress.getLocalHost().getHostName();
+
+    public TimetableService() throws UnknownHostException {
+    }
 
     public List<ClassGroupResponse> getClassGroupsForTheCourse(String courseCode) {
         List<ClassGroupResponse> response = new ArrayList<>();
@@ -70,13 +78,13 @@ public class TimetableService {
         return response;
     }
 
-    public List<Course> getCoursesAssignedToStudyPlan(String majorCode) {
+    public List<Course> getCoursesAssignedToStudyPlan(String majorCode) throws UnknownHostException {
         HashMap<String, String> params1 = new HashMap<>();
         params1.put("majorCode", majorCode);
 
         ResponseEntity<StudyPlan> studyPlan
                 = new RestTemplate().getForEntity(
-                "http://localhost:8081/getStudyPlanByMajorCode?majorCode={majorCode}",
+                "http://".concat(HOSTNAME).concat(":8081/getStudyPlanByMajorCode?majorCode={majorCode}"),
                 StudyPlan.class, params1);
 
         HashMap<String, String> params2 = new HashMap<>();
@@ -84,10 +92,18 @@ public class TimetableService {
 
         ResponseEntity<CoursesListResponse> courses
                 = new RestTemplate().getForEntity(
-                "http://localhost:8081//getAllCoursesStudyPlan?studyPlanCode={studyPlanCode}",
+                "http://".concat(HOSTNAME).concat(":8081//getAllCoursesStudyPlan?studyPlanCode={studyPlanCode}"),
                 CoursesListResponse.class, params2);
 
         return courses.getBody().getCourseList();
+    }
+
+    public List<StudyPlanResponse> getAllStudyPlans(){
+        ResponseEntity<StudyPlan> studyPlan
+                = new RestTemplate().getForEntity(
+                "http://".concat(HOSTNAME).concat(":8081/getAllStudyPlans"),
+                StudyPlan.class);
+        //TODO: change response object for study plan in study plan service
     }
 
     public void getClassGroupResponse(ClassGroup cg, List<ClassGroupResponse> response) {
