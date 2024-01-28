@@ -1,3 +1,6 @@
 <app-navbar></app-navbar>
 <app-banner *ngIf="isHomePage"></app-banner>
+<div *ngIf="loaderStatus" class="loader-overlay">
+  <div class="loader"></div>
+</div>
 <router-outlet/>

@@ -9,7 +9,7 @@ import {StudyPlanTableComponent} from "./classes-table/classes-table.component";
   standalone: true,
   imports: [
     StudyPlanBannerComponent,
-    StudyPlanTableComponent
+    StudyPlanTableComponent,
   ],
   templateUrl: './classes.component.html',
   styleUrl: './classes.component.scss'
