@@ -90,6 +90,7 @@ public class TimetableService {
     }
 
     public List<CourseResponse> getCoursesAssignedToStudyPlan(String majorCode) throws UnknownHostException {
+        // url/port do zmiany
         final String HOSTNAME = InetAddress.getLocalHost().getHostName();
         HashMap<String, String> params1 = new HashMap<>();
         params1.put("majorCode", majorCode);
@@ -113,6 +114,7 @@ public class TimetableService {
     }
 
     public List<StudyPlanResponse> getAllStudyPlans() throws UnknownHostException {
+        // url/port do zmiany
         final String HOSTNAME = InetAddress.getLocalHost().getHostName();
         ResponseEntity<List<StudyPlanResponse>> studyPlans
                 = new RestTemplate().exchange(
