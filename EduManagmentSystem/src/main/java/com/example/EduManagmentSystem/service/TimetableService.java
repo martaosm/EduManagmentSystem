@@ -46,14 +46,14 @@ public class TimetableService {
     public TimetableService() throws UnknownHostException {
     }
 
-    public List<ClassGroupResponse> getClassGroupsForTheCourse(String courseCode) {
-        List<ClassGroupResponse> response = new ArrayList<>();
-        List<ClassGroup> classGroupsList = classGroupRepository.findAllByCourseCode(courseCode);
-        for (ClassGroup cg : classGroupsList) {
-            response.add(ClassGroupResponseMapper(cg));
-        }
-        return response;
-    }
+//    public List<ClassGroupResponse> getClassGroupsForTheCourse(String courseCode) {
+//        List<ClassGroupResponse> response = new ArrayList<>();
+//        List<ClassGroup> classGroupsList = classGroupRepository.findAllByCourseCode(courseCode);
+//        for (ClassGroup cg : classGroupsList) {
+//            response.add(ClassGroupResponseMapper(cg));
+//        }
+//        return response;
+//    }
 
     public List<TeacherResponse> getAllTeachers() {
         List<TeacherResponse> response = new ArrayList<>();
@@ -86,13 +86,17 @@ public class TimetableService {
         }
         return response;
     }
-
-
-    public List<ClassGroupResponse> getAllClassGroupsForMajor(String majorCode){
-        List<StudyPlanResponse> studyPlanResponses = getAllStudyPlans();
-        for(StudyPlanResponse studyPlanResponse : studyPlanResponses){
-            if(studyPlanResponse.getMajorName())
+    
+    public List<ClassGroupResponse> getAllClassGroupsForMajor(String majorCode) throws UnknownHostException {
+        List<ClassGroupResponse> response = new ArrayList<>();
+        List<CourseResponse> courseResponses = getCoursesAssignedToStudyPlan(majorCode);
+        for(CourseResponse courseResponse : courseResponses){
+            List<ClassGroup> classGroups = classGroupRepository.findAllByCourseCode(courseResponse.getCourseCode());
+            for(ClassGroup cp : classGroups){
+                response.add(ClassGroupResponseMapper(classGroupRepository.findByGroupCode(cp.getGroupCode()).get()));
+            }
         }
+        return response;
     }
 
     public List<CourseResponse> getCoursesAssignedToStudyPlan(String majorCode) throws UnknownHostException {
@@ -109,7 +113,7 @@ public class TimetableService {
 
         ResponseEntity<List<CourseResponse>> courses
                 = new RestTemplate().exchange(
-                        "http://".concat(HOSTNAME).concat(":8081//getAllCoursesStudyPlan?studyPlanCode={studyPlanCode}"),
+                        "http://".concat(HOSTNAME).concat(":8081/getAllCoursesStudyPlan?studyPlanCode={studyPlanCode}"),
                 HttpMethod.GET, null,
                 new ParameterizedTypeReference<>(){},
                 params2);
