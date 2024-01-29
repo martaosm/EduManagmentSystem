@@ -16,19 +16,19 @@ public class ClassGroupResponse {
     int placeLimit;
     int registeredStudents;
     ClassType classType;
-    Long teacherId;
+    TeacherResponse teacherResponse;
     String courseCode;
     List<ClassTimeResponse> classTimes;
 
     public ClassGroupResponse() {
     }
 
-    public ClassGroupResponse(String groupCode, int placeLimit, int registeredStudents, ClassType classType, Long teacherId, String courseCode) {
+    public ClassGroupResponse(String groupCode, int placeLimit, int registeredStudents, ClassType classType, TeacherResponse teacherResponse, String courseCode) {
         this.groupCode = groupCode;
         this.placeLimit = placeLimit;
         this.registeredStudents = registeredStudents;
         this.classType = classType;
-        this.teacherId = teacherId;
+        this.teacherResponse = teacherResponse;
         this.courseCode = courseCode;
     }
 }

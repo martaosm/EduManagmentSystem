@@ -3,6 +3,7 @@ package com.example.EduManagmentSystem.controller;
 import com.example.EduManagmentSystem.model.Course;
 import com.example.EduManagmentSystem.model.StudyPlan;
 import com.example.EduManagmentSystem.response.ClassGroupResponse;
+import com.example.EduManagmentSystem.response.CourseResponse;
 import com.example.EduManagmentSystem.response.StudyPlanResponse;
 import com.example.EduManagmentSystem.service.TimetableService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +21,14 @@ public class TimetableController {
     @Autowired
     TimetableService timetableService;
 
-    @GetMapping("/getTimetable")
+    @GetMapping("/getTimetableForStudent")
     public List<ClassGroupResponse> getTimetable(@RequestParam String studentIndex) throws Exception {
         return timetableService.getAllClassGroupsForStudent(studentIndex);
+    }
+
+    @GetMapping("/getTimetableForMajor")
+    public List<ClassGroupResponse> getTimetableForMajor(@RequestParam String majorCode) throws Exception {
+        return timetableService.getAllClassGroupsForMajor(majorCode);
     }
 
     @PostMapping("/setTeacherForClassGroup")
@@ -36,7 +42,7 @@ public class TimetableController {
     }
 
     @GetMapping("/getCoursesAssignedToStudyPlan")
-    public List<Course> getCoursesAssignedToStudyPlan(@RequestParam String majorCode) throws UnknownHostException {
+    public List<CourseResponse> getCoursesAssignedToStudyPlan(@RequestParam String majorCode) throws UnknownHostException {
         return timetableService.getCoursesAssignedToStudyPlan(majorCode);
     }
 }

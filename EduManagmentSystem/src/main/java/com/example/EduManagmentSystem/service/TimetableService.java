@@ -2,15 +2,11 @@ package com.example.EduManagmentSystem.service;
 
 import com.example.EduManagmentSystem.enums.ClassType;
 import com.example.EduManagmentSystem.model.*;
-import com.example.EduManagmentSystem.repository.ClassDateTimeRepository;
-import com.example.EduManagmentSystem.repository.ClassGroupRepository;
-import com.example.EduManagmentSystem.repository.ClassGroupStudentAssignRepository;
-import com.example.EduManagmentSystem.repository.TeacherRepository;
-import com.example.EduManagmentSystem.response.ClassGroupResponse;
-import com.example.EduManagmentSystem.response.ClassTimeResponse;
-import com.example.EduManagmentSystem.response.CoursesListResponse;
-import com.example.EduManagmentSystem.response.StudyPlanResponse;
+import com.example.EduManagmentSystem.repository.*;
+import com.example.EduManagmentSystem.response.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -36,6 +32,15 @@ public class TimetableService {
     @Autowired
     ClassGroupStudentAssignRepository cgsRepository;
 
+    @Autowired
+    ClassPlanRepository classPlanRepository;
+
+    @Autowired
+    AccountRepository accountRepository;
+
+    @Autowired
+    PersonalDataRepository personalDataRepository;
+
     private final String HOSTNAME = InetAddress.getLocalHost().getHostName();
 
     public TimetableService() throws UnknownHostException {
@@ -45,13 +50,17 @@ public class TimetableService {
         List<ClassGroupResponse> response = new ArrayList<>();
         List<ClassGroup> classGroupsList = classGroupRepository.findAllByCourseCode(courseCode);
         for (ClassGroup cg : classGroupsList) {
-            getClassGroupResponse(cg, response);
+            response.add(ClassGroupResponseMapper(cg));
         }
         return response;
     }
 
-    public List<Teacher> getAllTeachers() {
-        return teacherRepository.findAll();
+    public List<TeacherResponse> getAllTeachers() {
+        List<TeacherResponse> response = new ArrayList<>();
+        for(Teacher t : teacherRepository.findAll()){
+            response.add(TeacherResponseMapper(t));
+        }
+        return response;
     }
 
     public void setTeacherIdForClassGroup(String groupCode, Long teacherId) throws Exception {
@@ -70,7 +79,7 @@ public class TimetableService {
         for (ClassGroupStudentAssign cgs : classGroupStudentList) {
             if (classGroupRepository.findByGroupCode(cgs.getGroupCode()).isPresent()) {
                 ClassGroup cg = classGroupRepository.findByGroupCode(cgs.getGroupCode()).get();
-                getClassGroupResponse(cg, response);
+                response.add(ClassGroupResponseMapper(cg));
             } else {
                 throw new Exception("Class group with this code doesn't exist");
             }
@@ -78,43 +87,61 @@ public class TimetableService {
         return response;
     }
 
-    public List<Course> getCoursesAssignedToStudyPlan(String majorCode) throws UnknownHostException {
+
+    public List<ClassGroupResponse> getAllClassGroupsForMajor(String majorCode){
+        List<StudyPlanResponse> studyPlanResponses = getAllStudyPlans();
+        for(StudyPlanResponse studyPlanResponse : studyPlanResponses){
+            if(studyPlanResponse.getMajorName())
+        }
+    }
+
+    public List<CourseResponse> getCoursesAssignedToStudyPlan(String majorCode) throws UnknownHostException {
         HashMap<String, String> params1 = new HashMap<>();
         params1.put("majorCode", majorCode);
 
-        ResponseEntity<StudyPlan> studyPlan
+        ResponseEntity<StudyPlanResponse> studyPlan
                 = new RestTemplate().getForEntity(
                 "http://".concat(HOSTNAME).concat(":8081/getStudyPlanByMajorCode?majorCode={majorCode}"),
-                StudyPlan.class, params1);
+                StudyPlanResponse.class, params1);
 
         HashMap<String, String> params2 = new HashMap<>();
         params2.put("studyPlanCode", studyPlan.getBody().getStudyPlanCode());
 
-        ResponseEntity<CoursesListResponse> courses
-                = new RestTemplate().getForEntity(
-                "http://".concat(HOSTNAME).concat(":8081//getAllCoursesStudyPlan?studyPlanCode={studyPlanCode}"),
-                CoursesListResponse.class, params2);
+        ResponseEntity<List<CourseResponse>> courses
+                = new RestTemplate().exchange(
+                        "http://".concat(HOSTNAME).concat(":8081//getAllCoursesStudyPlan?studyPlanCode={studyPlanCode}"),
+                HttpMethod.GET, null,
+                new ParameterizedTypeReference<>(){},
+                params2);
 
-        return courses.getBody().getCourseList();
+        return courses.getBody();
     }
 
     public List<StudyPlanResponse> getAllStudyPlans(){
-        ResponseEntity<StudyPlan> studyPlan
-                = new RestTemplate().getForEntity(
+        ResponseEntity<List<StudyPlanResponse>> studyPlans
+                = new RestTemplate().exchange(
                 "http://".concat(HOSTNAME).concat(":8081/getAllStudyPlans"),
-                StudyPlan.class);
-        //TODO: change response object for study plan in study plan service
+                HttpMethod.GET, null,
+                new ParameterizedTypeReference<>() {
+                });
+        return studyPlans.getBody();
     }
 
-    public void getClassGroupResponse(ClassGroup cg, List<ClassGroupResponse> response) {
-        ClassGroupResponse classGroupResponse = new ClassGroupResponse(cg.getGroupCode(), cg.getPlaceLimit(), cg.getRegisteredStudents(),
-                ClassType.values()[cg.getClassTypeId().intValue() - 1], cg.getTeacherId(), cg.getCourseCode());
-        List<ClassDateTime> classTimesList = classDateTimeRepository.findAllByGroupCode(cg.getGroupCode());
+    public ClassGroupResponse ClassGroupResponseMapper(ClassGroup classGroup){
+        ClassGroupResponse classGroupResponse = new ClassGroupResponse(classGroup.getGroupCode(), classGroup.getPlaceLimit(), classGroup.getRegisteredStudents(),
+                ClassType.values()[classGroup.getClassTypeId().intValue() - 1], TeacherResponseMapper(teacherRepository.findById(classGroup.getTeacherId()).get()), classGroup.getCourseCode());
+        List<ClassDateTime> classTimesList = classDateTimeRepository.findAllByGroupCode(classGroup.getGroupCode());
         classGroupResponse.setClassTimes(new ArrayList<>());
         for (ClassDateTime cdt : classTimesList) {
             ClassTimeResponse ctr = new ClassTimeResponse(cdt.getDate(), cdt.getStartTime(), cdt.getDurationTimeInMin());
             classGroupResponse.getClassTimes().add(ctr);
         }
-        response.add(classGroupResponse);
+        return classGroupResponse;
+    }
+
+    public TeacherResponse TeacherResponseMapper(Teacher teacher){
+        Account account = accountRepository.getAccountById(teacher.getAccountId());
+        PersonalData personalData = personalDataRepository.getPersonalDataByAccountId(account.getId());
+        return new TeacherResponse(teacher.getId(), personalData.getName(), personalData.getSurname(), teacher.getTitle());
     }
 }
