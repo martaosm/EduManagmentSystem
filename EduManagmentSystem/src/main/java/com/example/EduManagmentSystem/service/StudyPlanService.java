@@ -45,6 +45,7 @@ public class StudyPlanService {
     }
 
     public void archiveStudyPlan(String studyPlanCode) {
+        //TODO: zwrocic study plan response
         if (studyPlanRepository.findByStudyPlanCode(studyPlanCode).isPresent()) {
             StudyPlan studyPlan = studyPlanRepository.findByStudyPlanCode(studyPlanCode).get();
             studyPlan.setPlanStatusId(PlanStatus.ARCHIVAL.getId());
