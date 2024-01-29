@@ -57,8 +57,8 @@ export class ActionButtonCellRendererComponent implements ICellRendererAngularCo
 
   }
 
-  onShowClassesClicked($event: MouseEvent) {
+  onShowSemestersClicked($event: MouseEvent) {
     const studyPlanId = this.params.node.data.id;
-    this.router.navigate(['/classes/' + studyPlanId])
+    this.router.navigate(['/study-plan/' + studyPlanId])
   }
 }

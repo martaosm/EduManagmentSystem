@@ -26,7 +26,6 @@ export class StudyPlanTableComponent {
     {field: "faculty", headerName: "Wydział", tooltipValueGetter: params => params.value},
     {field: "educationLevel", headerName: "Poziom Kształcenia"},
     {field: "studyMode", headerName: "Forma Studiów"},
-    {field: "semester", headerName: "Semestr"},
     {
       field: "actions", headerName: "",
       cellRenderer: ActionButtonCellRendererComponent,

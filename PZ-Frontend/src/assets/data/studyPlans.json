@@ -7,8 +7,7 @@
     "fieldOfStudy": "Informatyka Stosowana",
     "faculty": "Informatyki i Telekomunikacji",
     "educationLevel": "Inżynierskie",
-    "studyMode": "Dzienne",
-    "semester": "5"
+    "studyMode": "Dzienne"
   },
   {
     "id": "2",
@@ -18,8 +17,7 @@
     "fieldOfStudy": "Telekomunikacja",
     "faculty": "Informatyki i Telekomunikacji",
     "educationLevel": "Inżynierskie",
-    "studyMode": "Dzienne",
-    "semester": "5"
+    "studyMode": "Dzienne"
   },
   {
     "id": "3",
@@ -29,8 +27,7 @@
     "fieldOfStudy": "Informatyka Techniczna",
     "faculty": "Informatyki i Telekomunikacji",
     "educationLevel": "Inżynierskie",
-    "studyMode": "Dzienne",
-    "semester": "6"
+    "studyMode": "Dzienne"
   },
   {
     "id": "4",
@@ -40,8 +37,7 @@
     "fieldOfStudy": "Informatyka Techniczna",
     "faculty": "Informatyki i Telekomunikacji",
     "educationLevel": "Inżynierskie",
-    "studyMode": "Dzienne",
-    "semester": "6"
+    "studyMode": "Dzienne"
   },
   {
     "id": "5",
@@ -51,7 +47,6 @@
     "fieldOfStudy": "Zarządzanie",
     "faculty": "Zarządzania",
     "educationLevel": "Magisterskie",
-    "studyMode": "Zaoczne",
-    "semester": "2"
+    "studyMode": "Zaoczne"
   }
 ]

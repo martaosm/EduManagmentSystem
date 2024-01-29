@@ -18,9 +18,10 @@ export class ClassesRestService {
 
   classesUrl = 'http://localhost:8080/classes' // TODO WB: Adjust integration with backend
 
-  getClasses(studyPlanId: number): Observable<ClassesQueryModel[]> {
+  getClasses(studyPlanId: string, semester: number): Observable<ClassesQueryModel[]> {
     let queryParams = new HttpParams();
     queryParams = queryParams.append("studyPlanId", studyPlanId);
+    queryParams = queryParams.append("semester", semester);
     return this.http.get<ClassesQueryModel[]>(this.classesUrl, {params: queryParams})
       .pipe(
         catchError(error => {

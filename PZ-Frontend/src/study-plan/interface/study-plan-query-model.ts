@@ -7,5 +7,4 @@ export interface StudyPlanQueryModel {
   faculty: string,
   educationLevel: string,
   studyMode: string,
-  semester: number,
 }
