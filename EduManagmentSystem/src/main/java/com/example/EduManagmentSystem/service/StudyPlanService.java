@@ -122,7 +122,7 @@ public class StudyPlanService {
     public StudyPlanResponse StudyPlanMapper(StudyPlan studyPlan){
         StudyMajor studyMajor = studyMajorRepository.getStudyMajorByMajorCode(studyPlan.getMajorCode());
         Semester semester = semesterRepository.findByStudyPlanCode(studyPlan.getStudyPlanCode()).get();
-        return new StudyPlanResponse(studyPlan.getStudyPlanCode(), studyMajor.getName(), studyPlan.getEducationLevel(),
+        return new StudyPlanResponse(studyPlan.getStudyPlanCode(), studyMajor.getName(), studyMajor.getMajorCode(), studyPlan.getEducationLevel(),
                 PlanStatus.values()[studyPlan.getPlanStatusId().intValue()-1],semester.getSemesterNumber(),
                 studyPlan.getEducationLevel(), studyPlan.getSpecialization());
     }

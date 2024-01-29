@@ -18,6 +18,7 @@ import java.util.List;
 public class StudyPlanResponse {
     String studyPlanCode;
     String majorName;
+    String majorCode;
     String inMotionSinceEduCycle;
     PlanStatus planStatus;
     int semesterNumber;
@@ -27,11 +28,12 @@ public class StudyPlanResponse {
     public StudyPlanResponse() {
     }
 
-    public StudyPlanResponse(String studyPlanCode, String majorName,
+    public StudyPlanResponse(String studyPlanCode, String majorName, String majorCode,
                              String inMotionSinceEduCycle, PlanStatus planStatus,
                              int semesterNumber, String educationLevel, String specialization) {
         this.studyPlanCode = studyPlanCode;
         this.majorName = majorName;
+        this.majorCode = majorCode;
         this.inMotionSinceEduCycle = inMotionSinceEduCycle;
         this.planStatus = planStatus;
         this.semesterNumber = semesterNumber;
