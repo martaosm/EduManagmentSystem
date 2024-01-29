@@ -46,5 +46,5 @@ public class TimetableController {
     public List<StudyPlanResponse> getAllStudyPlans() throws UnknownHostException {
         return timetableService.getAllStudyPlans();
     }
-    
+
 }
