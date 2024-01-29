@@ -90,6 +90,7 @@ public class TimetableService {
     }
 
     public List<CourseResponse> getCoursesAssignedToStudyPlan(String majorCode) throws UnknownHostException {
+        // TODO: WYSZUKIWAC PO KODZIE PLANU I NUMERZE SEMESTRU
         // url/port do zmiany
         final String HOSTNAME = InetAddress.getLocalHost().getHostName();
         HashMap<String, String> params1 = new HashMap<>();
