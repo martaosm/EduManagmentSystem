@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PersonalDataRepository extends JpaRepository<PersonalData, Long> {
-    PersonalData getPersonalDataByAccountId(Long id);
+    PersonalData getPersonalDataById(Long id);
 }

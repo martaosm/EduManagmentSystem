@@ -5,6 +5,7 @@ import com.example.EduManagmentSystem.model.StudyPlan;
 import com.example.EduManagmentSystem.response.ClassGroupResponse;
 import com.example.EduManagmentSystem.response.CourseResponse;
 import com.example.EduManagmentSystem.response.StudyPlanResponse;
+import com.example.EduManagmentSystem.response.TeacherResponse;
 import com.example.EduManagmentSystem.service.TimetableService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,8 +28,13 @@ public class TimetableController {
     }
 
     @GetMapping("/getTimetableForMajor")
-    public List<ClassGroupResponse> getTimetableForMajor(@RequestParam String majorCode) throws Exception {
+    public List<ClassGroupResponse> getTimetableForMajor(@RequestParam String majorCode) throws UnknownHostException {
         return timetableService.getAllClassGroupsForMajor(majorCode);
+    }
+
+    @GetMapping("/getAllTeachers")
+    public List<TeacherResponse> getAllTeachers(){
+        return timetableService.getAllTeachers();
     }
 
     @PostMapping("/setTeacherForClassGroup")
@@ -36,13 +42,9 @@ public class TimetableController {
         timetableService.setTeacherIdForClassGroup(groupCode, teacherId);
     }
 
-    @GetMapping("getAllStudyPlans")
-    public List<StudyPlanResponse> getAllStudyPlans(){
-
+    @GetMapping("/getAllStudyPlans")
+    public List<StudyPlanResponse> getAllStudyPlans() throws UnknownHostException {
+        return timetableService.getAllStudyPlans();
     }
-
-    @GetMapping("/getCoursesAssignedToStudyPlan")
-    public List<CourseResponse> getCoursesAssignedToStudyPlan(@RequestParam String majorCode) throws UnknownHostException {
-        return timetableService.getCoursesAssignedToStudyPlan(majorCode);
-    }
+    
 }
