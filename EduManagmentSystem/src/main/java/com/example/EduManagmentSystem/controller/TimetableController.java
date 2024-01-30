@@ -27,9 +27,9 @@ public class TimetableController {
         return timetableService.getAllClassGroupsForStudent(studentIndex);
     }
 
-    @GetMapping("/getTimetableForMajor")
-    public List<ClassGroupResponse> getTimetableForMajor(@RequestParam String majorCode) throws UnknownHostException {
-        return timetableService.getAllClassGroupsForMajor(majorCode);
+    @GetMapping("/getTimetableForStudyPlan")
+    public List<ClassGroupResponse> getTimetableForMajor(@RequestParam String studyPlanCode, @RequestParam int semesterNumber) throws UnknownHostException {
+        return timetableService.getAllClassGroupsForMajor(studyPlanCode, semesterNumber);
     }
 
     @GetMapping("/getAllTeachers")
@@ -38,8 +38,8 @@ public class TimetableController {
     }
 
     @PostMapping("/setTeacherForClassGroup")
-    public void setTeacherForClassGroup(@RequestParam String groupCode, @RequestParam Long teacherId) throws Exception {
-        timetableService.setTeacherIdForClassGroup(groupCode, teacherId);
+    public ClassGroupResponse setTeacherForClassGroup(@RequestParam String groupCode, @RequestParam Long teacherId) throws Exception {
+        return timetableService.setTeacherIdForClassGroup(groupCode, teacherId);
     }
 
     @GetMapping("/getAllStudyPlans")

@@ -14,7 +14,7 @@ public class StudyPlanResponse {
     String majorCode;
     String inMotionSinceEduCycle;
     PlanStatus planStatus;
-    int semesterNumber;
+    //int semesterNumber;
     String educationLevel;
     String specialization;
 }

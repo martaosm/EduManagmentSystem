@@ -14,6 +14,7 @@ import java.util.List;
 
 //@Component
 public class DataGeneration {
+
 //    @Autowired
 //    PersonalDataRepository personalDataRepository;
 //
@@ -50,12 +51,14 @@ public class DataGeneration {
 //    @Autowired
 //    ClassPlanRepository classPlanRepository;
 //
+//    @Autowired
+//    ClassGroupStudentAssignRepository classGroupStudentAssignRepository;
+//
 //    @EventListener
 //    public void writeDataToDatabase(ApplicationReadyEvent event){
 //        Faker faker = new Faker();
-
-//        //DANE OSOBISTE
 //
+//        //DANE OSOBISTE
 //        for(int i=0;i<10;i++){
 //            PersonalData personalData = new PersonalData();
 //            personalData.setName(faker.name().firstName());
@@ -113,20 +116,29 @@ public class DataGeneration {
 //        studyPlanRepository.save(studyPlan);
 //
 //        //SEMESTER
-//        Semester semester = new Semester();
-//        semester.setSemesterNumber(2);
-//        semester.setStudyPlanCode(studyPlanRepository.findAll().get(0).getStudyPlanCode());
-//        semesterRepository.save(semester);
+//        Semester semester3 = new Semester();
+//        semester3.setSemesterNumber(3);
+//        semester3.setStudyPlanCode(studyPlanRepository.findAll().get(0).getStudyPlanCode());
+//        semesterRepository.save(semester3);
+//        Semester semester2 = new Semester();
+//        semester2.setSemesterNumber(2);
+//        semester2.setStudyPlanCode(studyPlanRepository.findAll().get(0).getStudyPlanCode());
+//        semesterRepository.save(semester2);
 //
 //        //BLOK OBOWIAZKOWY
-//        MandatoryBlock mandatoryBlock = new MandatoryBlock();
-//        mandatoryBlock.setName("Blok obowiazkowy");
-//        mandatoryBlock.setSemesterId(semesterRepository.findAll().get(0).getId());
-//        mandatoryBlockRepository.save(mandatoryBlock);
+//        MandatoryBlock mandatoryBlock1 = new MandatoryBlock();
+//        mandatoryBlock1.setName("Blok obowiazkowy");
+//        mandatoryBlock1.setSemesterId(semesterRepository.findAll().get(0).getId());
+//        mandatoryBlockRepository.save(mandatoryBlock1);
+//        MandatoryBlock mandatoryBlock2 = new MandatoryBlock();
+//        mandatoryBlock2.setName("Blok obowiazkowy");
+//        mandatoryBlock2.setSemesterId(semesterRepository.findAll().get(1).getId());
+//        mandatoryBlockRepository.save(mandatoryBlock2);
 //
-//        mandatoryBlock = mandatoryBlockRepository.findAll().get(0);
+//        mandatoryBlock1 = mandatoryBlockRepository.findAll().get(0);
+//        mandatoryBlock2 = mandatoryBlockRepository.findAll().get(1);
 //
-//        //KURSY
+//        //KURSY SEMESTR 3
 //        Course course1 = new Course();
 //        course1.setNameInPolish("Seminarium dyplomowe");
 //        course1.setNumberOfHoursZZU(30);
@@ -175,12 +187,69 @@ public class DataGeneration {
 //        course6.setClassTypeId(5L);
 //        courseRepository.save(course6);
 //
+//        // KURSY SEMESTR 2
+//        Course course7 = new Course();
+//        course7.setNameInPolish("Projektowanie systemów informatycznych");
+//        course7.setNumberOfHoursZZU(30);
+//        course7.setNumberOfHoursCNPS(90);
+//        course7.setNumberOfPointsECTS(3);
+//        course7.setClassTypeId(4L);
+//        courseRepository.save(course7);
+//
+//        Course course8 = new Course();
+//        course8.setNameInPolish("Projektowanie systemów informatycznych");
+//        course8.setNumberOfHoursZZU(15);
+//        course8.setNumberOfHoursCNPS(60);
+//        course8.setNumberOfPointsECTS(2);
+//        course8.setClassTypeId(1L);
+//        courseRepository.save(course8);
+//
+//        Course course9 = new Course();
+//        course9.setNameInPolish("Podstawy biznesu i ochrona własności intelektualnej");
+//        course9.setNumberOfHoursZZU(30);
+//        course9.setNumberOfHoursCNPS(90);
+//        course9.setNumberOfPointsECTS(3);
+//        course9.setClassTypeId(1L);
+//        courseRepository.save(course9);
+//
+//        Course course10 = new Course();
+//        course10.setNameInPolish("Bezpieczeństwo systemów webowych i mobilnych");
+//        course10.setNumberOfHoursZZU(15);
+//        course10.setNumberOfHoursCNPS(60);
+//        course10.setNumberOfPointsECTS(2);
+//        course10.setClassTypeId(3L);
+//        courseRepository.save(course10);
+//
+//        Course course11 = new Course();
+//        course11.setNameInPolish("Bezpieczeństwo systemów webowych i mobilnych");
+//        course11.setNumberOfHoursZZU(15);
+//        course11.setNumberOfHoursCNPS(30);
+//        course11.setNumberOfPointsECTS(1);
+//        course11.setClassTypeId(5L);
+//        courseRepository.save(course11);
+//
+//        Course course12 = new Course();
+//        course12.setNameInPolish("Zaawansowane systemy baz danych");
+//        course12.setNumberOfHoursZZU(30);
+//        course12.setNumberOfHoursCNPS(60);
+//        course12.setNumberOfPointsECTS(2);
+//        course12.setClassTypeId(4L);
+//        courseRepository.save(course12);
+//
 //        //PRZYPISANIE KURSU DO BLOKU
 //        List<Course> courses = courseRepository.findAll();
-//        for(Course c : courses){
+//        for(int i=0; i<6; i++){
 //            CourseMandBlockAssign mandBlockAssign = new CourseMandBlockAssign();
-//            mandBlockAssign.setMandBlockId(mandatoryBlock.getId());
-//            mandBlockAssign.setCourseCode(c.getCourseCode());
+//            mandBlockAssign.setMandBlockId(mandatoryBlock1.getId());
+//            mandBlockAssign.setCourseCode(courses.get(i).getCourseCode());
+//            courseMandBlockAssignRepository.save(mandBlockAssign);
+//        }
+//
+//        //PRZYPISANIE KURSU DO BLOKU
+//        for(int i=6; i<12; i++){
+//            CourseMandBlockAssign mandBlockAssign = new CourseMandBlockAssign();
+//            mandBlockAssign.setMandBlockId(mandatoryBlock2.getId());
+//            mandBlockAssign.setCourseCode(courses.get(i).getCourseCode());
 //            courseMandBlockAssignRepository.save(mandBlockAssign);
 //        }
 //
@@ -193,8 +262,8 @@ public class DataGeneration {
 //            classGroup.setCourseCode(c.getCourseCode());
 //            classGroupRepository.save(classGroup);
 //        }
-
-        //STUDENCI
+//
+//        //STUDENCI
 //        List<Account> accounts = accountRepository.findAll();
 //        for(Account a : accounts){
 //            if(a.getAccountTypeId().equals(4L)){
@@ -202,7 +271,6 @@ public class DataGeneration {
 //                student.setStudyStartDate(LocalDate.parse("2019-09-01"));
 //                student.setAccountId(a.getId());
 //                studentRepository.save(student);
-//            }
 //            }else if(a.getAccountTypeId().equals(3L)){
 //                Teacher teacher = new Teacher();
 //                teacher.setTeacherPositionId(1L);
@@ -221,6 +289,17 @@ public class DataGeneration {
 //            classPlan.setMajorCode(studyMajorRepository.findAll().get(0).getMajorCode());
 //            classPlan.setClassGroupCode(cg.getGroupCode());
 //            classPlanRepository.save(classPlan);
+//        }
+//
+//        // PRZYPISANIE STUDENTOW DO GRUP
+//        List<Student> students = studentRepository.findAll();
+//        for(Student s : students){
+//            for(ClassGroup cg : classGroups){
+//                ClassGroupStudentAssign cgsa = new ClassGroupStudentAssign();
+//                cgsa.setGroupCode(cg.getGroupCode());
+//                cgsa.setStudentIndex(s.getIndexNumber());
+//                classGroupStudentAssignRepository.save(cgsa);
+//            }
 //        }
 //    }
 }

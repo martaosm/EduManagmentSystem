@@ -13,6 +13,7 @@ import java.util.List;
 public class ClassGroupResponse {
 
     String groupCode;
+    String courseName;
     int placeLimit;
     int registeredStudents;
     ClassType classType;
@@ -23,8 +24,9 @@ public class ClassGroupResponse {
     public ClassGroupResponse() {
     }
 
-    public ClassGroupResponse(String groupCode, int placeLimit, int registeredStudents, ClassType classType, TeacherResponse teacherResponse, String courseCode) {
+    public ClassGroupResponse(String groupCode, String courseName, int placeLimit, int registeredStudents, ClassType classType, TeacherResponse teacherResponse, String courseCode) {
         this.groupCode = groupCode;
+        this. courseName = courseName;
         this.placeLimit = placeLimit;
         this.registeredStudents = registeredStudents;
         this.classType = classType;

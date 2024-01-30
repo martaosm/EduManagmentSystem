@@ -35,13 +35,15 @@ public class TimetableService {
     ClassGroupStudentAssignRepository cgsRepository;
 
     @Autowired
-    ClassPlanRepository classPlanRepository;
+    CourseRepository courseRepository;
 
     @Autowired
     AccountRepository accountRepository;
 
     @Autowired
     PersonalDataRepository personalDataRepository;
+
+
 
 
 
@@ -53,7 +55,7 @@ public class TimetableService {
         return response;
     }
 
-    public void setTeacherIdForClassGroup(String groupCode, Long teacherId) throws Exception {
+    public ClassGroupResponse setTeacherIdForClassGroup(String groupCode, Long teacherId) throws Exception {
         if (classGroupRepository.findByGroupCode(groupCode).isPresent()) {
             ClassGroup classGroup = classGroupRepository.findByGroupCode(groupCode).get();
             classGroup.setTeacherId(teacherId);
@@ -61,6 +63,7 @@ public class TimetableService {
         } else {
             throw new Exception("Class group with this id doesn't exist");
         }
+        return ClassGroupResponseMapper(classGroupRepository.findByGroupCode(groupCode).get());
     }
 
     public List<ClassGroupResponse> getAllClassGroupsForStudent(String index) throws Exception {
@@ -77,9 +80,9 @@ public class TimetableService {
         return response;
     }
     
-    public List<ClassGroupResponse> getAllClassGroupsForMajor(String majorCode) throws UnknownHostException {
+    public List<ClassGroupResponse> getAllClassGroupsForMajor(String studyPlanCode, int semesterNumber) throws UnknownHostException {
         List<ClassGroupResponse> response = new ArrayList<>();
-        List<CourseResponse> courseResponses = getCoursesAssignedToStudyPlan(majorCode);
+        List<CourseResponse> courseResponses = getCoursesAssignedToStudyPlan(studyPlanCode, semesterNumber);
         for(CourseResponse courseResponse : courseResponses){
             List<ClassGroup> classGroups = classGroupRepository.findAllByCourseCode(courseResponse.getCourseCode());
             for(ClassGroup cp : classGroups){
@@ -89,24 +92,24 @@ public class TimetableService {
         return response;
     }
 
-    public List<CourseResponse> getCoursesAssignedToStudyPlan(String majorCode) throws UnknownHostException {
-        // TODO: WYSZUKIWAC PO KODZIE PLANU I NUMERZE SEMESTRU
+    public List<CourseResponse> getCoursesAssignedToStudyPlan(String studyPlanCode, int semesterNumber) throws UnknownHostException {
         // url/port do zmiany
         final String HOSTNAME = InetAddress.getLocalHost().getHostName();
-        HashMap<String, String> params1 = new HashMap<>();
-        params1.put("majorCode", majorCode);
+//        HashMap<String, String> params1 = new HashMap<>();
+//        params1.put("majorCode", majorCode);
+//
+//        ResponseEntity<StudyPlanResponse> studyPlan
+//                = new RestTemplate().getForEntity(
+//                "http://".concat(HOSTNAME).concat(":8081/getStudyPlanByMajorCode?majorCode={majorCode}"),
+//                StudyPlanResponse.class, params1);
 
-        ResponseEntity<StudyPlanResponse> studyPlan
-                = new RestTemplate().getForEntity(
-                "http://".concat(HOSTNAME).concat(":8081/getStudyPlanByMajorCode?majorCode={majorCode}"),
-                StudyPlanResponse.class, params1);
-
-        HashMap<String, String> params2 = new HashMap<>();
-        params2.put("studyPlanCode", studyPlan.getBody().getStudyPlanCode());
+        HashMap<String, Object> params2 = new HashMap<>();
+        params2.put("studyPlanCode", studyPlanCode);
+        params2.put("semesterNumber", semesterNumber);
 
         ResponseEntity<List<CourseResponse>> courses
                 = new RestTemplate().exchange(
-                        "http://".concat(HOSTNAME).concat(":8081/getAllCoursesStudyPlan?studyPlanCode={studyPlanCode}"),
+                "http://".concat(HOSTNAME).concat(":8081/getAllCoursesStudyPlan?studyPlanCode={studyPlanCode}&semesterNumber={semesterNumber}"),
                 HttpMethod.GET, null,
                 new ParameterizedTypeReference<>(){},
                 params2);
@@ -131,8 +134,10 @@ public class TimetableService {
         if(classGroup.getTeacherId()!=null && teacherRepository.findById(classGroup.getTeacherId()).isPresent()){
             teacherResponse = TeacherResponseMapper(teacherRepository.findById(classGroup.getTeacherId()).get());
         }
-        ClassGroupResponse classGroupResponse = new ClassGroupResponse(classGroup.getGroupCode(), classGroup.getPlaceLimit(), classGroup.getRegisteredStudents(),
-                ClassType.values()[classGroup.getClassTypeId().intValue() - 1], teacherResponse, classGroup.getCourseCode());
+        ClassGroupResponse classGroupResponse = new ClassGroupResponse(classGroup.getGroupCode(),
+                courseRepository.findById(classGroup.getCourseCode()).get().getNameInPolish(),
+                classGroup.getPlaceLimit(), classGroup.getRegisteredStudents(), ClassType.values()[classGroup.getClassTypeId().intValue() - 1],
+                teacherResponse, classGroup.getCourseCode());
         List<ClassDateTime> classTimesList = classDateTimeRepository.findAllByGroupCode(classGroup.getGroupCode());
         classGroupResponse.setClassTimes(new ArrayList<>());
         for (ClassDateTime cdt : classTimesList) {
