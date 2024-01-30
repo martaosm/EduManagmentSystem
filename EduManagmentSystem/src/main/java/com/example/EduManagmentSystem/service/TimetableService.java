@@ -92,6 +92,7 @@ public class TimetableService {
         return response;
     }
 
+    //TODO: zwracac podobnie jak z kursami i semester obiekt
     public List<CourseResponse> getCoursesAssignedToStudyPlan(String studyPlanCode, int semesterNumber) throws UnknownHostException {
         // url/port do zmiany
         final String HOSTNAME = InetAddress.getLocalHost().getHostName();
