@@ -1,24 +1,22 @@
-FROM node:latest as build
-ARG build_env=development
+FROM node:18-alpine as build
 
 WORKDIR /app
 
-RUN npm cache clean --force
-
-COPY . .
+COPY package*.json /app/
 
 RUN npm install
 
-RUN ./node_modules/@angular/cli/bin/ng build --configuration=$build_env
+COPY . /app/
 
-# Serve Application using Nginx Server
+# Build application
+RUN npm run build
 
-FROM nginx:1.20 as ngx
+FROM nginx:alpine
 
-COPY --from=build /app/dist/pz-frontend /usr/share/nginx/html
+RUN rm -rf /usr/share/nginx/html/*
 
-#copying nginx config from local to image
-COPY /nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /app/dist/pz-frontend/browser /usr/share/nginx/html
 
-#exposing internal port
 EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
