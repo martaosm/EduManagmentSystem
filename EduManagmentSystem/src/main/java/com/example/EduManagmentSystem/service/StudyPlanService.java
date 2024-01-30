@@ -87,6 +87,15 @@ public class StudyPlanService {
         return getAllCoursesAssignedToStudyPlan(studyPlanCode, semesterNumber);
     }
 
+    public List<CourseResponse> getAllCourses(){
+        List<CourseResponse> response = new ArrayList<>();
+        List<Course> courses = courseRepository.findAll();
+        for(Course course : courses){
+            response.add(CourseMapper(course));
+        }
+        return response;
+    }
+
     public List<CourseResponse> getAllCoursesAssignedToStudyPlan(String studyPlanCode, int semesterNumber) throws Exception {
         if (semesterRepository.findByStudyPlanCodeAndSemesterNumber(studyPlanCode, semesterNumber).isPresent()) {
             Semester semester = semesterRepository.findByStudyPlanCodeAndSemesterNumber(studyPlanCode, semesterNumber).get();

@@ -34,6 +34,11 @@ public class StudyPlanController {
         return studyPlanService.getAllCoursesAssignedToStudyPlan(studyPlanCode, semesterNumber);
     }
 
+    @GetMapping("/getAllCourses")
+    public List<CourseResponse> getAllCourses(){
+        return studyPlanService.getAllCourses();
+    }
+
 //    @GetMapping("/getStudyPlanByMajorCode")
 //    public StudyPlanResponse getStudyPlanByMajorCode(@RequestParam String majorCode) throws Exception {
 //        return  studyPlanService.getStudyPlanByMajorCode(majorCode);
