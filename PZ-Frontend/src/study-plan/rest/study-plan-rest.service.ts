@@ -11,7 +11,7 @@ export class StudyPlanRestService {
   constructor(private http: HttpClient) {
   }
 
-  studyPlanUrl = 'http://localhost:8080/study-plans' // TODO WB: Adjust integration with backend
+  studyPlanUrl = 'study-plan-service.backend.svc.cluster.local:8080/getAllStudyPlans' // TODO WB: Adjust integration with backend
 
   getStudyPlans(): Observable<StudyPlanQueryModel[]> {
     return this.http.get<StudyPlanQueryModel[]>(this.studyPlanUrl)

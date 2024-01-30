@@ -1,9 +1,22 @@
-FROM node:latest as build
-WORKDIR /usr/local/app
-COPY ./ /usr/local/app/
+FROM node:18-alpine as build
+
+WORKDIR /app
+
+COPY package*.json /app/
+
 RUN npm install
+
+COPY . /app/
+
+# Build application
 RUN npm run build
 
-FROM nginx:latest
-COPY --from=build /usr/local/app/dist/tic-tac-toe-aws /usr/share/nginx/html
+FROM nginx:alpine
+
+RUN rm -rf /usr/share/nginx/html/*
+
+COPY --from=build /app/dist/pz-frontend/browser /usr/share/nginx/html
+
 EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
