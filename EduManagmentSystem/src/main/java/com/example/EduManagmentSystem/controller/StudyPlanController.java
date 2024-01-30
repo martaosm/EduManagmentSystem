@@ -1,14 +1,9 @@
 package com.example.EduManagmentSystem.controller;
 
-import com.example.EduManagmentSystem.model.Course;
-import com.example.EduManagmentSystem.model.CourseMandBlockAssign;
-import com.example.EduManagmentSystem.model.StudyPlan;
 import com.example.EduManagmentSystem.response.CourseResponse;
-import com.example.EduManagmentSystem.response.CoursesListResponse;
 import com.example.EduManagmentSystem.response.StudyPlanResponse;
 import com.example.EduManagmentSystem.service.StudyPlanService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,22 +20,22 @@ public class StudyPlanController {
     }
 
     @PutMapping("/archiveStudyPlan")
-    public void archiveStudyPlan(@RequestParam String studyPlanCode){
-        studyPlanService.archiveStudyPlan(studyPlanCode);
+    public StudyPlanResponse archiveStudyPlan(@RequestParam String studyPlanCode){
+        return studyPlanService.archiveStudyPlan(studyPlanCode);
     }
 
     @PostMapping("/addCourseToStudyPlan")
-    public void addCourseToStudyPlan(@RequestParam String studyPlanCode, @RequestParam String courseCode) throws Exception {
-        studyPlanService.addCourseToStudyPlan(studyPlanCode, courseCode);
+    public List<CourseResponse> addCourseToStudyPlan(@RequestParam String studyPlanCode, @RequestParam String courseCode, @RequestParam int semesterNumber) throws Exception {
+        return studyPlanService.addCourseToStudyPlan(studyPlanCode, courseCode, semesterNumber);
     }
 
     @GetMapping("/getAllCoursesStudyPlan")
-    public List<CourseResponse> getAllCoursesStudyPlan(@RequestParam String studyPlanCode) throws Exception {
-        return studyPlanService.getAllCoursesAssignedToStudyPlan(studyPlanCode);
+    public List<CourseResponse> getAllCoursesStudyPlan(@RequestParam String studyPlanCode, @RequestParam int semesterNumber) throws Exception {
+        return studyPlanService.getAllCoursesAssignedToStudyPlan(studyPlanCode, semesterNumber);
     }
 
-    @GetMapping("/getStudyPlanByMajorCode")
-    public StudyPlanResponse getStudyPlanByMajorCode(@RequestParam String majorCode) throws Exception {
-        return  studyPlanService.getStudyPlanByMajorCode(majorCode);
-    }
+//    @GetMapping("/getStudyPlanByMajorCode")
+//    public StudyPlanResponse getStudyPlanByMajorCode(@RequestParam String majorCode) throws Exception {
+//        return  studyPlanService.getStudyPlanByMajorCode(majorCode);
+//    }
 }
