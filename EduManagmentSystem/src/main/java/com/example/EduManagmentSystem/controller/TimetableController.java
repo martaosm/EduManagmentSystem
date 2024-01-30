@@ -1,9 +1,6 @@
 package com.example.EduManagmentSystem.controller;
 
-import com.example.EduManagmentSystem.model.Course;
-import com.example.EduManagmentSystem.model.StudyPlan;
 import com.example.EduManagmentSystem.response.ClassGroupResponse;
-import com.example.EduManagmentSystem.response.CourseResponse;
 import com.example.EduManagmentSystem.response.StudyPlanResponse;
 import com.example.EduManagmentSystem.response.TeacherResponse;
 import com.example.EduManagmentSystem.service.TimetableService;
@@ -29,7 +26,7 @@ public class TimetableController {
 
     @GetMapping("/getTimetableForStudyPlan")
     public List<ClassGroupResponse> getTimetableForMajor(@RequestParam String studyPlanCode, @RequestParam int semesterNumber) throws UnknownHostException {
-        return timetableService.getAllClassGroupsForMajor(studyPlanCode, semesterNumber);
+        return timetableService.getAllClassGroupsForStudyPlan(studyPlanCode, semesterNumber);
     }
 
     @GetMapping("/getAllTeachers")

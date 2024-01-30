@@ -11,9 +11,9 @@ import lombok.Setter;
 public class CourseResponse {
     String courseCode;
     String nameInPolish;
+    int numberOfPointsECTS;
     int numberOfHoursZZU;
     int numberOfHoursCNPS;
-    int numberOfPointsECTS;
     ClassType classType;
 
     public CourseResponse() {

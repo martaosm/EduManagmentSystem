@@ -10,7 +10,6 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
@@ -80,9 +79,10 @@ public class TimetableService {
         return response;
     }
     
-    public List<ClassGroupResponse> getAllClassGroupsForMajor(String studyPlanCode, int semesterNumber) throws UnknownHostException {
+    public List<ClassGroupResponse> getAllClassGroupsForStudyPlan(String studyPlanCode, int semesterNumber) throws UnknownHostException {
         List<ClassGroupResponse> response = new ArrayList<>();
-        List<CourseResponse> courseResponses = getCoursesAssignedToStudyPlan(studyPlanCode, semesterNumber);
+        List<CourseResponse> courseResponses = getCoursesAssignedToStudyPlan(studyPlanCode, semesterNumber)
+                .stream().filter(s -> s.getSemesterNumber() == semesterNumber).toList().get(0).getCourses();
         for(CourseResponse courseResponse : courseResponses){
             List<ClassGroup> classGroups = classGroupRepository.findAllByCourseCode(courseResponse.getCourseCode());
             for(ClassGroup cp : classGroups){
@@ -92,25 +92,17 @@ public class TimetableService {
         return response;
     }
 
-    //TODO: zwracac podobnie jak z kursami i semester obiekt
-    public List<CourseResponse> getCoursesAssignedToStudyPlan(String studyPlanCode, int semesterNumber) throws UnknownHostException {
+
+    public List<SemesterResponse> getCoursesAssignedToStudyPlan(String studyPlanCode, int semesterNumber) throws UnknownHostException {
         // url/port do zmiany
         final String HOSTNAME = InetAddress.getLocalHost().getHostName();
-//        HashMap<String, String> params1 = new HashMap<>();
-//        params1.put("majorCode", majorCode);
-//
-//        ResponseEntity<StudyPlanResponse> studyPlan
-//                = new RestTemplate().getForEntity(
-//                "http://".concat(HOSTNAME).concat(":8081/getStudyPlanByMajorCode?majorCode={majorCode}"),
-//                StudyPlanResponse.class, params1);
 
         HashMap<String, Object> params2 = new HashMap<>();
         params2.put("studyPlanCode", studyPlanCode);
-        params2.put("semesterNumber", semesterNumber);
 
-        ResponseEntity<List<CourseResponse>> courses
+        ResponseEntity<List<SemesterResponse>> courses
                 = new RestTemplate().exchange(
-                "http://".concat(HOSTNAME).concat(":8081/getAllCoursesStudyPlan?studyPlanCode={studyPlanCode}&semesterNumber={semesterNumber}"),
+                "http://".concat(HOSTNAME).concat(":8081/getAllCoursesStudyPlan?studyPlanCode={studyPlanCode}"),
                 HttpMethod.GET, null,
                 new ParameterizedTypeReference<>(){},
                 params2);
@@ -135,17 +127,12 @@ public class TimetableService {
         if(classGroup.getTeacherId()!=null && teacherRepository.findById(classGroup.getTeacherId()).isPresent()){
             teacherResponse = TeacherResponseMapper(teacherRepository.findById(classGroup.getTeacherId()).get());
         }
-        //TODO: zmapowac classtime
         ClassGroupResponse classGroupResponse = new ClassGroupResponse(classGroup.getGroupCode(),
                 courseRepository.findById(classGroup.getCourseCode()).get().getNameInPolish(),
                 classGroup.getPlaceLimit(), classGroup.getRegisteredStudents(), ClassType.values()[classGroup.getClassTypeId().intValue() - 1],
                 teacherResponse, classGroup.getCourseCode());
-        List<ClassDateTime> classTimesList = classDateTimeRepository.findAllByGroupCode(classGroup.getGroupCode());
-        classGroupResponse.setClassTimes(new ArrayList<>());
-        for (ClassDateTime cdt : classTimesList) {
-            ClassTimeResponse ctr = new ClassTimeResponse(cdt.getDate(), cdt.getStartTime(), cdt.getDurationTimeInMin());
-            classGroupResponse.getClassTimes().add(ctr);
-        }
+        ClassDateTime classTime = classDateTimeRepository.findAllByGroupCode(classGroup.getGroupCode()).get(0);
+        classGroupResponse.setClassDate(classTime.getDate().toString().concat(", ").concat(classTime.getStartTime()));
         return classGroupResponse;
     }
 

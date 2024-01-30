@@ -5,8 +5,6 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
-
 @Data
 @Getter
 @Setter
@@ -17,8 +15,7 @@ public class ClassGroupResponse {
     ClassType classType;
     TeacherResponse teacherResponse;
     String courseCode;
-    //TODO: classDate string
-    List<ClassTimeResponse> classTimes;
+    String classDate;
     int registeredStudents;
     int placeLimit;
 

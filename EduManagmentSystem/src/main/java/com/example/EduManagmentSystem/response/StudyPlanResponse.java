@@ -10,11 +10,12 @@ import lombok.Setter;
 @Setter
 public class StudyPlanResponse {
     String studyPlanCode;
-    String majorName;
-    String majorCode;
     String inMotionSinceEduCycle;
     PlanStatus planStatus;
-    //int semesterNumber;
+    String majorName;
+    String majorCode;
+    String faculty;
     String educationLevel;
+    String studyMode;
     String specialization;
 }
