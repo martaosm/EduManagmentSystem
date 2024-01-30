@@ -1,12 +1,14 @@
 package com.example.EduManagmentSystem.enums;
 
+
 public enum ClassType {
-    LECTURE(1L,"lecture"),
-    EXERCISE(2L,"exercise"),
-    LABORATORY(3L,"laboratory"),
-    PROJECT(4L,"project"),
-    SEMINAR(5L,"seminar");
+    LECTURE(1L,"Wykład"),
+    EXERCISE(2L,"Ćwiczenia"),
+    LABORATORY(3L,"Laboratorium"),
+    PROJECT(4L,"Projekt"),
+    SEMINAR(5L,"Seminarium");
 
     ClassType(Long id, String name) {
     }
+
 }
