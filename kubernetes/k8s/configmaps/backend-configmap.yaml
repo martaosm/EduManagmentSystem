@@ -1,0 +1,9 @@
+#backend-configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-configmap
+  namespace: backend
+data:
+  db_host: "mariadb-service.database.svc.cluster.local"
+  db_port: "3306"

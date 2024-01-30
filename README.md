@@ -2,8 +2,8 @@
 
 ## Database connection credentials
 ```
-host: 54.161.160.184
-port: 30036
+host: a6ec47f0768b84c2894a18d618c57398-291845688.us-east-1.elb.amazonaws.com
+port: 3306
 root user: root
 root password: root
 database: edu-system-db
