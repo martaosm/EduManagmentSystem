@@ -12,9 +12,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-//@Component
+@Component
 public class DataGeneration {
-
+//
 //    @Autowired
 //    PersonalDataRepository personalDataRepository;
 //
