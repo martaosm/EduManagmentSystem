@@ -37,7 +37,7 @@ public class StudyPlanController {
 
 
     @GetMapping("/getAllCoursesStudyPlan")
-    public List<SemesterResponse> getAllCoursesStudyPlan(@RequestParam String studyPlanCode, @RequestParam int semesterNumber) throws Exception {
+    public List<SemesterResponse> getAllCoursesStudyPlan(@RequestParam String studyPlanCode) throws Exception {
         return studyPlanService.getAllCoursesAssignedToStudyPlan(studyPlanCode);
     }
 
