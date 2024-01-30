@@ -14,12 +14,13 @@ public class ClassGroupResponse {
 
     String groupCode;
     String courseName;
-    int placeLimit;
-    int registeredStudents;
     ClassType classType;
     TeacherResponse teacherResponse;
     String courseCode;
+    //TODO: classDate string
     List<ClassTimeResponse> classTimes;
+    int registeredStudents;
+    int placeLimit;
 
     public ClassGroupResponse() {
     }

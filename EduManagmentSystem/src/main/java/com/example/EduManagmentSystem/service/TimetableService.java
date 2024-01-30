@@ -135,6 +135,7 @@ public class TimetableService {
         if(classGroup.getTeacherId()!=null && teacherRepository.findById(classGroup.getTeacherId()).isPresent()){
             teacherResponse = TeacherResponseMapper(teacherRepository.findById(classGroup.getTeacherId()).get());
         }
+        //TODO: zmapowac classtime
         ClassGroupResponse classGroupResponse = new ClassGroupResponse(classGroup.getGroupCode(),
                 courseRepository.findById(classGroup.getCourseCode()).get().getNameInPolish(),
                 classGroup.getPlaceLimit(), classGroup.getRegisteredStudents(), ClassType.values()[classGroup.getClassTypeId().intValue() - 1],

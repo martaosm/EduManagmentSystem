@@ -37,6 +37,7 @@ public class TimetableController {
         return timetableService.getAllTeachers();
     }
 
+    //TODO: request body(lecturerId, classId)
     @PostMapping("/setTeacherForClassGroup")
     public ClassGroupResponse setTeacherForClassGroup(@RequestParam String groupCode, @RequestParam Long teacherId) throws Exception {
         return timetableService.setTeacherIdForClassGroup(groupCode, teacherId);
