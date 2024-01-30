@@ -1,11 +1,20 @@
-FROM maven:3.9-amazoncorretto-21 as before
-WORKDIR /app
-COPY /EduManagmentSystem/pom.xml .
-RUN mvn dependency:resolve-plugins dependency:resolve
-ADD EduManagmentSystem /app
-RUN mvn install
+# Stage 1: Maven build
+FROM maven:3.8.4-openjdk-17 as builder
 
-FROM openjdk:17-oracle
-COPY --from=before "/app/target/*.jar" study-plan-app.jar
+# Copy the project files to the container
+COPY ./EduManagmentSystem /app
+
+# Set the working directory
+WORKDIR /app
+
+# Run maven clean install to build the application
+RUN mvn clean install -DskipTests
+
+# Stage 2: Create the final Docker image
+FROM eclipse-temurin:17-jdk-alpine
+
+# Create a volume and expose port 8080
+VOLUME /tmp
 EXPOSE 8080
+COPY --from=builder "/app/target/*.jar" study-plan-app.jar
 CMD [ "java", "-jar",  "/study-plan-app.jar"]
