@@ -1,0 +1,34 @@
+#pz-frontent-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pz-frontend-deployment
+  namespace: frontend
+  labels:
+    app: pz-frontend
+spec:
+  replicas: 1
+  selector:
+      matchLabels:
+        app: pz-frontend
+  template:
+    metadata:
+      labels:
+          app: pz-frontend
+    spec:
+      containers:
+        - name: pz-frontend
+          image: kisiel75311/pz_frontend:v1.5
+          ports:
+            - containerPort: 80
+          env:
+            - name: STUDY_PLAN_SERVICE_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: frontend-configmap
+                  key: study_plan_service_host
+            - name: STUDY_PLAN_SERVICE_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: frontend-configmap
+                  key: study_plan_service_port

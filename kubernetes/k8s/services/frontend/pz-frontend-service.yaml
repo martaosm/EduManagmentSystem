@@ -1,0 +1,13 @@
+#pz-frontend-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: pz-frontend-service
+  namespace: frontend
+spec:
+  selector:
+      app: pz-frontend
+  ports:
+      - port: 80
+        targetPort: 80
+  type: LoadBalancer
