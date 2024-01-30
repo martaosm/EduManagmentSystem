@@ -13,85 +13,57 @@ import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
+//@Component
 public class DataGeneration {
 
-    @Autowired
-    PersonalDataRepository personalDataRepository;
-
-    @Autowired
-    AccountRepository accountRepository;
-
-    @Autowired
-    StudyMajorRepository studyMajorRepository;
-
-    @Autowired
-    StudyPlanRepository studyPlanRepository;
-
-    @Autowired
-    SemesterRepository semesterRepository;
-
-    @Autowired
-    MandatoryBlockRepository mandatoryBlockRepository;
-
-    @Autowired
-    CourseRepository courseRepository;
-
-    @Autowired
-    CourseMandBlockAssignRepository courseMandBlockAssignRepository;
-
-    @Autowired
-    ClassGroupRepository classGroupRepository;
-
-    @Autowired
-    StudentRepository studentRepository;
-
-    @Autowired
-    TeacherRepository teacherRepository;
-
-    @Autowired
-    ClassPlanRepository classPlanRepository;
-
-    @Autowired
-    ClassGroupStudentAssignRepository classGroupStudentAssignRepository;
-
-    @Autowired
-    ClassDateTimeRepository classDateTimeRepository;
-
-    @Autowired
-    StudentStudyMajorAssignRepository studentStudyMajorAssignRepository;
-
-    @EventListener
-    public void writeDataToDatabase(ApplicationReadyEvent event){
+//    @Autowired
+//    PersonalDataRepository personalDataRepository;
+//
+//    @Autowired
+//    AccountRepository accountRepository;
+//
+//    @Autowired
+//    StudyMajorRepository studyMajorRepository;
+//
+//    @Autowired
+//    StudyPlanRepository studyPlanRepository;
+//
+//    @Autowired
+//    SemesterRepository semesterRepository;
+//
+//    @Autowired
+//    MandatoryBlockRepository mandatoryBlockRepository;
+//
+//    @Autowired
+//    CourseRepository courseRepository;
+//
+//    @Autowired
+//    CourseMandBlockAssignRepository courseMandBlockAssignRepository;
+//
+//    @Autowired
+//    ClassGroupRepository classGroupRepository;
+//
+//    @Autowired
+//    StudentRepository studentRepository;
+//
+//    @Autowired
+//    TeacherRepository teacherRepository;
+//
+//    @Autowired
+//    ClassPlanRepository classPlanRepository;
+//
+//    @Autowired
+//    ClassGroupStudentAssignRepository classGroupStudentAssignRepository;
+//
+//    @Autowired
+//    ClassDateTimeRepository classDateTimeRepository;
+//
+//    @Autowired
+//    StudentStudyMajorAssignRepository studentStudyMajorAssignRepository;
+//
+//    @EventListener
+//    public void writeDataToDatabase(ApplicationReadyEvent event){
 //        Faker faker = new Faker();
-//        List<ClassGroup> classGroups = classGroupRepository.findAll();
-//        int x = 11;
-//        for(ClassGroup cg : classGroups){
-//            ClassDateTime classDateTime1 = new ClassDateTime();
-//            classDateTime1.setDate(LocalDate.of(2024, Month.MARCH, x));
-//            classDateTime1.setStartTime("16:00");
-//            classDateTime1.setDurationTimeInMin(90);
-//            classDateTime1.setGroupCode(cg.getGroupCode());
-//            classDateTimeRepository.save(classDateTime1);
-//
-//            ClassDateTime classDateTime2 = new ClassDateTime();
-//            classDateTime2.setDate(LocalDate.of(2024, Month.MARCH, x));
-//            classDateTime2.setStartTime("16:45");
-//            classDateTime2.setDurationTimeInMin(90);
-//            classDateTime2.setGroupCode(cg.getGroupCode());
-//            classDateTimeRepository.save(classDateTime2);
-//            x++;
-//        }
-//
-//        StudyMajor major = studyMajorRepository.findAll().get(0);
-//        List<Student> students = studentRepository.findAll();
-//        for(Student s : students){
-//            StudentStudyMajorAssign assign = new StudentStudyMajorAssign();
-//            assign.setStudentIndex(s.getIndexNumber());
-//            assign.setStudyMajorCode(major.getMajorCode());
-//            assign.setSemesterNumber(2);
-//            studentStudyMajorAssignRepository.save(assign);
-//        }
 //
 //        //DANE OSOBISTE
 //        for(int i=0;i<10;i++){
@@ -336,5 +308,36 @@ public class DataGeneration {
 //                classGroupStudentAssignRepository.save(cgsa);
 //            }
 //        }
-    }
+//
+//        //List<ClassGroup> classGroups = classGroupRepository.findAll();
+//        //przypisanie czasow do zajec
+//        int x = 11;
+//        for(ClassGroup cg : classGroups){
+//            ClassDateTime classDateTime1 = new ClassDateTime();
+//            classDateTime1.setDate(LocalDate.of(2024, Month.MARCH, x));
+//            classDateTime1.setStartTime("16:00");
+//            classDateTime1.setDurationTimeInMin(90);
+//            classDateTime1.setGroupCode(cg.getGroupCode());
+//            classDateTimeRepository.save(classDateTime1);
+//
+//            ClassDateTime classDateTime2 = new ClassDateTime();
+//            classDateTime2.setDate(LocalDate.of(2024, Month.MARCH, x));
+//            classDateTime2.setStartTime("16:45");
+//            classDateTime2.setDurationTimeInMin(90);
+//            classDateTime2.setGroupCode(cg.getGroupCode());
+//            classDateTimeRepository.save(classDateTime2);
+//            x++;
+//        }
+//
+//        //przypisanie studentow do kierunku
+//        StudyMajor major = studyMajorRepository.findAll().get(0);
+//        //List<Student> students = studentRepository.findAll();
+//        for(Student s : students){
+//            StudentStudyMajorAssign assign = new StudentStudyMajorAssign();
+//            assign.setStudentIndex(s.getIndexNumber());
+//            assign.setStudyMajorCode(major.getMajorCode());
+//            assign.setSemesterNumber(2);
+//            studentStudyMajorAssignRepository.save(assign);
+//        }
+//    }
 }
