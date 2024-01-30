@@ -8,20 +8,15 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDate;
-import java.util.Date;
-
 @Data
 @Getter
 @Setter
 @Entity
-public class ClassDateTime {
+public class ClassGroupCourseAssign {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-    LocalDate date;
-    String startTime;
-    int durationTimeInMin;
     String groupCode;
+    String courseCode;
 }

@@ -19,9 +19,9 @@ import java.util.List;
 
 
 
-@Service
+//@Service
 public class TimetableService {
-
+/*
     @Autowired
     ClassGroupRepository classGroupRepository;
 
@@ -151,5 +151,5 @@ public class TimetableService {
         Account account = accountRepository.getAccountById(teacher.getAccountId());
         PersonalData personalData = personalDataRepository.getPersonalDataById(account.getPersonalDataId());
         return new TeacherResponse(teacher.getId(), personalData.getName(), personalData.getSurname(), teacher.getTitle());
-    }
+    }*/
 }

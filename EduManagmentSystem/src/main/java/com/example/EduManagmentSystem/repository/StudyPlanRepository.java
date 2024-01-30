@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface StudyPlanRepository extends JpaRepository<StudyPlan, String> {
+
+    StudyPlan findByMajorCode(String majorCode);
 }

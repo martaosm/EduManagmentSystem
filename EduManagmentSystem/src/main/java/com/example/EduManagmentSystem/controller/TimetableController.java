@@ -16,35 +16,35 @@ import org.springframework.web.bind.annotation.RestController;
 import java.net.UnknownHostException;
 import java.util.List;
 
-@RestController
+//@RestController
 public class TimetableController {
-
-    @Autowired
-    TimetableService timetableService;
-
-    @GetMapping("/getTimetableForStudent")
-    public List<ClassGroupResponse> getTimetable(@RequestParam String studentIndex) throws Exception {
-        return timetableService.getAllClassGroupsForStudent(studentIndex);
-    }
-
-    @GetMapping("/getTimetableForStudyPlan")
-    public List<ClassGroupResponse> getTimetableForMajor(@RequestParam String studyPlanCode, @RequestParam int semesterNumber) throws UnknownHostException {
-        return timetableService.getAllClassGroupsForMajor(studyPlanCode, semesterNumber);
-    }
-
-    @GetMapping("/getAllTeachers")
-    public List<TeacherResponse> getAllTeachers(){
-        return timetableService.getAllTeachers();
-    }
-
-    @PostMapping("/setTeacherForClassGroup")
-    public ClassGroupResponse setTeacherForClassGroup(@RequestParam String groupCode, @RequestParam Long teacherId) throws Exception {
-        return timetableService.setTeacherIdForClassGroup(groupCode, teacherId);
-    }
-
-    @GetMapping("/getAllStudyPlans")
-    public List<StudyPlanResponse> getAllStudyPlans() throws UnknownHostException {
-        return timetableService.getAllStudyPlans();
-    }
+//
+//    @Autowired
+//    TimetableService timetableService;
+//
+//    @GetMapping("/getTimetableForStudent")
+//    public List<ClassGroupResponse> getTimetable(@RequestParam String studentIndex) throws Exception {
+//        return timetableService.getAllClassGroupsForStudent(studentIndex);
+//    }
+//
+//    @GetMapping("/getTimetableForStudyPlan")
+//    public List<ClassGroupResponse> getTimetableForMajor(@RequestParam String studyPlanCode, @RequestParam int semesterNumber) throws UnknownHostException {
+//        return timetableService.getAllClassGroupsForMajor(studyPlanCode, semesterNumber);
+//    }
+//
+//    @GetMapping("/getAllTeachers")
+//    public List<TeacherResponse> getAllTeachers(){
+//        return timetableService.getAllTeachers();
+//    }
+//
+//    @PostMapping("/setTeacherForClassGroup")
+//    public ClassGroupResponse setTeacherForClassGroup(@RequestParam String groupCode, @RequestParam Long teacherId) throws Exception {
+//        return timetableService.setTeacherIdForClassGroup(groupCode, teacherId);
+//    }
+//
+//    @GetMapping("/getAllStudyPlans")
+//    public List<StudyPlanResponse> getAllStudyPlans() throws UnknownHostException {
+//        return timetableService.getAllStudyPlans();
+//    }
 
 }

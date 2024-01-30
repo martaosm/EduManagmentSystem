@@ -9,4 +9,6 @@ import java.util.List;
 @Repository
 public interface ClassGroupStudentAssignRepository extends JpaRepository<ClassGroupStudentAssign, Long> {
     List<ClassGroupStudentAssign>findAllByStudentIndex(String studentIndex);
+
+    ClassGroupStudentAssign findByStudentIndexAndGroupCode(String studentIndex, String groupCode);
 }
