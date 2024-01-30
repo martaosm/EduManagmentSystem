@@ -13,27 +13,32 @@ import java.util.List;
 @Setter
 public class StudyPlanResponse {
     String studyPlanCode;
-    String majorName;
-    String majorCode;
     String inMotionSinceEduCycle;
     PlanStatus planStatus;
-    //int semesterNumber;
+    String majorName;
+    String majorCode;
+    String faculty;
     String educationLevel;
+    String studyMode;
     String specialization;
+
 
     public StudyPlanResponse() {
     }
 
     public StudyPlanResponse(String studyPlanCode, String majorName, String majorCode,
-                             String inMotionSinceEduCycle, PlanStatus planStatus,
-                             String educationLevel, String specialization) {
+                             String inMotionSinceEduCycle, PlanStatus planStatus, String faculty,
+                             String educationLevel, String studyMode, String specialization) {
+
         this.studyPlanCode = studyPlanCode;
         this.majorName = majorName;
         this.majorCode = majorCode;
         this.inMotionSinceEduCycle = inMotionSinceEduCycle;
         this.planStatus = planStatus;
-        //this.semesterNumber = semesterNumber;
+        this.faculty = faculty;
         this.educationLevel = educationLevel;
+        this.studyMode = studyMode;
         this.specialization = specialization;
     }
 }
+

@@ -1,10 +1,13 @@
 package com.example.EduManagmentSystem.service;
 
+
 import com.example.EduManagmentSystem.enums.ClassType;
 import com.example.EduManagmentSystem.enums.PlanStatus;
 import com.example.EduManagmentSystem.model.*;
 import com.example.EduManagmentSystem.repository.*;
+import com.example.EduManagmentSystem.response.AddCourseResponse;
 import com.example.EduManagmentSystem.response.CourseResponse;
+import com.example.EduManagmentSystem.response.SemesterResponse;
 import com.example.EduManagmentSystem.response.StudyPlanResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,8 +15,10 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Service
 public class StudyPlanService {
+
 
     @Autowired
     StudyPlanRepository studyPlanRepository;
@@ -61,7 +66,7 @@ public class StudyPlanService {
 //        }
 //    }
 
-    public List<CourseResponse> addCourseToStudyPlan(String studyPlanCode, String courseCode, int semesterNumber) throws Exception {
+    public SemesterResponse addCourseToStudyPlan(String studyPlanCode, String courseCode, int semesterNumber) throws Exception {
         if (semesterRepository.findByStudyPlanCodeAndSemesterNumber(studyPlanCode, semesterNumber).isPresent()) {
             Semester semester = semesterRepository.findByStudyPlanCodeAndSemesterNumber(studyPlanCode, semesterNumber).get();
             if (mandatoryBlockRepository.findBySemesterId(semester.getId()).isPresent()) {
@@ -84,54 +89,53 @@ public class StudyPlanService {
         } else {
             throw new Exception("Semester with this id doesn't exist");
         }
-        return getAllCoursesAssignedToStudyPlan(studyPlanCode, semesterNumber);
+        return getAllCoursesAssignedToStudyPlan(studyPlanCode).stream().filter(s -> s.getSemesterNumber() == semesterNumber).toList().get(0);
     }
 
-    public List<CourseResponse> getAllCourses(){
-        List<CourseResponse> response = new ArrayList<>();
+    public List<AddCourseResponse> getAllCourses(){
+        List<AddCourseResponse> response = new ArrayList<>();
         List<Course> courses = courseRepository.findAll();
         for(Course course : courses){
-            response.add(CourseMapper(course));
+            response.add(new AddCourseResponse(course.getCourseCode(), course.getNameInPolish()));
         }
         return response;
     }
 
-    public List<CourseResponse> getAllCoursesAssignedToStudyPlan(String studyPlanCode, int semesterNumber) throws Exception {
-        if (semesterRepository.findByStudyPlanCodeAndSemesterNumber(studyPlanCode, semesterNumber).isPresent()) {
-            Semester semester = semesterRepository.findByStudyPlanCodeAndSemesterNumber(studyPlanCode, semesterNumber).get();
-            if(mandatoryBlockRepository.findBySemesterId(semester.getId()).isPresent()){
+
+    //TODO: return all courses for study plan
+    public List<SemesterResponse> getAllCoursesAssignedToStudyPlan(String studyPlanCode) throws Exception {
+        List<Semester> semesters = semesterRepository.findAllByStudyPlanCode(studyPlanCode);
+        List<SemesterResponse> responses = new ArrayList<>();
+
+        for(Semester semester : semesters) {
+            //if (semesterRepository.findByStudyPlanCodeAndSemesterNumber(studyPlanCode, semesterNumber).isPresent()) {
+            //Semester semester = semesterRepository.findByStudyPlanCodeAndSemesterNumber(studyPlanCode, semesterNumber).get();
+            if (mandatoryBlockRepository.findBySemesterId(semester.getId()).isPresent()) {
                 MandatoryBlock mandatoryBlock = mandatoryBlockRepository.findBySemesterId(semester.getId()).get();
                 List<CourseMandBlockAssign> cms = cmaRepository.findAllByMandBlockId(mandatoryBlock.getId());
                 List<CourseResponse> courses = new ArrayList<>();
-                for(CourseMandBlockAssign cm : cms){
-                    if(courseRepository.findByCourseCode(cm.getCourseCode()).isPresent()){
+                for (CourseMandBlockAssign cm : cms) {
+                    if (courseRepository.findByCourseCode(cm.getCourseCode()).isPresent()) {
                         courses.add(CourseMapper(courseRepository.findByCourseCode(cm.getCourseCode()).get()));
-                    }else{
+                    } else {
                         throw new Exception("Course with this id doesn't exist");
                     }
                 }
-                return courses;
-            }else{
+                responses.add(new SemesterResponse(semester.getSemesterNumber(), courses));
+            } else {
                 throw new Exception("Mandatory block assigned to this semester doesn't exist");
             }
-        } else {
-            throw new Exception("Semester with this id doesn't exist");
         }
-    }
+        return responses;
 
-//    public StudyPlanResponse getStudyPlanByMajorCode(String majorCode) throws Exception {
-//        if (studyPlanRepository.findByMajorCode(majorCode).isPresent()) {
-//            return StudyPlanMapper(studyPlanRepository.findByMajorCode(majorCode).get());
-//        } else {
-//            throw new Exception("Study plan assigned to this major code doesn't exist");
-//        }
-//    }
+    }
 
     public StudyPlanResponse StudyPlanMapper(StudyPlan studyPlan){
         StudyMajor studyMajor = studyMajorRepository.getStudyMajorByMajorCode(studyPlan.getMajorCode());
         //Semester semester = semesterRepository.findByStudyPlanCodeAndSemesterNumber(studyPlan.getStudyPlanCode(), semesterNumber).get();
         return new StudyPlanResponse(studyPlan.getStudyPlanCode(), studyMajor.getName(), studyMajor.getMajorCode(),
                 studyPlan.getEducationLevel(), PlanStatus.values()[studyPlan.getPlanStatusId().intValue()-1],
+                studyPlan.getDepartment(), studyPlan.getStudyForm(),
                 studyPlan.getEducationLevel(), studyPlan.getSpecialization());
     }
 
@@ -140,4 +144,5 @@ public class StudyPlanService {
                 course.getNumberOfHoursZZU(), course.getNumberOfHoursCNPS(), course.getNumberOfPointsECTS(),
                 ClassType.values()[course.getClassTypeId().intValue()-1]);
     }
+
 }
