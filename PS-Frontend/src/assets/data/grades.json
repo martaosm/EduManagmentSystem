@@ -1,0 +1,107 @@
+[
+  {
+    "semester": 1,
+    "grades": [
+      {
+        "gradeValue": 4,
+        "courseName": "Technologie wspierające wytwarzanie oprogramowania",
+        "classType": "Laboratorium"
+      },
+      {
+        "gradeValue": 3.5,
+        "courseName": "Technologie wspierające wytwarzanie oprogramowania",
+        "classType": "Wykład"
+      },
+      {
+        "gradeValue": 5,
+        "courseName": "Projektowanie systemów informatycznych",
+        "classType": "Projekt"
+      },
+      {
+        "gradeValue": 5,
+        "courseName": "Projektowanie systemów informatycznych",
+        "classType": "Wykład"
+      },
+      {
+        "gradeValue": null,
+        "courseName": "Usługi chmurowe",
+        "classType": "Wykład"
+      },
+      {
+        "gradeValue": 4.5,
+        "courseName": "Usługi chmurowe",
+        "classType": "Projekt"
+      }
+    ]
+  },
+  {
+    "semester": 2,
+    "grades": [
+      {
+        "gradeValue": 4,
+        "courseName": "Analiza biznesowa i systemowa",
+        "classType": "Ćwiczenia"
+      },
+      {
+        "gradeValue": 3.5,
+        "courseName": "Analiza biznesowa i systemowa",
+        "classType": "Wykład"
+      },
+      {
+        "gradeValue": 5,
+        "courseName": "Analiza biznesowa i systemowa",
+        "classType": "Projekt"
+      },
+      {
+        "gradeValue": 5,
+        "courseName": "Programowanie funkcyjne",
+        "classType": "Wykład"
+      },
+      {
+        "gradeValue": null,
+        "courseName": "Programowanie funkcyjne",
+        "classType": "Projekt"
+      },
+      {
+        "gradeValue": 4.5,
+        "courseName": "Projekt badawczo-rozwojowy",
+        "classType": "Projekt"
+      }
+    ]
+  },
+  {
+    "semester": 3,
+    "grades": [
+      {
+        "gradeValue": 3,
+        "courseName": "Java - techniki zaawansowane",
+        "classType": "Wykład"
+      },
+      {
+        "gradeValue": 4,
+        "courseName": "Java - techniki zaawansowane",
+        "classType": "Laboratorium"
+      },
+      {
+        "gradeValue": 5,
+        "courseName": "Hurtownie danych",
+        "classType": "Projekt"
+      },
+      {
+        "gradeValue": 5,
+        "courseName": "Hurtownie danych",
+        "classType": "Wykład"
+      },
+      {
+        "gradeValue": null,
+        "courseName": "Praca dyplomowa",
+        "classType": "Projekt"
+      },
+      {
+        "gradeValue": 4.5,
+        "courseName": "Seminarium dyplomowe",
+        "classType": "Seminarium"
+      }
+    ]
+  }
+]

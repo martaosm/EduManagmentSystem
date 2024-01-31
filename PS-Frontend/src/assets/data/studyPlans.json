@@ -1,0 +1,57 @@
+[
+  {
+    "studyPlanCode": "1",
+    "inMotionSinceEduCycle": "2023/2024",
+    "planStatus": "AKTUALNY",
+    "majorName": "Informatyka Stosowana",
+    "majorCode": "Kod kierunku 1",
+    "faculty": "Informatyki i Telekomunikacji",
+    "educationLevel": "Inżynierskie",
+    "studyMode": "Dzienne",
+    "specialization": "Specjalizacja 1"
+  },
+  {
+    "studyPlanCode": "2",
+    "inMotionSinceEduCycle": "2023/2024",
+    "planStatus": "AKTUALNY",
+    "majorName": "Telekomunikacja",
+    "majorCode": "Kod kierunku 2",
+    "faculty": "Informatyki i Telekomunikacji",
+    "educationLevel": "Inżynierskie",
+    "studyMode": "Dzienne",
+    "specialization": "Specjalizacja 2"
+  },
+  {
+    "studyPlanCode": "3",
+    "inMotionSinceEduCycle": "2023/2024",
+    "planStatus": "ARCHIWALNY",
+    "majorName": "Informatyka Techniczna",
+    "majorCode": "Kod kierunku 3",
+    "faculty": "Informatyki i Telekomunikacji",
+    "educationLevel": "Inżynierskie",
+    "studyMode": "Dzienne",
+    "specialization": "Specjalizacja 3"
+  },
+  {
+    "studyPlanCode": "4",
+    "inMotionSinceEduCycle": "2023/2024",
+    "planStatus": "AKTUALNY",
+    "majorName": "Informatyka Techniczna",
+    "majorCode": "Kod kierunku 4",
+    "faculty": "Informatyki i Telekomunikacji",
+    "educationLevel": "Inżynierskie",
+    "studyMode": "Dzienne",
+    "specialization": "Specjalizacja 4"
+  },
+  {
+    "studyPlanCode": "5",
+    "inMotionSinceEduCycle": "2022/2023",
+    "planStatus": "ARCHIWALNY",
+    "majorName": "Zarządzanie",
+    "majorCode": "Kod kierunku 5",
+    "faculty": "Zarządzania",
+    "educationLevel": "Magisterskie",
+    "studyMode": "Zaoczne",
+    "specialization": "Specjalizacja 5"
+  }
+]

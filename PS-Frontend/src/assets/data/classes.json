@@ -1,0 +1,85 @@
+[
+  {
+    "courseNameInPolish": "Bezpieczeństwo systemów webowych i mobilnych",
+    "classDate": "środa, 7:30-9:00",
+    "classType": "Laboratorium",
+    "classId": "W04IST-SM0214L",
+    "lecturer": null,
+    "numberOfPlacesTaken": 16,
+    "numberOfPlacesOverall": 18
+  },
+  {
+    "courseNameInPolish": "Bezpieczeństwo systemów webowych i mobilnych",
+    "classDate": "piątek, 9:15-11:00",
+    "classType": "Seminarium",
+    "classId": "W04IST-SM0214S",
+    "lecturer": {
+      "lecturerId": 1,
+      "firstName": "Michał",
+      "lastName": "Kędziora",
+      "academicTitle": "dr inż."
+    },
+    "numberOfPlacesTaken": 12,
+    "numberOfPlacesOverall": 12
+  },
+  {
+    "courseNameInPolish": "Bezpieczeństwo systemów webowych i mobilnych",
+    "classDate": "piątek, 7:30-9:00",
+    "classType": "Wykład",
+    "classId": "W04IST-SM0214W",
+    "lecturer": {
+      "lecturerId": 1,
+      "firstName": "Michał",
+      "lastName": "Kędziora",
+      "academicTitle": "dr inż."
+    },
+    "numberOfPlacesTaken": 22,
+    "numberOfPlacesOverall": 25
+  },
+  {
+    "courseNameInPolish": "Inżynieria pozyskiwania i ochrony wiedzy z danych i baz danych",
+    "classDate": "poniedziałek, 11:15-13:00",
+    "classType": "Projekt",
+    "classId": "W04IST-SM0212P",
+    "lecturer": {
+      "lecturerId": 2,
+      "firstName": "Arkadiusz",
+      "lastName": "Liber",
+      "academicTitle": "dr inż."
+    },
+    "numberOfPlacesTaken": 18,
+    "numberOfPlacesOverall": 18
+  },
+  {
+    "courseNameInPolish": "Inżynieria pozyskiwania i ochrony wiedzy z danych i baz danych",
+    "classDate": "czwartek, 13:15-14:45",
+    "classType": "Projekt",
+    "classId": "W04IST-SM0213P",
+    "lecturer": null,
+    "numberOfPlacesTaken": 16,
+    "numberOfPlacesOverall": 18
+  },
+  {
+    "courseNameInPolish": "Inżynieria pozyskiwania i ochrony wiedzy z danych i baz danych",
+    "classDate": "poniedziałek, 13:15-15:00",
+    "classType": "Wykład",
+    "classId": "W04IST-SM0213W",
+    "lecturer": {
+      "lecturerId": 2,
+      "firstName": "Arkadiusz",
+      "lastName": "Liber",
+      "academicTitle": "dr inż."
+    },
+    "numberOfPlacesTaken": 27,
+    "numberOfPlacesOverall": 30
+  },
+  {
+    "courseNameInPolish": "Podstawy biznesu i ochrona własności intelektualnej",
+    "classDate": "piątek 11:15-13:00",
+    "classType": "Wykład",
+    "classId": "W08IST-SM0004W",
+    "lecturer": null,
+    "numberOfPlacesTaken": 10,
+    "numberOfPlacesOverall": 18
+  }
+]

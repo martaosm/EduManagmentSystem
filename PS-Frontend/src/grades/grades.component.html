@@ -1,0 +1,8 @@
+<grades-banner></grades-banner>
+<mat-tab-group class="semester-group">
+  <mat-tab *ngFor="let semester of semesterGrades; index as i;" label="{{i+1}}. semestr">
+    <grades-table
+      [grades]="semester.grades">
+    </grades-table>
+  </mat-tab>
+</mat-tab-group>
