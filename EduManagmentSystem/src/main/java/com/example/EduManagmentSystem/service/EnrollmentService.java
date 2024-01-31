@@ -16,7 +16,6 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
 
 @Service
 public class EnrollmentService {
@@ -61,7 +60,9 @@ public class EnrollmentService {
 
         ResponseEntity<List<SemesterResponse>> courses
                 = new RestTemplate().exchange(
-                "http://".concat(HOSTNAME).concat(":8081/getAllCoursesStudyPlan?studyPlanCode={studyPlanCode}"),
+                "http://".concat(System.getenv("STUDY_PLAN_SERVICE_HOST"))
+                        .concat(":").concat("STUDY_PLAN_SERVICE_PORT")
+                        .concat("/getAllCoursesStudyPlan?studyPlanCode={studyPlanCode}"),
                 HttpMethod.GET, null,
                 new ParameterizedTypeReference<>(){},
                 params);
@@ -79,7 +80,9 @@ public class EnrollmentService {
 
         ResponseEntity<List<ClassGroupResponse>> classes
                 = new RestTemplate().exchange(
-                "http://".concat(HOSTNAME).concat(":8082/getTimetableForStudyPlan?studyPlanCode={studyPlanCode}&semesterNumber={semesterNumber}"),
+                "http://".concat(System.getenv("TIMETABLE_SERVICE_HOST"))
+                        .concat(":").concat("TIMETABLE_SERVICE_PORT")
+                        .concat("/getTimetableForStudyPlan?studyPlanCode={studyPlanCode}&semesterNumber={semesterNumber}"),
                 HttpMethod.GET, null,
                 new ParameterizedTypeReference<>(){},
                 params);
