@@ -1,0 +1,58 @@
+[
+  {
+    "groupCode": "W04IST-SM0214L",
+    "courseName": "Bezpieczeństwo systemów webowych i mobilnych",
+    "classType": "Laboratorium",
+    "courseCode": "SM0214L",
+    "classDate": "środa, 7:30-9:00",
+    "registeredStudents": 16
+  },
+  {
+    "groupCode": "W04IST-SM0214S",
+    "courseName": "Bezpieczeństwo systemów webowych i mobilnych",
+    "classType": "Seminarium",
+    "courseCode": "SM0214S",
+    "classDate": "piątek, 9:15-11:00",
+    "registeredStudents": 12
+  },
+  {
+    "groupCode": "W04IST-SM0214W",
+    "courseName": "Bezpieczeństwo systemów webowych i mobilnych",
+    "classType": "Wykład",
+    "courseCode": "SM0214W",
+    "classDate": "piątek, 7:30-9:00",
+    "registeredStudents": 22
+  },
+  {
+    "groupCode": "W04IST-SM0212P",
+    "courseName": "Inżynieria pozyskiwania i ochrony wiedzy z danych i baz danych",
+    "classType": "Projekt",
+    "courseCode": "SM0212P",
+    "classDate": "poniedziałek, 11:15-13:00",
+    "registeredStudents": 18
+  },
+  {
+    "groupCode": "W04IST-SM0213P",
+    "courseName": "Inżynieria pozyskiwania i ochrony wiedzy z danych i baz danych",
+    "classType": "Projekt",
+    "courseCode": "SM0213P",
+    "classDate": "czwartek, 13:15-14:45",
+    "registeredStudents": 16
+  },
+  {
+    "groupCode": "W04IST-SM0213W",
+    "courseName": "Inżynieria pozyskiwania i ochrony wiedzy z danych i baz danych",
+    "classType": "Wykład",
+    "courseCode": "SM0213W",
+    "classDate": "poniedziałek, 13:15-15:00",
+    "registeredStudents": 27
+  },
+  {
+    "groupCode": "W08IST-SM0004W",
+    "courseName": "Podstawy biznesu i ochrona własności intelektualnej",
+    "classType": "Wykład",
+    "courseCode": "SM0004W",
+    "classDate": "piątek 11:15-13:00",
+    "registeredStudents": 10
+  }
+]

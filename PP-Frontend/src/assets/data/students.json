@@ -1,0 +1,32 @@
+[
+  {
+    "studentId": "123456",
+    "firstName": "Adrian",
+    "lastName": "Kowalski",
+    "grade": null
+  },
+  {
+    "studentId": "123457",
+    "firstName": "Jan",
+    "lastName": "Polak",
+    "grade": 3.5
+  },
+  {
+    "studentId": "123458",
+    "firstName": "Mariusz",
+    "lastName": "Skrzek",
+    "grade": null
+  },
+  {
+    "studentId": "123459",
+    "firstName": "Anna",
+    "lastName": "Kowalska",
+    "grade": 4
+  },
+  {
+    "studentId": "123460",
+    "firstName": "Zuzanna",
+    "lastName": "Maj",
+    "grade": 3
+  }
+]

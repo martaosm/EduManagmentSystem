@@ -1,0 +1,9 @@
+<span>
+  <button mat-icon-button
+          matTooltip="Dodaj ocenę"
+          matTooltipShowDelay="1000"
+          [disabled]="shouldAddGradeButtonBeActive"
+          (click)="onAddGradeClicked($event)">
+    	<mat-icon>assignment</mat-icon>
+  </button>
+</span>
