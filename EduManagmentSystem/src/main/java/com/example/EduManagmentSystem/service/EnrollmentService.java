@@ -52,17 +52,16 @@ public class EnrollmentService {
         return response;
     }
 
-    public List<CourseResponse> getCoursesForStudent(String studyPlanCode, int semesterNumber) throws UnknownHostException {
+    public List<SemesterResponse> getCoursesForStudent(String studyPlanCode) throws UnknownHostException {
         //url/port do zmiany
 
         final String HOSTNAME = InetAddress.getLocalHost().getHostName();
         HashMap<String, Object> params = new HashMap<>();
         params.put("studyPlanCode", studyPlanCode);
-        params.put("semesterNumber", semesterNumber);
 
-        ResponseEntity<List<CourseResponse>> courses
+        ResponseEntity<List<SemesterResponse>> courses
                 = new RestTemplate().exchange(
-                "http://".concat(HOSTNAME).concat(":8081/getAllCoursesStudyPlan?studyPlanCode={studyPlanCode}&semesterNumber={semesterNumber}"),
+                "http://".concat(HOSTNAME).concat(":8081/getAllCoursesStudyPlan?studyPlanCode={studyPlanCode}"),
                 HttpMethod.GET, null,
                 new ParameterizedTypeReference<>(){},
                 params);
@@ -72,8 +71,6 @@ public class EnrollmentService {
 
     public List<ClassGroupResponse> getClassesForCourses(String studyPlanCode, int semesterNumber, String courseCode) throws Exception {
         //url/port do zmiany
-
-        //TODO: ZWRACA CZASY PODWOJNIE
 
         final String HOSTNAME = InetAddress.getLocalHost().getHostName();
         HashMap<String, Object> params = new HashMap<>();

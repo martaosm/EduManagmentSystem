@@ -1,9 +1,8 @@
 package com.example.EduManagmentSystem.controller;
 
-import com.example.EduManagmentSystem.response.ClassGroupResponse;
-import com.example.EduManagmentSystem.response.ClassGroupStudentAssignResponse;
-import com.example.EduManagmentSystem.response.CourseResponse;
-import com.example.EduManagmentSystem.response.StudyMajorStudentResponse;
+import com.example.EduManagmentSystem.request.NewPlaceLimitRequest;
+import com.example.EduManagmentSystem.request.StudentSignUpRequest;
+import com.example.EduManagmentSystem.response.*;
 import com.example.EduManagmentSystem.service.EnrollmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -23,9 +22,8 @@ public class EnrollmentController {
     }
 
     @GetMapping("/getCoursesForStudent")
-    public List<CourseResponse> getCoursesForStudent(@RequestParam String studyPlanCode,
-                                                     @RequestParam int semesterNumber) throws UnknownHostException {
-        return enrollmentService.getCoursesForStudent(studyPlanCode, semesterNumber);
+    public List<SemesterResponse> getCoursesForStudent(@RequestParam String studyPlanCode) throws UnknownHostException {
+        return enrollmentService.getCoursesForStudent(studyPlanCode);
     }
 
     @GetMapping("/getClassesForCourse")
@@ -36,9 +34,8 @@ public class EnrollmentController {
     }
 
     @PostMapping("/signForClass")
-    public ClassGroupStudentAssignResponse signForClass(@RequestParam String studentIndex,
-                                                        @RequestParam String groupCode) throws Exception {
-        return enrollmentService.signForClass(studentIndex, groupCode);
+    public ClassGroupStudentAssignResponse signForClass(@RequestBody StudentSignUpRequest request) throws Exception {
+        return enrollmentService.signForClass(request.getStudentIndex(), request.getClassId());
     }
 
     @GetMapping("/findAllClassGroupsWithPlaceLimitReached")
@@ -47,7 +44,7 @@ public class EnrollmentController {
     }
 
     @PutMapping("/increasePlaceLimit")
-    public ClassGroupResponse increasePlaceLimit(@RequestParam String groupCode, @RequestParam int newPlaceLimit) throws Exception {
-        return enrollmentService.increasePlaceLimit(groupCode, newPlaceLimit);
+    public ClassGroupResponse increasePlaceLimit(@RequestBody NewPlaceLimitRequest request) throws Exception {
+        return enrollmentService.increasePlaceLimit(request.getClassId(), request.getNewClassPlaceLimit());
     }
 }
