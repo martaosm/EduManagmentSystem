@@ -1,0 +1,24 @@
+<nav class="navbar">
+  <div class="logo">
+    <a routerLink="/">
+      <img src="assets/logo-horizontally.png" alt="Logo">
+    </a>
+  </div>
+  <div class="button-container">
+    <div class="navigation-buttons">
+    <ul class="nav-list">
+      <li><a routerLink="/study-plans">Plany studiów</a></li>
+    </ul>
+    <ul class="nav-list">
+      <li><a routerLink="/grades">Moje oceny</a></li>
+    </ul>
+    <ul class="nav-list">
+      <li><a routerLink="/enrollment">Zapisy</a></li>
+    </ul>
+    </div>
+    <ul class="nav-list">
+      <li *ngIf="!isUserLoggedIn"><a routerLink="/login">Zaloguj</a></li>
+      <li *ngIf="isUserLoggedIn">Wyloguj</li>
+    </ul>
+  </div>
+</nav>
