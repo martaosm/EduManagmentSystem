@@ -15,7 +15,7 @@ import {ClassesUtil} from "../../shared/util/classes.util";
   templateUrl: './classes-table.component.html',
   styleUrl: './classes-table.component.scss'
 })
-export class StudyPlanTableComponent {
+export class ClassesTableComponent {
 
   @Input()
   classes!: ClassesQueryModel[];

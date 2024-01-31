@@ -7,6 +7,6 @@ import {Component} from '@angular/core';
   templateUrl: './classes-banner.component.html',
   styleUrl: './classes-banner.component.scss'
 })
-export class StudyPlanBannerComponent {
+export class ClassesBannerComponent {
 
 }

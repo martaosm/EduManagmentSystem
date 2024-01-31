@@ -1,15 +1,15 @@
 import {Component} from "@angular/core";
 import {ActivatedRoute} from "@angular/router";
 import {ClassesQueryModel} from "./interface/classes-query-model";
-import {StudyPlanBannerComponent} from "./classes-table/banner/classes-banner.component";
-import {StudyPlanTableComponent} from "./classes-table/classes-table.component";
+import {ClassesBannerComponent} from "./classes-table/banner/classes-banner.component";
+import {ClassesTableComponent} from "./classes-table/classes-table.component";
 
 @Component({
   selector: 'classes',
   standalone: true,
   imports: [
-    StudyPlanBannerComponent,
-    StudyPlanTableComponent,
+    ClassesBannerComponent,
+    ClassesTableComponent,
   ],
   templateUrl: './classes.component.html',
   styleUrl: './classes.component.scss'
