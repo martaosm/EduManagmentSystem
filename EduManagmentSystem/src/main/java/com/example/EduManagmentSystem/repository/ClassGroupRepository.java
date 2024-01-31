@@ -13,4 +13,5 @@ public interface ClassGroupRepository extends JpaRepository<ClassGroup, String> 
 
     Optional<ClassGroup> findByGroupCode(String groupCode);
     List<ClassGroup> findAllByCourseCode(String courseCode);
+    List<ClassGroup> findAllByTeacherId(Long teacherId);
 }

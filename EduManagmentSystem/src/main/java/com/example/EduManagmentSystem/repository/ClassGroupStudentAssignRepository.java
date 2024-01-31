@@ -8,7 +8,8 @@ import java.util.List;
 
 @Repository
 public interface ClassGroupStudentAssignRepository extends JpaRepository<ClassGroupStudentAssign, Long> {
-    List<ClassGroupStudentAssign>findAllByStudentIndex(String studentIndex);
+    List<ClassGroupStudentAssign> findAllByStudentIndex(String studentIndex);
+    List<ClassGroupStudentAssign> findAllByGroupCode(String groupCode);
 
     ClassGroupStudentAssign findByStudentIndexAndGroupCode(String studentIndex, String groupCode);
 }

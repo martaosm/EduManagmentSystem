@@ -1,26 +1,33 @@
 package com.example.EduManagmentSystem.controller;
 
-import com.example.EduManagmentSystem.model.Grade;
 import com.example.EduManagmentSystem.request.GradeRequest;
+import com.example.EduManagmentSystem.response.ClassGroupTeacherResponse;
+import com.example.EduManagmentSystem.response.GradeResponse;
+import com.example.EduManagmentSystem.response.StudentGradeResponse;
 import com.example.EduManagmentSystem.service.IndexService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-
+import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
-@Controller
+@RestController
 public class IndexController {
 
     @Autowired
     IndexService indexService;
 
-    @GetMapping("/allGrades")
-    public List<Grade> getAllGrades(@RequestParam String studentIndex){
+    @GetMapping("/allStudentGrades")
+    public List<GradeResponse> getAllGradesForStudent(@RequestParam String studentIndex){
         return indexService.getAllGrades(studentIndex);
+    }
+
+    @GetMapping("/getAllClassesForTeacher")
+    public List<ClassGroupTeacherResponse> getAllClassesForTeacher(@RequestParam Long teacherId){
+        return indexService.getAllClassesForTeacher(teacherId);
+    }
+
+    @GetMapping("/getAllStudentsForClassGroup")
+    public List<StudentGradeResponse> getAllStudentsForClassGroup(@RequestParam String groupCode) throws Exception {
+        return indexService.getAllStudentsForClassGroup(groupCode);
     }
 
     @PostMapping("/addNewGrade")

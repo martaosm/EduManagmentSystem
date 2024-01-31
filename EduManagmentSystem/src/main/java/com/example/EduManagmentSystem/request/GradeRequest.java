@@ -1,15 +1,13 @@
 package com.example.EduManagmentSystem.request;
 
-import com.example.EduManagmentSystem.enums.GradeType;
 import lombok.Data;
+import lombok.Getter;
 
 @Data
+@Getter
 public class GradeRequest {
-    Double gradeValue;
-    String comment;
-    String gradedElement;
-    GradeType gradeType;
     String studentIndex;
+    Double gradeValue;
+    String groupCode;
     Long teacherId;
-    String classGroupCode;
 }
