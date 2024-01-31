@@ -7,5 +7,5 @@ metadata:
 data:
   db_host: "mariadb-service.database.svc.cluster.local"
   db_port: "3306"
-  study_plan_service_host: "study-plan-service.backend.svc.cluster.local"
-  study_plan_service_port: "8080"
+  STUDY_PLAN_SERVICE_HOST: "study-plan-service.backend.svc.cluster.local"
+  STUDY_PLAN_SERVICE_PORT: "8080"
