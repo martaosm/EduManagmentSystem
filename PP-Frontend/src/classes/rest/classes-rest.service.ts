@@ -3,6 +3,7 @@ import {HttpClient, HttpParams} from "@angular/common/http";
 import {catchError, Observable} from "rxjs";
 import {ClassesQueryModel} from "../interface/classes-query-model";
 import {StudentQueryModel} from "../interface/student-query-model";
+import {AddGradeCommand} from "../classes-table/command/add-grade.command";
 
 @Injectable({
   providedIn: 'root',
@@ -36,6 +37,10 @@ export class ClassesRestService {
           return this.loadStudentsFromFile();
         })
       );
+  }
+
+  addGrade(addGradeCommand: AddGradeCommand) {
+    //TODO WB: Adjust integration with backend
   }
 
   private loadClassesFromFile(): Observable<ClassesQueryModel[]> {
