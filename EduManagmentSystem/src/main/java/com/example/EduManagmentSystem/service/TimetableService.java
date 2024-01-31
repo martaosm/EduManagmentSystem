@@ -95,19 +95,22 @@ public class TimetableService {
 
     public List<SemesterResponse> getCoursesAssignedToStudyPlan(String studyPlanCode, int semesterNumber) throws UnknownHostException {
         // url/port do zmiany
-        final String HOSTNAME = InetAddress.getLocalHost().getHostName();
+        //final String HOSTNAME = InetAddress.getLocalHost().getHostName();
 
         HashMap<String, Object> params2 = new HashMap<>();
         params2.put("studyPlanCode", studyPlanCode);
 
         ResponseEntity<List<SemesterResponse>> courses
                 = new RestTemplate().exchange(
-                "http://".concat(HOSTNAME).concat(":8081/getAllCoursesStudyPlan?studyPlanCode={studyPlanCode}"),
+                "http://".concat(System.getenv("STUDY_PLAN_SERVICE_HOST"))
+                        .concat(":").concat("STUDY_PLAN_SERVICE_PORT")
+                        .concat("/getAllCoursesStudyPlan?studyPlanCode={studyPlanCode}"),
                 HttpMethod.GET, null,
                 new ParameterizedTypeReference<>(){},
                 params2);
 
         return courses.getBody();
+        //"http://".concat(HOSTNAME).concat(":8081/getAllCoursesStudyPlan?studyPlanCode={studyPlanCode}"),
     }
 
     public List<StudyPlanResponse> getAllStudyPlans() throws UnknownHostException {
@@ -115,7 +118,9 @@ public class TimetableService {
         final String HOSTNAME = InetAddress.getLocalHost().getHostName();
         ResponseEntity<List<StudyPlanResponse>> studyPlans
                 = new RestTemplate().exchange(
-                "http://".concat(HOSTNAME).concat(":8081/getAllStudyPlans"),
+                "http://".concat(System.getenv("STUDY_PLAN_SERVICE_HOST"))
+                        .concat(":").concat(System.getenv("STUDY_PLAN_SERVICE_PORT"))
+                        .concat("/getAllStudyPlans"),
                 HttpMethod.GET, null,
                 new ParameterizedTypeReference<>() {
                 });
