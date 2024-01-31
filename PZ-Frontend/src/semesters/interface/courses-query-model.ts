@@ -1,8 +1,8 @@
 export interface CoursesQueryModel {
-  courseId: string,
-  courseName: string,
-  numberOfEctsPoints: number,
-  courseType: string,
-  numberOfZZUHours: number,
-  numberOfCNPSHours: number
+  courseCode: string,
+  courseNameInPolish: string,
+  numberOfPointsECTS: number,
+  numberOfHoursZZU: number,
+  numberOfHoursCNPS: number
+  classType: string,
 }

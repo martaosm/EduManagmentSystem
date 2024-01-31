@@ -49,8 +49,8 @@ export class ActionButtonCellRendererComponent implements ICellRendererAngularCo
     dialogRef.afterClosed().subscribe(
       confirmation => {
         if (confirmation) {
-          const studyPlanId = this.params.node.data.id;
-          this.restService.archivePlan(studyPlanId)
+          const studyPlanCode = this.params.node.data.id;
+          this.restService.archivePlan(studyPlanCode)
         }
       }
     );
@@ -58,7 +58,7 @@ export class ActionButtonCellRendererComponent implements ICellRendererAngularCo
   }
 
   onShowSemestersClicked($event: MouseEvent) {
-    const studyPlanId = this.params.node.data.id;
-    this.router.navigate(['/study-plan/' + studyPlanId])
+    const studyPlanCode = this.params.node.data.id;
+    this.router.navigate(['/study-plan/' + studyPlanCode])
   }
 }

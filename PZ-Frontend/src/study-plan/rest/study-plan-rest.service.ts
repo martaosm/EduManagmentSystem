@@ -23,7 +23,7 @@ export class StudyPlanRestService {
       );
   }
 
-  archivePlan(studyPlanId: string) {
+  archivePlan(studyPlanCode: string) {
     // TODO WB: Send http request to backend to archive the plan
   }
 

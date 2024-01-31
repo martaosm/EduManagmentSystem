@@ -1,10 +1,11 @@
 export interface StudyPlanQueryModel {
-  id: number,
-  academicYear: string,
-  version: string,
-  status: string,
-  fieldOfStudy: string,
+  studyPlanCode: string,
+  inMotionSinceEduCycle: string,
+  planStatus: string,
+  majorName: string,
+  majorCode: string,
   faculty: string,
   educationLevel: string,
   studyMode: string,
+  specialization: string
 }

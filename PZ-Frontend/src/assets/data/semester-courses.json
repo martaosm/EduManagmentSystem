@@ -3,92 +3,92 @@
     "semester": 1,
     "courses": [
       {
-        "courseId": "W13IST-SM0001W",
-        "courseName": "Metody planowania i analizy eksperymentów",
-        "numberOfEctsPoints": 1,
-        "courseType": "Wykład",
-        "numberOfZZUHours": 15,
-        "numberOfCNPSHours": 30
+        "courseCode": "W13IST-SM0001W",
+        "courseNameInPolish": "Metody planowania i analizy eksperymentów",
+        "numberOfPointsECTS": 1,
+        "numberOfHoursZZU": 15,
+        "numberOfHoursCNPS": 30,
+        "classType": "Wykład"
       },
       {
-        "courseId": "W11IST-SM0001W",
-        "courseName": "Fizyczne podstawy współczesnej informatyki",
-        "numberOfEctsPoints": 1,
-        "courseType": "Wykład",
-        "numberOfZZUHours": 15,
-        "numberOfCNPSHours": 30
+        "courseCode": "W11IST-SM0001W",
+        "courseNameInPolish": "Fizyczne podstawy współczesnej informatyki",
+        "numberOfPointsECTS": 1,
+        "numberOfHoursZZU": 15,
+        "numberOfHoursCNPS": 30,
+        "classType": "Wykład"
       },
       {
-        "courseId": "W04IST-SM0201L",
-        "courseName": "Statystyka w zastosowaniach",
-        "numberOfEctsPoints": 3,
-        "courseType": "Laboratorium",
-        "numberOfZZUHours": 30,
-        "numberOfCNPSHours": 90
+        "courseCode": "W04IST-SM0201L",
+        "courseNameInPolish": "Statystyka w zastosowaniach",
+        "numberOfPointsECTS": 3,
+        "numberOfHoursZZU": 30,
+        "numberOfHoursCNPS": 90,
+        "classType": "Laboratorium"
       },
       {
-        "courseId": "W04IST-SM0204W",
-        "courseName": "Analiza biznesowa i systemowa",
-        "numberOfEctsPoints": 3,
-        "courseType": "Wykład",
-        "numberOfZZUHours": 30,
-        "numberOfCNPSHours": 90
+        "courseCode": "W04IST-SM0204W",
+        "courseNameInPolish": "Analiza biznesowa i systemowa",
+        "numberOfPointsECTS": 3,
+        "numberOfHoursZZU": 30,
+        "numberOfHoursCNPS": 90,
+        "classType": "Wykład"
       },
       {
-        "courseId": "W04IST-SM0204L",
-        "courseName": "Analiza biznesowa i systemowa",
-        "numberOfEctsPoints": 2,
-        "courseType": "Laboratorium",
-        "numberOfZZUHours": 30,
-        "numberOfCNPSHours": 60
+        "courseCode": "W04IST-SM0204L",
+        "courseNameInPolish": "Analiza biznesowa i systemowa",
+        "numberOfPointsECTS": 2,
+        "numberOfHoursZZU": 30,
+        "numberOfHoursCNPS": 60,
+        "classType": "Laboratorium"
       },
       {
-        "courseId": "W04IST-SM0205W",
-        "courseName": "Projekt i implementacja systemów webowych",
-        "numberOfEctsPoints": 1,
-        "courseType": "Wykład",
-        "numberOfZZUHours": 15,
-        "numberOfCNPSHours": 30
+        "courseCode": "W04IST-SM0205W",
+        "courseNameInPolish": "Projekt i implementacja systemów webowych",
+        "numberOfPointsECTS": 1,
+        "numberOfHoursZZU": 15,
+        "numberOfHoursCNPS": 30,
+        "classType": "Wykład"
       },
       {
-        "courseId": "W04IST-SM0205L",
-        "courseName": "Projekt i implementacja systemów webowych",
-        "numberOfEctsPoints": 3,
-        "courseType": "Laboratorium",
-        "numberOfZZUHours": 30,
-        "numberOfCNPSHours": 90
+        "courseCode": "W04IST-SM0205L",
+        "courseNameInPolish": "Projekt i implementacja systemów webowych",
+        "numberOfPointsECTS": 3,
+        "numberOfHoursZZU": 30,
+        "numberOfHoursCNPS": 90,
+        "classType": "Laboratorium"
       },
       {
-        "courseId": "W04IST-SM0210W",
-        "courseName": "Programowanie współbieżne i funkcyjne",
-        "numberOfEctsPoints": 3,
-        "courseType": "Wykład",
-        "numberOfZZUHours": 30,
-        "numberOfCNPSHours": 60
+        "courseCode": "W04IST-SM0210W",
+        "courseNameInPolish": "Programowanie współbieżne i funkcyjne",
+        "numberOfPointsECTS": 3,
+        "numberOfHoursZZU": 30,
+        "numberOfHoursCNPS": 60,
+        "classType": "Wykład"
       },
       {
-        "courseId": "W04IST-SM0210L",
-        "courseName": "Programowanie współbieżne i funkcyjne",
-        "numberOfEctsPoints": 2,
-        "courseType": "Laboratorium",
-        "numberOfZZUHours": 30,
-        "numberOfCNPSHours": 90
+        "courseCode": "W04IST-SM0210L",
+        "courseNameInPolish": "Programowanie współbieżne i funkcyjne",
+        "numberOfPointsECTS": 2,
+        "numberOfHoursZZU": 30,
+        "numberOfHoursCNPS": 90,
+        "classType": "Laboratorium"
       },
       {
-        "courseId": "W04IST-SM0202P",
-        "courseName": "Projekt badawczo-rozwojowy w inżynierii oprogramowania",
-        "numberOfEctsPoints": 7,
-        "courseType": "Projekt",
-        "numberOfZZUHours": 75,
-        "numberOfCNPSHours": 210
+        "courseCode": "W04IST-SM0202P",
+        "courseNameInPolish": "Projekt badawczo-rozwojowy w inżynierii oprogramowania",
+        "numberOfPointsECTS": 7,
+        "numberOfHoursZZU": 75,
+        "numberOfHoursCNPS": 210,
+        "classType": "Projekt"
       },
       {
-        "courseId": "W04IST-SM0203S",
-        "courseName": "Zwinne wytwarzanie oprogramowania",
-        "numberOfEctsPoints": 2,
-        "courseType": "Seminarium",
-        "numberOfZZUHours": 15,
-        "numberOfCNPSHours": 60
+        "courseCode": "W04IST-SM0203S",
+        "courseNameInPolish": "Zwinne wytwarzanie oprogramowania",
+        "numberOfPointsECTS": 2,
+        "numberOfHoursZZU": 15,
+        "numberOfHoursCNPS": 60,
+        "classType": "Seminarium"
       }
     ]
   },
@@ -96,100 +96,100 @@
     "semester": 2,
     "courses": [
       {
-        "courseId": "W08IST-SM0004W",
-        "courseName": "Podstawy biznesu i ochrona własności intelektualnej",
-        "numberOfEctsPoints": 3,
-        "courseType": "Wykład",
-        "numberOfZZUHours": 30,
-        "numberOfCNPSHours": 90
+        "courseCode": "W08IST-SM0004W",
+        "courseNameInPolish": "Podstawy biznesu i ochrona własności intelektualnej",
+        "numberOfPointsECTS": 3,
+        "numberOfHoursZZU": 30,
+        "numberOfHoursCNPS": 90,
+        "classType": "Wykład"
       },
       {
-        "courseId": "W04IST-SM0209W",
-        "courseName": "Projektowanie systemów informatycznych",
-        "numberOfEctsPoints": 2,
-        "courseType": "Wykład",
-        "numberOfZZUHours": 15,
-        "numberOfCNPSHours": 60
+        "courseCode": "W04IST-SM0209W",
+        "courseNameInPolish": "Projektowanie systemów informatycznych",
+        "numberOfPointsECTS": 2,
+        "numberOfHoursZZU": 15,
+        "numberOfHoursCNPS": 60,
+        "classType": "Wykład"
       },
       {
-        "courseId": "W04IST-SM0209P",
-        "courseName": "Projektowanie systemów informatycznych",
-        "numberOfEctsPoints": 3,
-        "courseType": "Projekt",
-        "numberOfZZUHours": 30,
-        "numberOfCNPSHours": 90
+        "courseCode": "W04IST-SM0209P",
+        "courseNameInPolish": "Projektowanie systemów informatycznych",
+        "numberOfPointsECTS": 3,
+        "numberOfHoursZZU": 30,
+        "numberOfHoursCNPS": 90,
+        "classType": "Projekt"
       },
       {
-        "courseId": "W04IST-SM0215G",
-        "courseName": "DevOps – technologie i narzędzia",
-        "numberOfEctsPoints": 4,
-        "courseType": "Wykład",
-        "numberOfZZUHours": 45,
-        "numberOfCNPSHours": 120
+        "courseCode": "W04IST-SM0215G",
+        "courseNameInPolish": "DevOps – technologie i narzędzia",
+        "numberOfPointsECTS": 4,
+        "numberOfHoursZZU": 45,
+        "numberOfHoursCNPS": 120,
+        "classType": "Wykład"
       },
       {
-        "courseId": "W04IST-SM0001P",
-        "courseName": "Praca dyplomowa I",
-        "numberOfEctsPoints": 2,
-        "courseType": "Projekt",
-        "numberOfZZUHours": 30,
-        "numberOfCNPSHours": 60
+        "courseCode": "W04IST-SM0001P",
+        "courseNameInPolish": "Praca dyplomowa I",
+        "numberOfPointsECTS": 2,
+        "numberOfHoursZZU": 30,
+        "numberOfHoursCNPS": 60,
+        "classType": "Projekt"
       },
       {
-        "courseId": "W04IST-SM0214W",
-        "courseName": "Bezpieczeństwo systemów webowych i mobilnych",
-        "numberOfEctsPoints": 2,
-        "courseType": "Wykład",
-        "numberOfZZUHours": 30,
-        "numberOfCNPSHours": 60
+        "courseCode": "W04IST-SM0214W",
+        "courseNameInPolish": "Bezpieczeństwo systemów webowych i mobilnych",
+        "numberOfPointsECTS": 2,
+        "numberOfHoursZZU": 30,
+        "numberOfHoursCNPS": 60,
+        "classType": "Wykład"
       },
       {
-        "courseId": "W04IST-SM0214S",
-        "courseName": "Bezpieczeństwo systemów webowych i mobilnych",
-        "numberOfEctsPoints": 2,
-        "courseType": "Seminarium",
-        "numberOfZZUHours": 30,
-        "numberOfCNPSHours": 60
+        "courseCode": "W04IST-SM0214S",
+        "courseNameInPolish": "Bezpieczeństwo systemów webowych i mobilnych",
+        "numberOfPointsECTS": 2,
+        "numberOfHoursZZU": 30,
+        "numberOfHoursCNPS": 60,
+        "classType": "Seminarium"
       },
       {
-        "courseId": "W04IST-SM0211G",
-        "courseName": "Zastosowanie rozwiązań chmurowych w aplikacjach webowych",
-        "numberOfEctsPoints": 4,
-        "courseType": "Wykład",
-        "numberOfZZUHours": 45,
-        "numberOfCNPSHours": 120
+        "courseCode": "W04IST-SM0211G",
+        "courseNameInPolish": "Zastosowanie rozwiązań chmurowych w aplikacjach webowych",
+        "numberOfPointsECTS": 4,
+        "numberOfHoursZZU": 45,
+        "numberOfHoursCNPS": 120,
+        "classType": "Wykład"
       },
       {
-        "courseId": "W04IST-SM0212W",
-        "courseName": "Zaawansowane systemy baz danych",
-        "numberOfEctsPoints": 1,
-        "courseType": "Wykład",
-        "numberOfZZUHours": 15,
-        "numberOfCNPSHours": 30
+        "courseCode": "W04IST-SM0212W",
+        "courseNameInPolish": "Zaawansowane systemy baz danych",
+        "numberOfPointsECTS": 1,
+        "numberOfHoursZZU": 15,
+        "numberOfHoursCNPS": 30,
+        "classType": "Wykład"
       },
       {
-        "courseId": "W04IST-SM0212P",
-        "courseName": "Zaawansowane systemy baz danych",
-        "numberOfEctsPoints": 2,
-        "courseType": "Projekt",
-        "numberOfZZUHours": 30,
-        "numberOfCNPSHours": 60
+        "courseCode": "W04IST-SM0212P",
+        "courseNameInPolish": "Zaawansowane systemy baz danych",
+        "numberOfPointsECTS": 2,
+        "numberOfHoursZZU": 30,
+        "numberOfHoursCNPS": 60,
+        "classType": "Projekt"
       },
       {
-        "courseId": "W04IST-SM0213W",
-        "courseName": "Inżynieria pozyskiwania i ochrony wiedzy z danych i baz danych",
-        "numberOfEctsPoints": 1,
-        "courseType": "Wykład",
-        "numberOfZZUHours": 15,
-        "numberOfCNPSHours": 30
+        "courseCode": "W04IST-SM0213W",
+        "courseNameInPolish": "Inżynieria pozyskiwania i ochrony wiedzy z danych i baz danych",
+        "numberOfPointsECTS": 1,
+        "numberOfHoursZZU": 15,
+        "numberOfHoursCNPS": 30,
+        "classType": "Wykład"
       },
       {
-        "courseId": "W04IST-SM0213P",
-        "courseName": "Inżynieria pozyskiwania i ochrony wiedzy z danych i baz danych",
-        "numberOfEctsPoints": 3,
-        "courseType": "Projekt",
-        "numberOfZZUHours": 30,
-        "numberOfCNPSHours": 90
+        "courseCode": "W04IST-SM0213P",
+        "courseNameInPolish": "Inżynieria pozyskiwania i ochrony wiedzy z danych i baz danych",
+        "numberOfPointsECTS": 3,
+        "numberOfHoursZZU": 30,
+        "numberOfHoursCNPS": 90,
+        "classType": "Projekt"
       }
     ]
   },
@@ -197,60 +197,60 @@
     "semester": 3,
     "courses": [
       {
-        "courseId": "W08IST-SM0005S",
-        "courseName": "Etyka nowych technologii",
-        "numberOfEctsPoints": 2,
-        "courseType": "Seminarium",
-        "numberOfZZUHours": 15,
-        "numberOfCNPSHours": 60
+        "courseCode": "W08IST-SM0005S",
+        "courseNameInPolish": "Etyka nowych technologii",
+        "numberOfPointsECTS": 2,
+        "numberOfHoursZZU": 15,
+        "numberOfHoursCNPS": 60,
+        "classType": "Seminarium"
       },
       {
-        "courseId": "W04IST-SM0002D",
-        "courseName": "Praca dyplomowa II",
-        "numberOfEctsPoints": 18,
-        "courseType": "Projekt",
-        "numberOfZZUHours": 150,
-        "numberOfCNPSHours": 540
+        "courseCode": "W04IST-SM0002D",
+        "courseNameInPolish": "Praca dyplomowa II",
+        "numberOfPointsECTS": 18,
+        "numberOfHoursZZU": 150,
+        "numberOfHoursCNPS": 540,
+        "classType": "Projekt"
       },
       {
-        "courseId": "W04IST-SM0003S",
-        "courseName": "Seminarium dyplomowe",
-        "numberOfEctsPoints": 2,
-        "courseType": "Seminarium",
-        "numberOfZZUHours": 30,
-        "numberOfCNPSHours": 60
+        "courseCode": "W04IST-SM0003S",
+        "courseNameInPolish": "Seminarium dyplomowe",
+        "numberOfPointsECTS": 2,
+        "numberOfHoursZZU": 30,
+        "numberOfHoursCNPS": 60,
+        "classType": "Seminarium"
       },
       {
-        "courseId": "W04IST-SM0207W",
-        "courseName": "Przetwarzanie dużych zbiorów danych",
-        "numberOfEctsPoints": 2,
-        "courseType": "Wykład",
-        "numberOfZZUHours": 30,
-        "numberOfCNPSHours": 60
+        "courseCode": "W04IST-SM0207W",
+        "courseNameInPolish": "Przetwarzanie dużych zbiorów danych",
+        "numberOfPointsECTS": 2,
+        "numberOfHoursZZU": 30,
+        "numberOfHoursCNPS": 60,
+        "classType": "Wykład"
       },
       {
-        "courseId": "W04IST-SM0207P",
-        "courseName": "Przetwarzanie dużych zbiorów danych",
-        "numberOfEctsPoints": 3,
-        "courseType": "Projekt",
-        "numberOfZZUHours": 30,
-        "numberOfCNPSHours": 90
+        "courseCode": "W04IST-SM0207P",
+        "courseNameInPolish": "Przetwarzanie dużych zbiorów danych",
+        "numberOfPointsECTS": 3,
+        "numberOfHoursZZU": 30,
+        "numberOfHoursCNPS": 90,
+        "classType": "Projekt"
       },
       {
-        "courseId": "W04IST-SM0208W",
-        "courseName": "Systemy wyszukiwania informacji",
-        "numberOfEctsPoints": 1,
-        "courseType": "Wykład",
-        "numberOfZZUHours": 15,
-        "numberOfCNPSHours": 30
+        "courseCode": "W04IST-SM0208W",
+        "courseNameInPolish": "Systemy wyszukiwania informacji",
+        "numberOfPointsECTS": 1,
+        "numberOfHoursZZU": 15,
+        "numberOfHoursCNPS": 30,
+        "classType": "Wykład"
       },
       {
-        "courseId": "W04IST-SM0208P",
-        "courseName": "Systemy wyszukiwania informacji",
-        "numberOfEctsPoints": 2,
-        "courseType": "Projekt",
-        "numberOfZZUHours": 30,
-        "numberOfCNPSHours": 60
+        "courseCode": "W04IST-SM0208P",
+        "courseNameInPolish": "Systemy wyszukiwania informacji",
+        "numberOfPointsECTS": 2,
+        "numberOfHoursZZU": 30,
+        "numberOfHoursCNPS": 60,
+        "classType": "Projekt"
       }
     ]
   }

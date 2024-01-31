@@ -19,10 +19,11 @@ export class StudyPlanTableComponent {
   studyPlans!: StudyPlanQueryModel[];
 
   colDefs: ColDef[] = [
-    {field: "academicYear", headerName: "Rok akademicki"},
-    {field: "version", headerName: "Wersja"},
-    {field: "status", headerName: "Status"},
-    {field: "fieldOfStudy", headerName: "Kierunek Studiów", tooltipValueGetter: params => params.value},
+    {field: "inMotionSinceEduCycle", headerName: "Rok Akademicki"},
+    {field: "planStatus", headerName: "Status"},
+    {field: "majorName", headerName: "Kierunek Studiów", tooltipValueGetter: params => params.value},
+    {field: "majorCode", headerName: "Kod Kierunku"},
+    {field: "specialization", headerName: "Specjalizacja", tooltipValueGetter: params => params.value},
     {field: "faculty", headerName: "Wydział", tooltipValueGetter: params => params.value},
     {field: "educationLevel", headerName: "Poziom Kształcenia"},
     {field: "studyMode", headerName: "Forma Studiów"},

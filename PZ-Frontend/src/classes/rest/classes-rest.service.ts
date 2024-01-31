@@ -3,10 +3,10 @@ import {HttpClient, HttpParams} from "@angular/common/http";
 import {catchError, Observable} from "rxjs";
 import {ClassesQueryModel} from "../interface/classes-query-model";
 import {LecturerQueryModel} from "../interface/lecturer-query-model";
-import {AssignLecturerToClassCommand} from "../classes-table/comand/assign-lecturer-to-class.command";
+import {AssignLecturerToClassCommand} from "../classes-table/command/assign-lecturer-to-class.command";
 import {
   IncreaseLimitOfStudentsInGroupCommand
-} from "../classes-table/comand/increase-limit-of-students-in-group.command";
+} from "../classes-table/command/increase-limit-of-students-in-group.command";
 
 @Injectable({
   providedIn: 'root',
@@ -20,8 +20,8 @@ export class ClassesRestService {
 
   getClasses(studyPlanId: string, semester: number): Observable<ClassesQueryModel[]> {
     let queryParams = new HttpParams();
-    queryParams = queryParams.append("studyPlanId", studyPlanId);
-    queryParams = queryParams.append("semester", semester);
+    queryParams = queryParams.append("studyPlanCode", studyPlanId);
+    queryParams = queryParams.append("semesterNumber", semester);
     return this.http.get<ClassesQueryModel[]>(this.classesUrl, {params: queryParams})
       .pipe(
         catchError(error => {

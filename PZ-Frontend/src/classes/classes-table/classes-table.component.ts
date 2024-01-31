@@ -21,7 +21,7 @@ export class StudyPlanTableComponent {
   classes!: ClassesQueryModel[];
 
   colDefs: ColDef[] = [
-    {field: "courseName", headerName: "Nazwa kursu", tooltipValueGetter: params => params.value},
+    {field: "courseNameInPolish", headerName: "Nazwa kursu", tooltipValueGetter: params => params.value},
     {field: "classDate", headerName: "Termin zajęć"},
     {field: "classType", headerName: "Typ zajęć"},
     {field: "classId", headerName: "Kod grupy zajęciowej"},

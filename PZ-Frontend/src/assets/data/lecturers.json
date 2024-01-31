@@ -2,61 +2,61 @@
   {
     "lecturerId": 1,
     "firstName": "Michał",
-    "secondName": "Kędziora",
+    "lastName": "Kędziora",
     "academicTitle": "dr inż."
   },
   {
     "lecturerId": 2,
     "firstName": "Arkadiusz",
-    "secondName": "Liber",
+    "lastName": "Liber",
     "academicTitle": "dr inż."
   },
   {
     "lecturerId": 3,
     "firstName": "Anna",
-    "secondName": "Sałamacha",
+    "lastName": "Sałamacha",
     "academicTitle": "dr inż."
   },
   {
     "lecturerId": 4,
     "firstName": "Anna",
-    "secondName": "Zabłocka-Kluczka",
+    "lastName": "Zabłocka-Kluczka",
     "academicTitle": "dr inż."
   },
   {
     "lecturerId": 5,
     "firstName": "Agnieszka",
-    "secondName": "Indyka-Piasecka",
+    "lastName": "Indyka-Piasecka",
     "academicTitle": "dr inż."
   },
   {
     "lecturerId": 6,
     "firstName": "Bogumiła",
-    "secondName": "Hnatkowska",
+    "lastName": "Hnatkowska",
     "academicTitle": "dr inż."
   },
   {
     "lecturerId": 7,
     "firstName": "Wojciech",
-    "secondName": "Thomas",
+    "lastName": "Thomas",
     "academicTitle": "dr inż."
   },
   {
     "lecturerId": 8,
     "firstName": "Artur",
-    "secondName": "Wilczek",
+    "lastName": "Wilczek",
     "academicTitle": "dr inż."
   },
   {
     "lecturerId": 9,
     "firstName": "Rafał",
-    "secondName": "Palak",
+    "lastName": "Palak",
     "academicTitle": "dr inż."
   },
   {
     "lecturerId": 10,
     "firstName": "Michał",
-    "secondName": "Wójcik",
+    "lastName": "Wójcik",
     "academicTitle": "mgr inż."
   }
 ]

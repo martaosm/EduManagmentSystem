@@ -18,11 +18,12 @@ export class CoursesTableComponent {
   params: any;
 
   colDefs: ColDef[] = [
-    {field: "courseName", headerName: "Nazwa kursu"},
-    {field: "numberOfEctsPoints", headerName: "Liczba punktów ECTS"},
-    {field: "courseType", headerName: "Forma zajęć"},
-    {field: "numberOfZZUHours", headerName: "Liczba godzin ZZU"},
-    {field: "numberOfCNPSHours", headerName: "Liczba godzin CNPS"},
+    {field: "courseNameInPolish", headerName: "Nazwa kursu"},
+    {field: "courseCode", headerName: "Kod kursu"},
+    {field: "numberOfPointsECTS", headerName: "Liczba punktów ECTS"},
+    {field: "classType", headerName: "Forma zajęć"},
+    {field: "numberOfHoursZZU", headerName: "Liczba godzin ZZU"},
+    {field: "numberOfHoursCNPS", headerName: "Liczba godzin CNPS"},
   ];
 
   onGridReady(params: any): void {

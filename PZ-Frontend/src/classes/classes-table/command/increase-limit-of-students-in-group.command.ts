@@ -1,4 +1,4 @@
 export interface IncreaseLimitOfStudentsInGroupCommand {
-  newGroupOccupancyLimit: number,
+  newGroupPlaceLimit: number,
   classId: string,
 }
