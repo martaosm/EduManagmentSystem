@@ -1,24 +1,24 @@
-#account-service-deployment.yaml
+#index-service-deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: account-service-deployment
+  name: index-service-deployment
   namespace: backend
   labels:
-    app: account-service
+    app: index-service
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: account-service
+      app: index-service
   template:
     metadata:
       labels:
-        app: account-service
+        app: index-service
     spec:
       containers:
-        - name: account-service
-          image: kisiel75311/account_service:v1.1 #change this to your own image
+        - name: index-service
+          image: kisiel75311/index_service:v1.1 #change this to your own image
           ports:
             - containerPort: 8080
           env:
