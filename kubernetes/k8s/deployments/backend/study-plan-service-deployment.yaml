@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: study-plan-service
-          image: kisiel75311/study_plan_service:v1.12 #change this to your own image
+          image: kisiel75311/study_plan_service:v1.13 #change this to your own image
           ports:
             - containerPort: 8080
           env:
