@@ -24,7 +24,7 @@ public class EnrollmentController {
     @GetMapping("/getCoursesForStudent")
     public List<EnrollCourseResponse> getCoursesForStudent(@RequestParam String studentIndex) throws UnknownHostException {
         List<StudyMajorStudentResponse> studentMajor = enrollmentService.getAllMajorsForStudent(studentIndex);
-        return enrollmentService.getCoursesForStudent(studentMajor.get(0).getStudyPlanCode(), studentMajor.get(0).getSemesterNumber());
+        return enrollmentService.getCoursesForStudent(studentIndex, studentMajor.get(0).getStudyPlanCode(), studentMajor.get(0).getSemesterNumber());
     }
 
     @GetMapping("/getClassesForCourse")

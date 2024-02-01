@@ -1,5 +1,6 @@
 package com.example.EduManagmentSystem.response;
 
+import com.example.EduManagmentSystem.enums.ClassType;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,8 +9,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class EnrollCourseResponse {
-    // courseCode: string,
-    //  courseNameInPolish: string,
-    //  classType: string,
-    //  isStudentEnrolled: boolean,
+    String courseCode;
+    String courseNameInPolish;
+    ClassType classType;
+    Boolean isStudentEnrolled;
 }

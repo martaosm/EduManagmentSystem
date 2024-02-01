@@ -51,7 +51,7 @@ public class EnrollmentService {
         return response;
     }
 
-    public List<SemesterResponse> getCoursesForStudent(String studyPlanCode, int semesterNumber) throws UnknownHostException {
+    public List<EnrollCourseResponse> getCoursesForStudent(String studentIndex, String studyPlanCode, int semesterNumber) throws UnknownHostException {
         //url/port do zmiany
 
         final String HOSTNAME = InetAddress.getLocalHost().getHostName();
@@ -67,7 +67,27 @@ public class EnrollmentService {
                 new ParameterizedTypeReference<>(){},
                 params);
 
-        return courses.getBody();
+        //return courses.getBody();
+
+        List<CourseResponse> studentCourses = courses.getBody()
+                .stream().filter(s -> s.getSemesterNumber() == semesterNumber).toList().get(0).getCourses();
+
+        List<ClassGroupStudentAssign> classGroupStudentAssigns = classGroupStudentAssignRepository.findAllByStudentIndex(studentIndex);
+        //List<ClassGroup> classGroupsStudent = new ArrayList<>();
+        List<String> courseCodesStudent = new ArrayList<>();
+        for(ClassGroupStudentAssign cga : classGroupStudentAssigns){
+            courseCodesStudent.add(classGroupRepository.findById(cga.getGroupCode()).get().getCourseCode());
+            //classGroupsStudent.add(classGroupRepository.findById(cga.getGroupCode()).get());
+        }
+        List<EnrollCourseResponse> responses = new ArrayList<>();
+        for(CourseResponse c : studentCourses){
+            if(courseCodesStudent.contains(c.getCourseCode())){
+                responses.add(EnrollCourseResponseMapper(c, true));
+            }else{
+                responses.add(EnrollCourseResponseMapper(c, false));
+            }
+        }
+        return responses;
     }
 
     public List<ClassGroupResponse> getClassesForCourses(String studyPlanCode, int semesterNumber, String courseCode) throws Exception {
@@ -177,6 +197,15 @@ public class EnrollmentService {
         ClassDateTime classTime = classDateTimeRepository.findAllByGroupCode(classGroup.getGroupCode()).get(0);
         classGroupResponse.setClassDate(classTime.getDate().toString().concat(", ").concat(classTime.getStartTime()));
         return classGroupResponse;
+    }
+
+    public EnrollCourseResponse EnrollCourseResponseMapper(CourseResponse course, Boolean isEnrolled){
+        EnrollCourseResponse response = new EnrollCourseResponse();
+        response.setCourseCode(course.getCourseCode());
+        response.setCourseNameInPolish(course.getNameInPolish());
+        response.setClassType(course.getClassType());
+        response.setIsStudentEnrolled(isEnrolled);
+        return response;
     }
 
 }
