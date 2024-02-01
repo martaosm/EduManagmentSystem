@@ -54,7 +54,7 @@ public class EnrollmentService {
     public List<EnrollCourseResponse> getCoursesForStudent(String studentIndex, String studyPlanCode, int semesterNumber) throws UnknownHostException {
         //url/port do zmiany
 
-        final String HOSTNAME = InetAddress.getLocalHost().getHostName();
+        //final String HOSTNAME = InetAddress.getLocalHost().getHostName();
         HashMap<String, Object> params = new HashMap<>();
         params.put("studyPlanCode", studyPlanCode);
 
@@ -67,7 +67,6 @@ public class EnrollmentService {
                 new ParameterizedTypeReference<>(){},
                 params);
 
-        //return courses.getBody();
 
         List<CourseResponse> studentCourses = courses.getBody()
                 .stream().filter(s -> s.getSemesterNumber() == semesterNumber).toList().get(0).getCourses();
@@ -93,7 +92,7 @@ public class EnrollmentService {
     public List<ClassGroupResponse> getClassesForCourses(String studyPlanCode, int semesterNumber, String courseCode) throws Exception {
         //url/port do zmiany
 
-        final String HOSTNAME = InetAddress.getLocalHost().getHostName();
+        //final String HOSTNAME = InetAddress.getLocalHost().getHostName();
         HashMap<String, Object> params = new HashMap<>();
         params.put("studyPlanCode", studyPlanCode);
         params.put("semesterNumber", semesterNumber);
