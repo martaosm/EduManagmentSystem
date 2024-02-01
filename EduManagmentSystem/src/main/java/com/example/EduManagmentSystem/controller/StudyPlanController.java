@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://pz-frontend.frontend.svc.cluster.local")
+@CrossOrigin(origins = "*")
 public class StudyPlanController {
 
 
