@@ -47,3 +47,53 @@ spec:
                 secretKeyRef:
                   name: mariadb-secret
                   key: mariadb-database
+            - name: STUDY_PLAN_SERVICE_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-configmap
+                  key: study_plan_service_host
+            - name: STUDY_PLAN_SERVICE_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-configmap
+                  key: study_plan_service_port
+            - name: TIMETABLE_SERVICE_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-configmap
+                  key: timetable_service_host
+            - name: TIMETABLE_SERVICE_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-configmap
+                  key: timetable_service_port
+            - name: ENROLLMENT_SERVICE_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-configmap
+                  key: enrollment_service_host
+            - name: ENROLLMENT_SERVICE_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-configmap
+                  key: enrollment_service_port
+            - name: INDEX_SERVICE_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-configmap
+                  key: index_service_host
+            - name: INDEX_SERVICE_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-configmap
+                  key: index_service_port
+            - name: ACCOUNT_SERVICE_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-configmap
+                  key: account_service_host
+            - name: ACCOUNT_SERVICE_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-configmap
+                  key: account_service_port
