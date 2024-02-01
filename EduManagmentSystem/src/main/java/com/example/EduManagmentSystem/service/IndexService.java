@@ -68,13 +68,13 @@ public class IndexService {
 
         ResponseEntity<List<SemesterResponse>> courses
                 = new RestTemplate().exchange(
-                "http://".concat(HOSTNAME).concat(":8083/getCoursesForStudent?studyPlanCode={studyPlanCode}"),
+                "http://".concat(System.getenv("ENROLLMENT_SERVICE_HOST"))
+                                        .concat(":").concat("ENROLLMENT_SERVICE_PORT")
+                                        .concat("/getCoursesForStudent?studyPlanCode={studyPlanCode}"),
                 HttpMethod.GET, null,
                 new ParameterizedTypeReference<>(){},
                 params1);
-        //"http://".concat(System.getenv("STUDY_PLAN_SERVICE_HOST"))
-        //                        .concat(":").concat("STUDY_PLAN_SERVICE_PORT")
-        //                        .concat("/getCoursesForStudent?studyPlanCode={studyPlanCode}"),
+
 
 
         for(SemesterResponse s : courses.getBody()){
