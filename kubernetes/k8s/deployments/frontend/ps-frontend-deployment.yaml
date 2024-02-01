@@ -1,0 +1,34 @@
+#ps-frontent-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ps-frontend-deployment
+  namespace: frontend
+  labels:
+    app: ps-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ps-frontend
+  template:
+    metadata:
+      labels:
+        app: ps-frontend
+    spec:
+      containers:
+        - name: ps-frontend
+          image: kisiel75311/ps_frontend:v1.5
+          ports:
+            - containerPort: 80
+          env:
+            - name: STUDY_PLAN_SERVICE_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: frontend-configmap
+                  key: study_plan_service_host
+            - name: STUDY_PLAN_SERVICE_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: frontend-configmap
+                  key: study_plan_service_port

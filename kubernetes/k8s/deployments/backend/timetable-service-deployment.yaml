@@ -1,0 +1,49 @@
+#timetable-service-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: timetable-service-deployment
+  namespace: backend
+  labels:
+    app: timetable-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: timetable-service
+  template:
+    metadata:
+      labels:
+        app: timetable-service
+    spec:
+      containers:
+        - name: timetable-service
+          image: kisiel75311/timetable_service:v1.1 #change this to your own image
+          ports:
+            - containerPort: 8080
+          env:
+            - name: DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-configmap
+                  key: db_host
+            - name: DB_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-configmap
+                  key: db_port
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: mariadb-secret
+                  key: mariadb-user
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mariadb-secret
+                  key: mariadb-user-password
+            - name: DB_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: mariadb-secret
+                  key: mariadb-database
