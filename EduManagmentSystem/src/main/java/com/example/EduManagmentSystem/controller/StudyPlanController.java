@@ -2,6 +2,7 @@ package com.example.EduManagmentSystem.controller;
 
 
 import com.example.EduManagmentSystem.repository.SemesterRepository;
+import com.example.EduManagmentSystem.request.NewCourseRequest;
 import com.example.EduManagmentSystem.response.AddCourseResponse;
 import com.example.EduManagmentSystem.response.CourseResponse;
 import com.example.EduManagmentSystem.response.SemesterResponse;
@@ -30,9 +31,10 @@ public class StudyPlanController {
         return studyPlanService.archiveStudyPlan(studyPlanCode);
     }
 
+
     @PostMapping("/addCourseToStudyPlan")
-    public SemesterResponse addCourseToStudyPlan(@RequestParam String studyPlanCode, @RequestParam String courseCode, @RequestParam int semesterNumber) throws Exception {
-        return studyPlanService.addCourseToStudyPlan(studyPlanCode, courseCode, semesterNumber);
+    public SemesterResponse addCourseToStudyPlan(@RequestBody NewCourseRequest request) throws Exception {
+        return studyPlanService.addCourseToStudyPlan(request.getStudyPlanId(), request.getCourseId(), request.getSemester());
     }
 
 
