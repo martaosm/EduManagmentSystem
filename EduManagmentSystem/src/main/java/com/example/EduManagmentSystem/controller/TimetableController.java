@@ -12,6 +12,7 @@ import java.net.UnknownHostException;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class TimetableController {
 
     @Autowired
