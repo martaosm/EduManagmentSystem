@@ -162,6 +162,8 @@ public class IndexService {
         response.setGroupCode(classGroup.getGroupCode());
         Course course = courseRepository.findById(classGroup.getCourseCode()).get();
         response.setCourseName(course.getNameInPolish());
+        response.setCourseCode(course.getCourseCode());
+        response.setRegisteredStudent(classGroup.getRegisteredStudents());
         return response;
     }
 
@@ -180,8 +182,8 @@ public class IndexService {
                     response.setFirstName(personalData.getName());
                     response.setLastName(personalData.getSurname());
                     if(grade != null){
-                        response.setGradeId(grade.getId());
-                        response.setGradeValue(grade.getGradeValue().toString());
+                        //response.setGradeId(grade.getId());
+                        response.setGradeValue(grade.getGradeValue());
                     }
                     return response;
                 }else{

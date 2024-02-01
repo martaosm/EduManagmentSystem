@@ -12,5 +12,7 @@ public class ClassGroupTeacherResponse {
     String groupCode;
     String courseName;
     ClassType classType;
+    String courseCode;
     String classDate;
+    int registeredStudent;
 }
