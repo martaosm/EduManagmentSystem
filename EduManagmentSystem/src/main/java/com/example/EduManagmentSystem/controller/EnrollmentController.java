@@ -38,10 +38,10 @@ public class EnrollmentController {
         return enrollmentService.signForClass(request.getStudentIndex(), request.getClassId());
     }
 
-    @GetMapping("/findAllClassGroupsWithPlaceLimitReached")
-    public List<ClassGroupResponse> findAllClassGroupsWithPlaceLimitReached(){
-        return enrollmentService.findAllClassGroupsWithPlaceLimitReached();
-    }
+//    @GetMapping("/findAllClassGroupsWithPlaceLimitReached")
+//    public List<ClassGroupResponse> findAllClassGroupsWithPlaceLimitReached(){
+//        return enrollmentService.findAllClassGroupsWithPlaceLimitReached();
+//    }
 
     @PutMapping("/increasePlaceLimit")
     public ClassGroupResponse increasePlaceLimit(@RequestBody NewPlaceLimitRequest request) throws Exception {

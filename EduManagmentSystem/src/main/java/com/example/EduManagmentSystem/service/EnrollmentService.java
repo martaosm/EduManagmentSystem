@@ -77,7 +77,7 @@ public class EnrollmentService {
         HashMap<String, Object> params = new HashMap<>();
         params.put("studyPlanCode", studyPlanCode);
         params.put("semesterNumber", semesterNumber);
-
+        
         ResponseEntity<List<ClassGroupResponse>> classes
                 = new RestTemplate().exchange(
                 "http://".concat(System.getenv("TIMETABLE_SERVICE_HOST"))
@@ -123,16 +123,16 @@ public class EnrollmentService {
         }
     }
 
-    public List<ClassGroupResponse> findAllClassGroupsWithPlaceLimitReached(){
-        List<ClassGroupResponse> response = new ArrayList<>();
-        List<ClassGroup> classGroups = classGroupRepository.findAll();
-        for(ClassGroup cg : classGroups){
-            if(cg.getRegisteredStudents() == cg.getPlaceLimit()){
-                response.add(ClassGroupResponseMapper(cg));
-            }
-        }
-        return response;
-    }
+//    public List<ClassGroupResponse> findAllClassGroupsWithPlaceLimitReached(){
+//        List<ClassGroupResponse> response = new ArrayList<>();
+//        List<ClassGroup> classGroups = classGroupRepository.findAll();
+//        for(ClassGroup cg : classGroups){
+//            if(cg.getRegisteredStudents() == cg.getPlaceLimit()){
+//                response.add(ClassGroupResponseMapper(cg));
+//            }
+//        }
+//        return response;
+//    }
 
     public ClassGroupResponse increasePlaceLimit(String groupCode, int newPlaceLimit) throws Exception {
         if(classGroupRepository.findById(groupCode).isPresent()){
@@ -166,16 +166,17 @@ public class EnrollmentService {
     }
 
     public ClassGroupResponse ClassGroupResponseMapper(ClassGroup classGroup){
+        TeacherResponse teacherResponse = new TeacherResponse();
+//        if(classGroup.getTeacherId()!=null && teacherRepository.findById(classGroup.getTeacherId()).isPresent()){
+//            teacherResponse = TeacherResponseMapper(teacherRepository.findById(classGroup.getTeacherId()).get());
+//        }
         ClassGroupResponse classGroupResponse = new ClassGroupResponse(classGroup.getGroupCode(),
                 courseRepository.findById(classGroup.getCourseCode()).get().getNameInPolish(),
                 classGroup.getPlaceLimit(), classGroup.getRegisteredStudents(), ClassType.values()[classGroup.getClassTypeId().intValue() - 1],
-                null, classGroup.getCourseCode());
-        List<ClassDateTime> classTimesList = classDateTimeRepository.findAllByGroupCode(classGroup.getGroupCode());
-        classGroupResponse.setClassTimes(new ArrayList<>());
-        for (ClassDateTime cdt : classTimesList) {
-            ClassTimeResponse ctr = new ClassTimeResponse(cdt.getDate(), cdt.getStartTime(), cdt.getDurationTimeInMin());
-            classGroupResponse.getClassTimes().add(ctr);
-        }
+                teacherResponse, classGroup.getCourseCode());
+        ClassDateTime classTime = classDateTimeRepository.findAllByGroupCode(classGroup.getGroupCode()).get(0);
+        classGroupResponse.setClassDate(classTime.getDate().toString().concat(", ").concat(classTime.getStartTime()));
         return classGroupResponse;
     }
+
 }
