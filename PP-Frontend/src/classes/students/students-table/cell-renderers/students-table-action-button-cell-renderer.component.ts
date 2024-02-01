@@ -9,6 +9,7 @@ import {ClassesRestService} from "../../../rest/classes-rest.service";
 import {PredefinedGradeValues} from "../../../../shared/enum/predefined-grade-values";
 import {AuthenticationService} from "../../../../app/authentication.service";
 import {AddGradeCommand} from "../../../classes-table/command/add-grade.command";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'students-table-action-button-cell-renderer',
@@ -31,6 +32,7 @@ export class StudentsTableActionButtonCellRendererComponent implements ICellRend
   private dialog: MatDialog = inject(MatDialog);
   private classesRestService: ClassesRestService = inject(ClassesRestService);
   private authenticationService: AuthenticationService = inject(AuthenticationService);
+  private activatedRoute: ActivatedRoute = inject(ActivatedRoute);
 
   agInit(params: any): void {
     this.params = params;
@@ -49,10 +51,12 @@ export class StudentsTableActionButtonCellRendererComponent implements ICellRend
 
     dialogRef.afterClosed().subscribe((selectedGrade: PredefinedGradeValues) => {
       if (selectedGrade) {
+        const groupCode = this.activatedRoute.snapshot.paramMap.get('groupCode');
         const addGradeCommand = {
-          lecturerId: this.authenticationService.authenticatedLecturerId,
-          studentId: this.params.data.studentId,
-          grade: selectedGrade
+          teacherId: this.authenticationService.authenticatedLecturerId,
+          studentIndex: this.params.data.index,
+          gradeValue: selectedGrade,
+          groupCode: groupCode,
         } as AddGradeCommand;
         this.classesRestService.addGrade(addGradeCommand);
       }

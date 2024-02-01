@@ -19,10 +19,10 @@ export class StudentsTableComponent {
   students!: StudentQueryModel[];
 
   colDefs: ColDef[] = [
-    {field: "studentId", headerName: "Indeks"},
+    {field: "index", headerName: "Indeks"},
     {field: "firstName", headerName: "Imię"},
     {field: "lastName", headerName: "Nazwisko"},
-    {field: "grade", headerName: "Ocena"},
+    {field: "gradeValue", headerName: "Ocena"},
     {
       field: "actions", headerName: "", width: 100,
       cellRenderer: StudentsTableActionButtonCellRendererComponent,

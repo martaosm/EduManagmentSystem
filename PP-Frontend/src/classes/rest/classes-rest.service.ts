@@ -13,12 +13,12 @@ export class ClassesRestService {
   constructor(private http: HttpClient) {
   }
 
-  classesUrl = 'http://localhost:8080/classes' // TODO WB: Adjust integration with backend
+  indexServiceUrl = 'http://index-service.backend.svc.cluster.local:8080'
 
-  getClassesForLecturer(lecturerId: string): Observable<ClassesQueryModel[]> {
+  getClassesForLecturer(teacherId: string): Observable<ClassesQueryModel[]> {
     let queryParams = new HttpParams();
-    queryParams = queryParams.append("lecturerId", lecturerId);
-    return this.http.get<ClassesQueryModel[]>(this.classesUrl, {params: queryParams})
+    queryParams = queryParams.append("teacherId", teacherId);
+    return this.http.get<ClassesQueryModel[]>(this.indexServiceUrl + '/getAllClassesForTeacher', {params: queryParams})
       .pipe(
         catchError(error => {
           console.error('Data not received from server', error);
@@ -30,7 +30,7 @@ export class ClassesRestService {
   getStudentsForClass(groupCode: string): Observable<StudentQueryModel[]> {
     let queryParams = new HttpParams();
     queryParams = queryParams.append("groupCode", groupCode);
-    return this.http.get<StudentQueryModel[]>(this.classesUrl,{params: queryParams})
+    return this.http.get<StudentQueryModel[]>(this.indexServiceUrl + '/getAllStudentsForClassGroup',{params: queryParams})
       .pipe(
         catchError(error => {
           console.error('Data not received from server', error);
@@ -41,6 +41,8 @@ export class ClassesRestService {
 
   addGrade(addGradeCommand: AddGradeCommand) {
     //TODO WB: Adjust integration with backend
+    // post
+    // url/addNewGrade
   }
 
   private loadClassesFromFile(): Observable<ClassesQueryModel[]> {

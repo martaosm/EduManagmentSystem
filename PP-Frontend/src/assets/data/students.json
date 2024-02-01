@@ -1,32 +1,32 @@
 [
   {
-    "studentId": "123456",
+    "index": "123456",
     "firstName": "Adrian",
     "lastName": "Kowalski",
-    "grade": null
+    "gradeValue": null
   },
   {
-    "studentId": "123457",
+    "index": "123457",
     "firstName": "Jan",
     "lastName": "Polak",
-    "grade": 3.5
+    "gradeValue": 3.5
   },
   {
-    "studentId": "123458",
+    "index": "123458",
     "firstName": "Mariusz",
     "lastName": "Skrzek",
-    "grade": null
+    "gradeValue": null
   },
   {
-    "studentId": "123459",
+    "index": "123459",
     "firstName": "Anna",
     "lastName": "Kowalska",
-    "grade": 4
+    "gradeValue": 4
   },
   {
-    "studentId": "123460",
+    "index": "123460",
     "firstName": "Zuzanna",
     "lastName": "Maj",
-    "grade": 3
+    "gradeValue": 3
   }
 ]
