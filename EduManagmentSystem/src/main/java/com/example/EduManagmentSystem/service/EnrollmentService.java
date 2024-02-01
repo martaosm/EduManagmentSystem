@@ -51,7 +51,7 @@ public class EnrollmentService {
         return response;
     }
 
-    public List<SemesterResponse> getCoursesForStudent(String studyPlanCode) throws UnknownHostException {
+    public List<SemesterResponse> getCoursesForStudent(String studyPlanCode, int semesterNumber) throws UnknownHostException {
         //url/port do zmiany
 
         final String HOSTNAME = InetAddress.getLocalHost().getHostName();
