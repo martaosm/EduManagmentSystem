@@ -54,7 +54,7 @@ export class SemestersComponent implements OnInit {
     this.router.navigate(['study-plan/' + this.studyPlanId + '/semester/' + semester])
   }
 
-  onAddCourseClicked() {
+  onAddCourseClicked(semester: number) {
     this.coursesRestService.getGeneralEducationCourses().subscribe((courses: GeneralEducationCourseQueryModel[]) => {
       const dialogRef = this.dialog.open(AddGeneralEducationCourseDialogComponent, {
         width: '500px',
@@ -71,7 +71,7 @@ export class SemestersComponent implements OnInit {
           const addCourseToStudyPlanCommand = {
             courseId: selectedCourse.courseId,
             studyPlanId: studyPlanId,
-            semester: 1 // TODO WB: get selected semester
+            semester: semester
           } as AddCourseToStudyPlanCommand;
           this.coursesRestService.addGeneralEducationCourseToStudyPlan(addCourseToStudyPlanCommand)
         }

@@ -4,7 +4,7 @@ export interface ClassesQueryModel {
   groupCode: string,
   courseName: string,
   classType: string,
-  lecturer: LecturerQueryModel | null,
+  teacherResponse: LecturerQueryModel | null,
   courseCode: string,
   classDate: string,
   registeredStudents: number,

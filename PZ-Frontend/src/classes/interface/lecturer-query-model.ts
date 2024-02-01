@@ -1,5 +1,5 @@
 export interface LecturerQueryModel {
-  lecturerId: number,
+  id: number,
   firstName: string,
   lastName: string,
   academicTitle: string,

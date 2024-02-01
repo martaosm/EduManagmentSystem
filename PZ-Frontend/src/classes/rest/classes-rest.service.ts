@@ -16,13 +16,14 @@ export class ClassesRestService {
   constructor(private http: HttpClient) {
   }
 
-  classesUrl = 'http://localhost:8080/classes' // TODO WB: Adjust integration with backend
+  timetableServiceUrl = 'timetable-service.backend.svc.cluster.local:8080';
+  enrollmentServiceUrl = 'enrollment-service.backend.svc.cluster.local:8080';
 
   getClasses(studyPlanId: string, semester: number): Observable<ClassesQueryModel[]> {
     let queryParams = new HttpParams();
     queryParams = queryParams.append("studyPlanCode", studyPlanId);
     queryParams = queryParams.append("semesterNumber", semester);
-    return this.http.get<ClassesQueryModel[]>(this.classesUrl, {params: queryParams})
+    return this.http.get<ClassesQueryModel[]>(this.timetableServiceUrl + '/getTimetableForStudyPlan', {params: queryParams})
       .pipe(
         catchError(error => {
           console.error('Data not received from server', error);
@@ -32,7 +33,7 @@ export class ClassesRestService {
   }
 
   getLecturers(): Observable<LecturerQueryModel[]> {
-    return this.http.get<LecturerQueryModel[]>(this.classesUrl + '/lecturers')
+    return this.http.get<LecturerQueryModel[]>(this.timetableServiceUrl + '/getAllTeachers')
       .pipe(
         catchError(error => {
           console.error('Data not received from server', error);
@@ -44,11 +45,14 @@ export class ClassesRestService {
   assignLecturerToClass(assignLecturerToClassCommand: AssignLecturerToClassCommand) {
     console.log(assignLecturerToClassCommand);
     // TODO WB: send update to backend
+    // post
+    // url/setTeacherForClassGroup
   }
 
   increaseLimitOfStudentsInGroup(increaseLimitOfStudentsInGroupCommand: IncreaseLimitOfStudentsInGroupCommand) {
     console.log(increaseLimitOfStudentsInGroupCommand);
     // TODO WB: send update to backend
+    // enrollmentUrl/increasePlaceLimit
   }
 
   private loadClassesFromFile(): Observable<ClassesQueryModel[]> {

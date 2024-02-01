@@ -21,12 +21,12 @@ export class ClassesTableComponent {
   classes!: ClassesQueryModel[];
 
   colDefs: ColDef[] = [
-    {field: "courseNameInPolish", headerName: "Nazwa kursu", tooltipValueGetter: params => params.value},
+    {field: "nameInPolish", headerName: "Nazwa kursu", tooltipValueGetter: params => params.value},
     {field: "classDate", headerName: "Termin zajęć"},
     {field: "classType", headerName: "Typ zajęć"},
     {field: "classId", headerName: "Kod grupy zajęciowej"},
-    {field: "lecturer", headerName: "Prowadzący", valueFormatter: (params: any) => LecturerUtils.formatLecturer(params.data.lecturer)},
-    {field: "groupOccupancy", headerName: "Zajętość grupy", valueFormatter: (params: any) => ClassesUtil.formatGroupOccupancy(params.data.numberOfPlacesTaken, params.data.numberOfPlacesOverall)},
+    {field: "teacherResponse", headerName: "Prowadzący", valueFormatter: (params: any) => LecturerUtils.formatLecturer(params.data.teacherResponse)},
+    {field: "groupOccupancy", headerName: "Zajętość grupy", valueFormatter: (params: any) => ClassesUtil.formatGroupOccupancy(params.data.registeredStudents, params.data.placeLimit)},
     {
       field: "actions", headerName: "", width: 100,
       cellRenderer: ActionButtonCellRendererComponent,

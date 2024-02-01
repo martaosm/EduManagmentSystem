@@ -82,7 +82,7 @@ export class ActionButtonCellRendererComponent implements ICellRendererAngularCo
 
     dialogRef.afterClosed().subscribe(newGroupOccupancyLimit => {
       const increaseLimitOfStudentsInGroupCommand = {
-        newGroupPlaceLimit: newGroupOccupancyLimit,
+        newClassPlaceLimit: newGroupOccupancyLimit,
         classId: this.params.data.classId
       } as IncreaseLimitOfStudentsInGroupCommand;
       this.classesRestService.increaseLimitOfStudentsInGroup(increaseLimitOfStudentsInGroupCommand)

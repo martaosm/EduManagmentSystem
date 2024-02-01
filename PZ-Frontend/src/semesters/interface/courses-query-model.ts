@@ -1,6 +1,6 @@
 export interface CoursesQueryModel {
   courseCode: string,
-  courseNameInPolish: string,
+  nameInPolish: string,
   numberOfPointsECTS: number,
   numberOfHoursZZU: number,
   numberOfHoursCNPS: number

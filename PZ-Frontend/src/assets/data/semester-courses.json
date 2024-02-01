@@ -1,10 +1,10 @@
 [
   {
-    "semester": 1,
+    "semesterNumber": 1,
     "courses": [
       {
         "courseCode": "W13IST-SM0001W",
-        "courseNameInPolish": "Metody planowania i analizy eksperymentów",
+        "nameInPolish": "Metody planowania i analizy eksperymentów",
         "numberOfPointsECTS": 1,
         "numberOfHoursZZU": 15,
         "numberOfHoursCNPS": 30,
@@ -12,7 +12,7 @@
       },
       {
         "courseCode": "W11IST-SM0001W",
-        "courseNameInPolish": "Fizyczne podstawy współczesnej informatyki",
+        "nameInPolish": "Fizyczne podstawy współczesnej informatyki",
         "numberOfPointsECTS": 1,
         "numberOfHoursZZU": 15,
         "numberOfHoursCNPS": 30,
@@ -20,7 +20,7 @@
       },
       {
         "courseCode": "W04IST-SM0201L",
-        "courseNameInPolish": "Statystyka w zastosowaniach",
+        "nameInPolish": "Statystyka w zastosowaniach",
         "numberOfPointsECTS": 3,
         "numberOfHoursZZU": 30,
         "numberOfHoursCNPS": 90,
@@ -28,7 +28,7 @@
       },
       {
         "courseCode": "W04IST-SM0204W",
-        "courseNameInPolish": "Analiza biznesowa i systemowa",
+        "nameInPolish": "Analiza biznesowa i systemowa",
         "numberOfPointsECTS": 3,
         "numberOfHoursZZU": 30,
         "numberOfHoursCNPS": 90,
@@ -36,7 +36,7 @@
       },
       {
         "courseCode": "W04IST-SM0204L",
-        "courseNameInPolish": "Analiza biznesowa i systemowa",
+        "nameInPolish": "Analiza biznesowa i systemowa",
         "numberOfPointsECTS": 2,
         "numberOfHoursZZU": 30,
         "numberOfHoursCNPS": 60,
@@ -44,7 +44,7 @@
       },
       {
         "courseCode": "W04IST-SM0205W",
-        "courseNameInPolish": "Projekt i implementacja systemów webowych",
+        "nameInPolish": "Projekt i implementacja systemów webowych",
         "numberOfPointsECTS": 1,
         "numberOfHoursZZU": 15,
         "numberOfHoursCNPS": 30,
@@ -52,7 +52,7 @@
       },
       {
         "courseCode": "W04IST-SM0205L",
-        "courseNameInPolish": "Projekt i implementacja systemów webowych",
+        "nameInPolish": "Projekt i implementacja systemów webowych",
         "numberOfPointsECTS": 3,
         "numberOfHoursZZU": 30,
         "numberOfHoursCNPS": 90,
@@ -60,7 +60,7 @@
       },
       {
         "courseCode": "W04IST-SM0210W",
-        "courseNameInPolish": "Programowanie współbieżne i funkcyjne",
+        "nameInPolish": "Programowanie współbieżne i funkcyjne",
         "numberOfPointsECTS": 3,
         "numberOfHoursZZU": 30,
         "numberOfHoursCNPS": 60,
@@ -68,7 +68,7 @@
       },
       {
         "courseCode": "W04IST-SM0210L",
-        "courseNameInPolish": "Programowanie współbieżne i funkcyjne",
+        "nameInPolish": "Programowanie współbieżne i funkcyjne",
         "numberOfPointsECTS": 2,
         "numberOfHoursZZU": 30,
         "numberOfHoursCNPS": 90,
@@ -76,7 +76,7 @@
       },
       {
         "courseCode": "W04IST-SM0202P",
-        "courseNameInPolish": "Projekt badawczo-rozwojowy w inżynierii oprogramowania",
+        "nameInPolish": "Projekt badawczo-rozwojowy w inżynierii oprogramowania",
         "numberOfPointsECTS": 7,
         "numberOfHoursZZU": 75,
         "numberOfHoursCNPS": 210,
@@ -84,7 +84,7 @@
       },
       {
         "courseCode": "W04IST-SM0203S",
-        "courseNameInPolish": "Zwinne wytwarzanie oprogramowania",
+        "nameInPolish": "Zwinne wytwarzanie oprogramowania",
         "numberOfPointsECTS": 2,
         "numberOfHoursZZU": 15,
         "numberOfHoursCNPS": 60,
@@ -93,11 +93,11 @@
     ]
   },
   {
-    "semester": 2,
+    "semesterNumber": 2,
     "courses": [
       {
         "courseCode": "W08IST-SM0004W",
-        "courseNameInPolish": "Podstawy biznesu i ochrona własności intelektualnej",
+        "nameInPolish": "Podstawy biznesu i ochrona własności intelektualnej",
         "numberOfPointsECTS": 3,
         "numberOfHoursZZU": 30,
         "numberOfHoursCNPS": 90,
@@ -105,7 +105,7 @@
       },
       {
         "courseCode": "W04IST-SM0209W",
-        "courseNameInPolish": "Projektowanie systemów informatycznych",
+        "nameInPolish": "Projektowanie systemów informatycznych",
         "numberOfPointsECTS": 2,
         "numberOfHoursZZU": 15,
         "numberOfHoursCNPS": 60,
@@ -113,7 +113,7 @@
       },
       {
         "courseCode": "W04IST-SM0209P",
-        "courseNameInPolish": "Projektowanie systemów informatycznych",
+        "nameInPolish": "Projektowanie systemów informatycznych",
         "numberOfPointsECTS": 3,
         "numberOfHoursZZU": 30,
         "numberOfHoursCNPS": 90,
@@ -121,7 +121,7 @@
       },
       {
         "courseCode": "W04IST-SM0215G",
-        "courseNameInPolish": "DevOps – technologie i narzędzia",
+        "nameInPolish": "DevOps – technologie i narzędzia",
         "numberOfPointsECTS": 4,
         "numberOfHoursZZU": 45,
         "numberOfHoursCNPS": 120,
@@ -129,7 +129,7 @@
       },
       {
         "courseCode": "W04IST-SM0001P",
-        "courseNameInPolish": "Praca dyplomowa I",
+        "nameInPolish": "Praca dyplomowa I",
         "numberOfPointsECTS": 2,
         "numberOfHoursZZU": 30,
         "numberOfHoursCNPS": 60,
@@ -137,7 +137,7 @@
       },
       {
         "courseCode": "W04IST-SM0214W",
-        "courseNameInPolish": "Bezpieczeństwo systemów webowych i mobilnych",
+        "nameInPolish": "Bezpieczeństwo systemów webowych i mobilnych",
         "numberOfPointsECTS": 2,
         "numberOfHoursZZU": 30,
         "numberOfHoursCNPS": 60,
@@ -145,7 +145,7 @@
       },
       {
         "courseCode": "W04IST-SM0214S",
-        "courseNameInPolish": "Bezpieczeństwo systemów webowych i mobilnych",
+        "nameInPolish": "Bezpieczeństwo systemów webowych i mobilnych",
         "numberOfPointsECTS": 2,
         "numberOfHoursZZU": 30,
         "numberOfHoursCNPS": 60,
@@ -153,7 +153,7 @@
       },
       {
         "courseCode": "W04IST-SM0211G",
-        "courseNameInPolish": "Zastosowanie rozwiązań chmurowych w aplikacjach webowych",
+        "nameInPolish": "Zastosowanie rozwiązań chmurowych w aplikacjach webowych",
         "numberOfPointsECTS": 4,
         "numberOfHoursZZU": 45,
         "numberOfHoursCNPS": 120,
@@ -161,7 +161,7 @@
       },
       {
         "courseCode": "W04IST-SM0212W",
-        "courseNameInPolish": "Zaawansowane systemy baz danych",
+        "nameInPolish": "Zaawansowane systemy baz danych",
         "numberOfPointsECTS": 1,
         "numberOfHoursZZU": 15,
         "numberOfHoursCNPS": 30,
@@ -169,7 +169,7 @@
       },
       {
         "courseCode": "W04IST-SM0212P",
-        "courseNameInPolish": "Zaawansowane systemy baz danych",
+        "nameInPolish": "Zaawansowane systemy baz danych",
         "numberOfPointsECTS": 2,
         "numberOfHoursZZU": 30,
         "numberOfHoursCNPS": 60,
@@ -177,7 +177,7 @@
       },
       {
         "courseCode": "W04IST-SM0213W",
-        "courseNameInPolish": "Inżynieria pozyskiwania i ochrony wiedzy z danych i baz danych",
+        "nameInPolish": "Inżynieria pozyskiwania i ochrony wiedzy z danych i baz danych",
         "numberOfPointsECTS": 1,
         "numberOfHoursZZU": 15,
         "numberOfHoursCNPS": 30,
@@ -185,7 +185,7 @@
       },
       {
         "courseCode": "W04IST-SM0213P",
-        "courseNameInPolish": "Inżynieria pozyskiwania i ochrony wiedzy z danych i baz danych",
+        "nameInPolish": "Inżynieria pozyskiwania i ochrony wiedzy z danych i baz danych",
         "numberOfPointsECTS": 3,
         "numberOfHoursZZU": 30,
         "numberOfHoursCNPS": 90,
@@ -194,11 +194,11 @@
     ]
   },
   {
-    "semester": 3,
+    "semesterNumber": 3,
     "courses": [
       {
         "courseCode": "W08IST-SM0005S",
-        "courseNameInPolish": "Etyka nowych technologii",
+        "nameInPolish": "Etyka nowych technologii",
         "numberOfPointsECTS": 2,
         "numberOfHoursZZU": 15,
         "numberOfHoursCNPS": 60,
@@ -206,7 +206,7 @@
       },
       {
         "courseCode": "W04IST-SM0002D",
-        "courseNameInPolish": "Praca dyplomowa II",
+        "nameInPolish": "Praca dyplomowa II",
         "numberOfPointsECTS": 18,
         "numberOfHoursZZU": 150,
         "numberOfHoursCNPS": 540,
@@ -214,7 +214,7 @@
       },
       {
         "courseCode": "W04IST-SM0003S",
-        "courseNameInPolish": "Seminarium dyplomowe",
+        "nameInPolish": "Seminarium dyplomowe",
         "numberOfPointsECTS": 2,
         "numberOfHoursZZU": 30,
         "numberOfHoursCNPS": 60,
@@ -222,7 +222,7 @@
       },
       {
         "courseCode": "W04IST-SM0207W",
-        "courseNameInPolish": "Przetwarzanie dużych zbiorów danych",
+        "nameInPolish": "Przetwarzanie dużych zbiorów danych",
         "numberOfPointsECTS": 2,
         "numberOfHoursZZU": 30,
         "numberOfHoursCNPS": 60,
@@ -230,7 +230,7 @@
       },
       {
         "courseCode": "W04IST-SM0207P",
-        "courseNameInPolish": "Przetwarzanie dużych zbiorów danych",
+        "nameInPolish": "Przetwarzanie dużych zbiorów danych",
         "numberOfPointsECTS": 3,
         "numberOfHoursZZU": 30,
         "numberOfHoursCNPS": 90,
@@ -238,7 +238,7 @@
       },
       {
         "courseCode": "W04IST-SM0208W",
-        "courseNameInPolish": "Systemy wyszukiwania informacji",
+        "nameInPolish": "Systemy wyszukiwania informacji",
         "numberOfPointsECTS": 1,
         "numberOfHoursZZU": 15,
         "numberOfHoursCNPS": 30,
@@ -246,7 +246,7 @@
       },
       {
         "courseCode": "W04IST-SM0208P",
-        "courseNameInPolish": "Systemy wyszukiwania informacji",
+        "nameInPolish": "Systemy wyszukiwania informacji",
         "numberOfPointsECTS": 2,
         "numberOfHoursZZU": 30,
         "numberOfHoursCNPS": 60,
