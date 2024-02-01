@@ -27,7 +27,8 @@ export class ClassesRestService {
       .pipe(
         catchError(error => {
           console.error('Data not received from server', error);
-          return this.loadClassesFromFile();
+          // return this.loadClassesFromFile();
+          return [];
         })
       );
   }
@@ -37,7 +38,8 @@ export class ClassesRestService {
       .pipe(
         catchError(error => {
           console.error('Data not received from server', error);
-          return this.loadLecturersFromFile();
+          // return this.loadLecturersFromFile();
+          return [];
         })
       );
   }

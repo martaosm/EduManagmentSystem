@@ -22,7 +22,8 @@ export class CoursesRestService {
       .pipe(
         catchError(error => {
           console.error('Data not received from server', error);
-          return this.loadSemesterCoursesFromFile();
+          // return this.loadSemesterCoursesFromFile();
+          return [];
         })
       );
   }

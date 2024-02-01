@@ -18,7 +18,8 @@ export class StudyPlanRestService {
       .pipe(
         catchError(error => {
           console.error('Data not received from server', error);
-          return this.loadStudyPlansFromFile();
+          // return this.loadStudyPlansFromFile();
+          return [];
         })
       );
   }
