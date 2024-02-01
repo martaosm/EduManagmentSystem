@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: pz-frontend
-          image: kisiel75311/pz_frontend:v1.10
+          image: kisiel75311/pz_frontend:v1.11
           ports:
             - containerPort: 80
           env:
