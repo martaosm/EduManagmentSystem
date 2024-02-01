@@ -10,7 +10,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class GradeResponse {
-    GradeValue gradeValue;
+    String gradeValue;
     String courseName;
     ClassType classType;
 }

@@ -6,14 +6,18 @@ import com.example.EduManagmentSystem.enums.GradeValue;
 import com.example.EduManagmentSystem.model.*;
 import com.example.EduManagmentSystem.repository.*;
 import com.example.EduManagmentSystem.request.GradeRequest;
-import com.example.EduManagmentSystem.response.ClassGroupResponse;
-import com.example.EduManagmentSystem.response.ClassGroupTeacherResponse;
-import com.example.EduManagmentSystem.response.GradeResponse;
-import com.example.EduManagmentSystem.response.StudentGradeResponse;
+import com.example.EduManagmentSystem.response.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @Service
@@ -43,14 +47,68 @@ public class IndexService {
     @Autowired
     PersonalDataRepository personalDataRepository;
 
-    public List<GradeResponse> getAllGrades(String studentIndex){
-        List<GradeResponse> responses = new ArrayList<>();
-        List<Grade> grades = gradeRepository.findAllByStudentIndexAndGradeTypeId(studentIndex, GradeType.SEMESTER.getId());
-        for(Grade grade : grades){
-            responses.add(GradeResponseMapper(grade));
+    @Autowired
+    StudentStudyMajorAssignRepository studentStudyMajorAssignRepository;
+
+    @Autowired
+    StudyPlanRepository studyPlanRepository;
+
+
+    public List<AllGradesResponse> getAllGrades(String studentIndex) throws UnknownHostException {
+
+        HashMap<Integer, List<GradeResponse>> response = new HashMap<>();
+
+        List<StudentStudyMajorAssign> majors = studentStudyMajorAssignRepository.findAllByStudentIndex(studentIndex);
+
+        List<AllGradesResponse> allGradesResponses = new ArrayList<>();
+//
+        final String HOSTNAME = InetAddress.getLocalHost().getHostName();
+        HashMap<String, Object> params1 = new HashMap<>();
+        params1.put("studyPlanCode", studyPlanRepository.findByMajorCode(majors.get(0).getStudyMajorCode()).getStudyPlanCode());
+
+        ResponseEntity<List<SemesterResponse>> courses
+                = new RestTemplate().exchange(
+                "http://".concat(HOSTNAME).concat(":8083/getCoursesForStudent?studyPlanCode={studyPlanCode}"),
+                HttpMethod.GET, null,
+                new ParameterizedTypeReference<>(){},
+                params1);
+        //"http://".concat(System.getenv("STUDY_PLAN_SERVICE_HOST"))
+        //                        .concat(":").concat("STUDY_PLAN_SERVICE_PORT")
+        //                        .concat("/getCoursesForStudent?studyPlanCode={studyPlanCode}"),
+
+
+        for(SemesterResponse s : courses.getBody()){
+            response.put(s.getSemesterNumber(), new ArrayList<>());
         }
-        return responses;
+
+        List<ClassGroupStudentAssign> classGroupStudentAssigns = classGroupStudentAssignRepository.findAllByStudentIndex(studentIndex);
+        for(ClassGroupStudentAssign x : classGroupStudentAssigns){
+            for(SemesterResponse r : courses.getBody()){
+                ClassGroup classGroup = classGroupRepository.findById(x.getGroupCode()).get();
+                if(r.getCourses()
+                        .stream().filter(y -> y.getCourseCode()
+                                .equals(classGroup.getCourseCode()))
+                        .toList().size()>0){
+                    response.get(r.getSemesterNumber()).add(GradeResponseMapper(
+                            gradeRepository.findByStudentIndexAndClassGroupCodeAndGradeTypeId(studentIndex, classGroup.getGroupCode(), GradeType.SEMESTER.getId())));
+                }
+            }
+        }
+
+        for(SemesterResponse s : courses.getBody()){
+            AllGradesResponse allGradesResponse = new AllGradesResponse();
+            allGradesResponse.setSemesterNumber(s.getSemesterNumber());
+            allGradesResponse.setGrades(response.get(s.getSemesterNumber()));
+            allGradesResponses.add(allGradesResponse);
+        }
+
+        return allGradesResponses;
+
     }
+    // "http://".concat(System.getenv("STUDY_PLAN_SERVICE_HOST"))
+    //                                .concat(":").concat("STUDY_PLAN_SERVICE_PORT")
+    //                                .concat("/getClassesForCourse?studyPlanCode={studyPlanCode}&semesterNumber={semesterNumber}&courseCode={courseCode}"),
+    //
 
     public List<ClassGroupTeacherResponse> getAllClassesForTeacher(Long teacherId){
         List<ClassGroup> classGroups = classGroupRepository.findAllByTeacherId(teacherId);
@@ -82,7 +140,7 @@ public class IndexService {
 
     public GradeResponse GradeResponseMapper(Grade grade){
         GradeResponse response = new GradeResponse();
-        response.setGradeValue(GradeValue.valueOf(grade.getGradeValue().toString()));
+        response.setGradeValue(grade.getGradeValue().toString());
         ClassGroup classGroup = classGroupRepository.findById(grade.getClassGroupCode()).get();
         Course course = courseRepository.findById(classGroup.getCourseCode()).get();
         response.setCourseName(course.getNameInPolish());

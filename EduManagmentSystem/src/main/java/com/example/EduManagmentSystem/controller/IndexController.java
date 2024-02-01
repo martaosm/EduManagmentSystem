@@ -1,12 +1,14 @@
 package com.example.EduManagmentSystem.controller;
 
 import com.example.EduManagmentSystem.request.GradeRequest;
+import com.example.EduManagmentSystem.response.AllGradesResponse;
 import com.example.EduManagmentSystem.response.ClassGroupTeacherResponse;
-import com.example.EduManagmentSystem.response.GradeResponse;
 import com.example.EduManagmentSystem.response.StudentGradeResponse;
 import com.example.EduManagmentSystem.service.IndexService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.net.UnknownHostException;
 import java.util.List;
 
 @RestController
@@ -16,7 +18,7 @@ public class IndexController {
     IndexService indexService;
 
     @GetMapping("/allStudentGrades")
-    public List<GradeResponse> getAllGradesForStudent(@RequestParam String studentIndex){
+    public List<AllGradesResponse> getAllGradesForStudent(@RequestParam String studentIndex) throws UnknownHostException {
         return indexService.getAllGrades(studentIndex);
     }
 
