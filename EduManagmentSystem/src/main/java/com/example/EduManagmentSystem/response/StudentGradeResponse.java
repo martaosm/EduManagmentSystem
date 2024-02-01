@@ -13,5 +13,5 @@ public class StudentGradeResponse {
     String lastName;
     String index;
     Long gradeId;
-    GradeValue gradeValue;
+    String gradeValue;
 }

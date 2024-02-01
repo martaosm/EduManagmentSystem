@@ -3,6 +3,7 @@ package com.example.EduManagmentSystem.controller;
 import com.example.EduManagmentSystem.request.GradeRequest;
 import com.example.EduManagmentSystem.response.AllGradesResponse;
 import com.example.EduManagmentSystem.response.ClassGroupTeacherResponse;
+import com.example.EduManagmentSystem.response.GradeResponse;
 import com.example.EduManagmentSystem.response.StudentGradeResponse;
 import com.example.EduManagmentSystem.service.IndexService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +34,7 @@ public class IndexController {
     }
 
     @PostMapping("/addNewGrade")
-    public void addNewGrade(@RequestBody GradeRequest request){
-        indexService.addNewGrade(request);
+    public GradeResponse addNewGrade(@RequestBody GradeRequest request) throws Exception {
+        return indexService.addNewGrade(request);
     }
 }

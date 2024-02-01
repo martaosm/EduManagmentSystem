@@ -128,7 +128,7 @@ public class IndexService {
         return responses;
     }
 
-    public void addNewGrade(GradeRequest request){
+    public GradeResponse addNewGrade(GradeRequest request) throws Exception {
         Grade grade = new Grade();
         grade.setGradeTypeId(GradeType.SEMESTER.getId());
         grade.setStudentIndex(request.getStudentIndex());
@@ -136,6 +136,12 @@ public class IndexService {
         grade.setClassGroupCode(request.getGroupCode());
         grade.setTeacherId(request.getTeacherId());
         gradeRepository.save(grade);
+        grade = gradeRepository.findByStudentIndexAndClassGroupCodeAndGradeTypeId(request.getStudentIndex(), request.getGroupCode(), GradeType.SEMESTER.getId());
+        if(grade != null){
+            return GradeResponseMapper(grade);
+        }else{
+            throw new Exception("Grade not saved");
+        }
     }
 
     public GradeResponse GradeResponseMapper(Grade grade){
@@ -173,8 +179,10 @@ public class IndexService {
                     response.setIndex(student.getIndexNumber());
                     response.setFirstName(personalData.getName());
                     response.setLastName(personalData.getSurname());
-                    response.setGradeId(grade.getId());
-                    response.setGradeValue(GradeValue.valueOf(grade.getGradeValue().toString()));
+                    if(grade != null){
+                        response.setGradeId(grade.getId());
+                        response.setGradeValue(grade.getGradeValue().toString());
+                    }
                     return response;
                 }else{
                     throw new Exception("No personal data with this id in DB");
