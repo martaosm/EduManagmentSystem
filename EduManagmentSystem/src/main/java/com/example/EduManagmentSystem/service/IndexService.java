@@ -146,7 +146,7 @@ public class IndexService {
 
     public GradeResponse GradeResponseMapper(Grade grade){
         GradeResponse response = new GradeResponse();
-        response.setGradeValue(grade.getGradeValue().toString());
+        response.setGradeValue(grade.getGradeValue());
         ClassGroup classGroup = classGroupRepository.findById(grade.getClassGroupCode()).get();
         Course course = courseRepository.findById(classGroup.getCourseCode()).get();
         response.setCourseName(course.getNameInPolish());
