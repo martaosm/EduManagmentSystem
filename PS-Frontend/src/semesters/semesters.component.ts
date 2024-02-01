@@ -4,7 +4,7 @@ import {MatTab, MatTabGroup} from "@angular/material/tabs";
 import {SemesterCoursesQueryModel} from "./interface/semester-courses-query-model";
 import {CoursesTableComponent} from "./courses-table/courses-table.component";
 import {CommonModule} from "@angular/common";
-import {CoursesBannerComponent} from "./courses-table/banner/courses-banner.component";
+import {CoursesBannerComponent} from "./banner/courses-banner.component";
 import {MatButton} from "@angular/material/button";
 
 @Component({

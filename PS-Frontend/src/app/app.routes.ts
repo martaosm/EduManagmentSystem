@@ -7,6 +7,8 @@ import {ClassesComponent} from "../classes/classes.component";
 import {ClassesResolver} from "../classes/resolver/classes.resolver";
 import {GradesComponent} from "../grades/grades.component";
 import {GradesResolver} from "../grades/resolver/grades.resolver";
+import {StudentCoursesResolver} from "../enrollment/resolver/student-courses.resolver";
+import {EnrollmentComponent} from "../enrollment/enrollment.component";
 
 export const routes: Routes = [
   {path: 'study-plans', component: StudyPlanComponent, resolve: {studyPlans: StudyPlanResolver}},
@@ -17,4 +19,5 @@ export const routes: Routes = [
     resolve: {classes: ClassesResolver}
   },
   {path: 'grades', component: GradesComponent, resolve: {grades: GradesResolver}},
+  {path: 'enrollment', component: EnrollmentComponent, resolve: {studentCourses: StudentCoursesResolver}},
 ];

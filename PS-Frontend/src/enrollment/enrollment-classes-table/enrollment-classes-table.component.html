@@ -1,0 +1,9 @@
+<ag-grid-angular
+  class="ag-theme-quartz enrollment-classes-table"
+  [rowData]="studentCourses"
+  [columnDefs]="colDefs"
+  (gridReady)="onGridReady($event)"
+  (gridSizeChanged)="onGridReady($event)"
+  domLayout="autoHeight"
+>
+</ag-grid-angular>

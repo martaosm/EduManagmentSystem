@@ -1,0 +1,9 @@
+<span>
+  <button mat-icon-button
+          matTooltip="Zapisz na zajęcia"
+          matTooltipShowDelay="1000"
+          [disabled]="shouldEnrollButtonBeActive"
+          (click)="onEnrollClicked($event)">
+    <mat-icon>add_shopping_cart</mat-icon>
+  </button>
+</span>

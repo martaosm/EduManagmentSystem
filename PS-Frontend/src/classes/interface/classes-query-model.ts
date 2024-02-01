@@ -1,12 +1,12 @@
 import {LecturerQueryModel} from "./lecturer-query-model";
 
 export interface ClassesQueryModel {
-  groupCode: string,
-  courseName: string,
+  courseNameInPolish: string,
+  classDate: string,
   classType: string,
+  classId: string,
   lecturer: LecturerQueryModel | null,
   courseCode: string,
-  classDate: string,
   registeredStudents: number,
   placeLimit: number
 }

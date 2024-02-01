@@ -5,8 +5,8 @@
     "classType": "Laboratorium",
     "classId": "W04IST-SM0214L",
     "lecturer": null,
-    "numberOfPlacesTaken": 16,
-    "numberOfPlacesOverall": 18
+    "registeredStudents": 16,
+    "placeLimit": 18
   },
   {
     "courseNameInPolish": "Bezpieczeństwo systemów webowych i mobilnych",
@@ -19,8 +19,8 @@
       "lastName": "Kędziora",
       "academicTitle": "dr inż."
     },
-    "numberOfPlacesTaken": 12,
-    "numberOfPlacesOverall": 12
+    "registeredStudents": 12,
+    "placeLimit": 12
   },
   {
     "courseNameInPolish": "Bezpieczeństwo systemów webowych i mobilnych",
@@ -33,8 +33,8 @@
       "lastName": "Kędziora",
       "academicTitle": "dr inż."
     },
-    "numberOfPlacesTaken": 22,
-    "numberOfPlacesOverall": 25
+    "registeredStudents": 22,
+    "placeLimit": 25
   },
   {
     "courseNameInPolish": "Inżynieria pozyskiwania i ochrony wiedzy z danych i baz danych",
@@ -47,8 +47,8 @@
       "lastName": "Liber",
       "academicTitle": "dr inż."
     },
-    "numberOfPlacesTaken": 18,
-    "numberOfPlacesOverall": 18
+    "registeredStudents": 18,
+    "placeLimit": 18
   },
   {
     "courseNameInPolish": "Inżynieria pozyskiwania i ochrony wiedzy z danych i baz danych",
@@ -56,8 +56,8 @@
     "classType": "Projekt",
     "classId": "W04IST-SM0213P",
     "lecturer": null,
-    "numberOfPlacesTaken": 16,
-    "numberOfPlacesOverall": 18
+    "registeredStudents": 16,
+    "placeLimit": 18
   },
   {
     "courseNameInPolish": "Inżynieria pozyskiwania i ochrony wiedzy z danych i baz danych",
@@ -70,8 +70,8 @@
       "lastName": "Liber",
       "academicTitle": "dr inż."
     },
-    "numberOfPlacesTaken": 27,
-    "numberOfPlacesOverall": 30
+    "registeredStudents": 27,
+    "placeLimit": 30
   },
   {
     "courseNameInPolish": "Podstawy biznesu i ochrona własności intelektualnej",
@@ -79,7 +79,7 @@
     "classType": "Wykład",
     "classId": "W08IST-SM0004W",
     "lecturer": null,
-    "numberOfPlacesTaken": 10,
-    "numberOfPlacesOverall": 18
+    "registeredStudents": 10,
+    "placeLimit": 18
   }
 ]
