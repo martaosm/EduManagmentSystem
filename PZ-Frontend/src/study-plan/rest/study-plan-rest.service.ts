@@ -11,7 +11,7 @@ export class StudyPlanRestService {
   constructor(private http: HttpClient) {
   }
 
-  studyPlanUrl = 'study-plan-service.backend.svc.cluster.local:8080'
+  studyPlanUrl = 'http://study-plan-service.backend.svc.cluster.local:8080'
 
   getStudyPlans(): Observable<StudyPlanQueryModel[]> {
     return this.http.get<StudyPlanQueryModel[]>(this.studyPlanUrl + '/getAllStudyPlans')

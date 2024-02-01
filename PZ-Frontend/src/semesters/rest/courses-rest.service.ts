@@ -13,7 +13,7 @@ export class CoursesRestService {
   constructor(private http: HttpClient) {
   }
 
-  coursesUrl = 'study-plan-service.backend.svc.cluster.local:8080'
+  coursesUrl = 'http://study-plan-service.backend.svc.cluster.local:8080'
 
   getCourses(studyPlanCode: string): Observable<SemesterCoursesQueryModel[]> {
     let queryParams = new HttpParams();
