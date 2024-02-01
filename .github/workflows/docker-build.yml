@@ -24,10 +24,27 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Extract branch name
-        id: branch
-        shell: bash
-        run: echo "BRANCH_NAME=$(echo ${GITHUB_REF#refs/heads/} | tr '[:upper:]' '[:lower:]' | tr '/' '-')" >> $GITHUB_ENV
+      - name: Get docker image name
+        run: |
+          if [[ "${{ github.ref_name }}" == "timetable_service" ]]; then
+            echo "IMAGE_NAME=timetable_service" >> $GITHUB_ENV
+          elif [[ "${{ github.ref_name }}" == "PP-Frontend" ]]; then
+            echo "IMAGE_NAME=pp_frontend" >> $GITHUB_ENV
+          elif [[ "${{ github.ref_name }}" == "PS-Frontend" ]]; then
+            echo "IMAGE_NAME=ps_frontend" >> $GITHUB_ENV
+          elif [[ "${{ github.ref_name }}" == "PZ-frontend" ]]; then
+            echo "IMAGE_NAME=pz_frontend" >> $GITHUB_ENV
+          elif [[ "${{ github.ref_name }}" == "account_service" ]]; then
+            echo "IMAGE_NAME=account_service" >> $GITHUB_ENV
+          elif [[ "${{ github.ref_name }}" == "enrollment_service" ]]; then
+            echo "IMAGE_NAME=enrollment_service" >> $GITHUB_ENV
+          elif [[ "${{ github.ref_name }}" == "index_service" ]]; then
+            echo "IMAGE_NAME=index_service" >> $GITHUB_ENV
+          elif [[ "${{ github.ref_name }}" == "study_plan_service" ]]; then
+            echo "IMAGE_NAME=study_plan_service" >> $GITHUB_ENV
+          else
+            echo "IMAGE_NAME=${{ github.ref_name }}" >> $GITHUB_ENV
+          fi
       - name: Get the version
         id: timestamp
         run: echo "TIMESTAMP=$(date +%s)" >> $GITHUB_ENV
