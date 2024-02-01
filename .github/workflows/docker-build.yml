@@ -26,11 +26,11 @@ jobs:
       - name: Extract branch name
         id: branch
         shell: bash
-        run: echo "BRANCH_NAME=$(echo ${GITHUB_REF#refs/heads/} | tr '[:upper:]' '[:lower:]' | tr '/' '-')"
-
+        run: echo "BRANCH_NAME=$(echo ${GITHUB_REF#refs/heads/} | tr '[:upper:]' '[:lower:]' | tr '/' '-')" >> $GITHUB_ENV
+    
       - name: Get the version
         id: timestamp
-        run: echo "::set-output name=timestamp::$(date +%s)"
+        run: echo "TIMESTAMP=$(date +%s)" >> $GITHUB_ENV
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
