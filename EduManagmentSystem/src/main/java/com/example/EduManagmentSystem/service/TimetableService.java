@@ -103,7 +103,7 @@ public class TimetableService {
         ResponseEntity<List<SemesterResponse>> courses
                 = new RestTemplate().exchange(
                 "http://".concat(System.getenv("STUDY_PLAN_SERVICE_HOST"))
-                        .concat(":").concat("STUDY_PLAN_SERVICE_PORT")
+                        .concat(":").concat(System.getenv("STUDY_PLAN_SERVICE_PORT"))
                         .concat("/getAllCoursesStudyPlan?studyPlanCode={studyPlanCode}"),
                 HttpMethod.GET, null,
                 new ParameterizedTypeReference<>(){},
