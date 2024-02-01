@@ -58,7 +58,7 @@ export class ActionButtonCellRendererComponent implements ICellRendererAngularCo
         if (selectedClass) {
           const studentId = this.authenticationService.authenticatedStudentId;
           const enrollToClassCommand = {
-            studentId: studentId,
+            studentIndex: studentId,
             classId: selectedClass.classId
           } as EnrollToClassCommand;
           this.enrollmentRestService.enrollToClass(enrollToClassCommand)

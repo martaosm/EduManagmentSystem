@@ -1,6 +1,6 @@
 [
   {
-    "semester": 1,
+    "semesterNumber": 1,
     "grades": [
       {
         "gradeValue": 4,
@@ -35,7 +35,7 @@
     ]
   },
   {
-    "semester": 2,
+    "semesterNumber": 2,
     "grades": [
       {
         "gradeValue": 4,
@@ -70,7 +70,7 @@
     ]
   },
   {
-    "semester": 3,
+    "semesterNumber": 3,
     "grades": [
       {
         "gradeValue": 3,

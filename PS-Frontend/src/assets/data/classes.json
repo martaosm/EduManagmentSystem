@@ -1,19 +1,19 @@
 [
   {
-    "courseNameInPolish": "Bezpieczeństwo systemów webowych i mobilnych",
+    "courseName": "Bezpieczeństwo systemów webowych i mobilnych",
     "classDate": "środa, 7:30-9:00",
     "classType": "Laboratorium",
-    "classId": "W04IST-SM0214L",
-    "lecturer": null,
+    "groupCode": "W04IST-SM0214L",
+    "teacherResponse": null,
     "registeredStudents": 16,
     "placeLimit": 18
   },
   {
-    "courseNameInPolish": "Bezpieczeństwo systemów webowych i mobilnych",
+    "courseName": "Bezpieczeństwo systemów webowych i mobilnych",
     "classDate": "piątek, 9:15-11:00",
     "classType": "Seminarium",
-    "classId": "W04IST-SM0214S",
-    "lecturer": {
+    "groupCode": "W04IST-SM0214S",
+    "teacherResponse": {
       "lecturerId": 1,
       "firstName": "Michał",
       "lastName": "Kędziora",
@@ -23,11 +23,11 @@
     "placeLimit": 12
   },
   {
-    "courseNameInPolish": "Bezpieczeństwo systemów webowych i mobilnych",
+    "courseName": "Bezpieczeństwo systemów webowych i mobilnych",
     "classDate": "piątek, 7:30-9:00",
     "classType": "Wykład",
-    "classId": "W04IST-SM0214W",
-    "lecturer": {
+    "groupCode": "W04IST-SM0214W",
+    "teacherResponse": {
       "lecturerId": 1,
       "firstName": "Michał",
       "lastName": "Kędziora",
@@ -37,11 +37,11 @@
     "placeLimit": 25
   },
   {
-    "courseNameInPolish": "Inżynieria pozyskiwania i ochrony wiedzy z danych i baz danych",
+    "courseName": "Inżynieria pozyskiwania i ochrony wiedzy z danych i baz danych",
     "classDate": "poniedziałek, 11:15-13:00",
     "classType": "Projekt",
-    "classId": "W04IST-SM0212P",
-    "lecturer": {
+    "groupCode": "W04IST-SM0212P",
+    "teacherResponse": {
       "lecturerId": 2,
       "firstName": "Arkadiusz",
       "lastName": "Liber",
@@ -51,20 +51,20 @@
     "placeLimit": 18
   },
   {
-    "courseNameInPolish": "Inżynieria pozyskiwania i ochrony wiedzy z danych i baz danych",
+    "courseName": "Inżynieria pozyskiwania i ochrony wiedzy z danych i baz danych",
     "classDate": "czwartek, 13:15-14:45",
     "classType": "Projekt",
-    "classId": "W04IST-SM0213P",
-    "lecturer": null,
+    "groupCode": "W04IST-SM0213P",
+    "teacherResponse": null,
     "registeredStudents": 16,
     "placeLimit": 18
   },
   {
-    "courseNameInPolish": "Inżynieria pozyskiwania i ochrony wiedzy z danych i baz danych",
+    "courseName": "Inżynieria pozyskiwania i ochrony wiedzy z danych i baz danych",
     "classDate": "poniedziałek, 13:15-15:00",
     "classType": "Wykład",
-    "classId": "W04IST-SM0213W",
-    "lecturer": {
+    "groupCode": "W04IST-SM0213W",
+    "teacherResponse": {
       "lecturerId": 2,
       "firstName": "Arkadiusz",
       "lastName": "Liber",
@@ -74,11 +74,11 @@
     "placeLimit": 30
   },
   {
-    "courseNameInPolish": "Podstawy biznesu i ochrona własności intelektualnej",
+    "courseName": "Podstawy biznesu i ochrona własności intelektualnej",
     "classDate": "piątek 11:15-13:00",
     "classType": "Wykład",
-    "classId": "W08IST-SM0004W",
-    "lecturer": null,
+    "groupCode": "W08IST-SM0004W",
+    "teacherResponse": null,
     "registeredStudents": 10,
     "placeLimit": 18
   }

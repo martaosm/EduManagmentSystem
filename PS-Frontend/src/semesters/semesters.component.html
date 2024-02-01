@@ -2,7 +2,8 @@
 <mat-tab-group class="semester-group">
   <mat-tab *ngFor="let semester of semesters; index as i;" label="{{i+1}}. semestr">
     <div class="action-buttons-container">
-      <button mat-raised-button color="primary" class="action-button" (click)="onShowClassesClicked(semester.semester)">
+      <button mat-raised-button color="primary" class="action-button"
+              (click)="onShowClassesClicked(semester.semesterNumber)">
         Pokaż rozkład zajęć
       </button>
     </div>

@@ -17,14 +17,14 @@ export class ClassesTableComponent {
   classes!: ClassesQueryModel[];
 
   colDefs: ColDef[] = [
-    {field: "courseNameInPolish", headerName: "Nazwa kursu", tooltipValueGetter: params => params.value},
+    {field: "courseName", headerName: "Nazwa kursu", tooltipValueGetter: params => params.value},
     {field: "classDate", headerName: "Termin zajęć"},
     {field: "classType", headerName: "Typ zajęć"},
-    {field: "classId", headerName: "Kod grupy zajęciowej"},
+    {field: "groupCode", headerName: "Kod grupy zajęciowej"},
     {
-      field: "lecturer",
+      field: "teacherResponse",
       headerName: "Prowadzący",
-      valueFormatter: (params: any) => LecturerUtils.formatLecturer(params.data.lecturer)
+      valueFormatter: (params: any) => LecturerUtils.formatLecturer(params.data.teacherResponse)
     },
   ];
 

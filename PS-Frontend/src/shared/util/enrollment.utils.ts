@@ -12,7 +12,7 @@ export class EnrollmentUtils {
   }
 
   public static formatClass(classesQueryModel: ClassesQueryModel): string {
-    const lecturer = classesQueryModel.lecturer ? LecturerUtils.formatLecturer(classesQueryModel.lecturer) : 'Brak prowadzącego';
-    return `${classesQueryModel.classId},\n${classesQueryModel.courseNameInPolish},\n${classesQueryModel.classDate},\n${lecturer},\n${classesQueryModel.registeredStudents}/${classesQueryModel.placeLimit}`
+    const lecturer = classesQueryModel.teacherResponse ? LecturerUtils.formatLecturer(classesQueryModel.teacherResponse) : 'Brak prowadzącego';
+    return `${classesQueryModel.groupCode},\n${classesQueryModel.courseName},\n${classesQueryModel.classDate},\n${lecturer},\n${classesQueryModel.registeredStudents}/${classesQueryModel.placeLimit}`
   }
 }

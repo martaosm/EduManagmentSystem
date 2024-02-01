@@ -1,10 +1,10 @@
 [
   {
-    "courseNameInPolish": "Bezpieczeństwo systemów webowych i mobilnych",
+    "courseName": "Bezpieczeństwo systemów webowych i mobilnych",
     "classDate": "środa, 7:30-9:00",
     "classType": "Laboratorium",
-    "classId": "W04IST-SM0214L",
-    "lecturer": {
+    "groupCode": "W04IST-SM0214L",
+    "teacherResponse": {
       "lecturerId": 1,
       "firstName": "Michał",
       "lastName": "Kędziora",
@@ -14,11 +14,11 @@
     "placeLimit": 18
   },
   {
-    "courseNameInPolish": "Bezpieczeństwo systemów webowych i mobilnych",
+    "courseName": "Bezpieczeństwo systemów webowych i mobilnych",
     "classDate": "piątek, 9:15-11:00",
     "classType": "Laboratorium",
-    "classId": "W04IST-SM0215L",
-    "lecturer": {
+    "groupCode": "W04IST-SM0215L",
+    "teacherResponse": {
       "lecturerId": 1,
       "firstName": "Michał",
       "lastName": "Kędziora",
@@ -28,11 +28,11 @@
     "placeLimit": 12
   },
   {
-    "courseNameInPolish": "Bezpieczeństwo systemów webowych i mobilnych",
+    "courseName": "Bezpieczeństwo systemów webowych i mobilnych",
     "classDate": "piątek, 7:30-9:00",
     "classType": "Laboratorium",
-    "classId": "W04IST-SM0215L",
-    "lecturer": {
+    "groupCode": "W04IST-SM0215L",
+    "teacherResponse": {
       "lecturerId": 1,
       "firstName": "Michał",
       "lastName": "Kędziora",

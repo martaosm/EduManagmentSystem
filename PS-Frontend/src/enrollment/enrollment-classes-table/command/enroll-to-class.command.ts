@@ -1,4 +1,4 @@
 export interface EnrollToClassCommand {
-  studentId: string,
+  studentIndex: string,
   classId: string
 }

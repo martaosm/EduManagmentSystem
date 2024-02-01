@@ -1,6 +1,6 @@
 import {GradesQueryModel} from "./grades-query-model";
 
 export interface SemesterGradesQueryModel {
-  semester: number,
+  semesterNumber: number,
   grades: GradesQueryModel[],
 }

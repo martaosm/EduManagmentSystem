@@ -18,7 +18,7 @@ export class CoursesTableComponent {
   params: any;
 
   colDefs: ColDef[] = [
-    {field: "courseNameInPolish", headerName: "Nazwa kursu"},
+    {field: "courseName", headerName: "Nazwa kursu"},
     {field: "courseCode", headerName: "Kod kursu"},
     {field: "numberOfPointsECTS", headerName: "Liczba punktów ECTS"},
     {field: "classType", headerName: "Forma zajęć"},

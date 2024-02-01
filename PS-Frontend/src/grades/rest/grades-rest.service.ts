@@ -8,16 +8,16 @@ import {SemesterGradesQueryModel} from "../interface/semester-grades-query-model
 })
 export class GradesRestService {
 
-  gradesUrl = 'http://localhost:8080/grades' // TODO WB: Adjust integration with backend
+  gradesUrl = 'index-service.backend.svc.cluster.local:8080'
 
 
   constructor(private http: HttpClient) {
   }
 
-  getGradesForStudent(studentId: string): Observable<SemesterGradesQueryModel[]> {
+  getGradesForStudent(studentIndex: string): Observable<SemesterGradesQueryModel[]> {
     let queryParams = new HttpParams();
-    queryParams = queryParams.append("studentId", studentId);
-    return this.http.get<SemesterGradesQueryModel[]>(this.gradesUrl, {params: queryParams})
+    queryParams = queryParams.append("studentIndex", studentIndex);
+    return this.http.get<SemesterGradesQueryModel[]>(this.gradesUrl + '/allStudentGrades', {params: queryParams})
       .pipe(
         catchError(error => {
           console.error('Data not received from server', error);

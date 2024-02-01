@@ -11,10 +11,10 @@ export class StudyPlanRestService {
   constructor(private http: HttpClient) {
   }
 
-  studyPlanUrl = 'study-plan-service.backend.svc.cluster.local:8080/getAllStudyPlans' // TODO WB: Adjust integration with backend
+  studyPlanUrl = 'study-plan-service.backend.svc.cluster.local:8080'
 
   getStudyPlans(): Observable<StudyPlanQueryModel[]> {
-    return this.http.get<StudyPlanQueryModel[]>(this.studyPlanUrl)
+    return this.http.get<StudyPlanQueryModel[]>(this.studyPlanUrl + '/getAllStudyPlans')
       .pipe(
         catchError(error => {
           console.error('Data not received from server', error);

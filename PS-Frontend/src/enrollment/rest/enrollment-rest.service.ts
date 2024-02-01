@@ -10,15 +10,15 @@ import {EnrollToClassCommand} from "../enrollment-classes-table/command/enroll-t
 })
 export class EnrollmentRestService {
 
-  enrollmentUrl = 'http://localhost:8080/enrollment' // TODO WB: Adjust integration with backend
+  enrollmentUrl = 'enrollment-service.backend.svc.cluster.local:8080'
 
   constructor(private http: HttpClient) {
   }
 
-  getStudentCourses(studentId: string): Observable<StudentCoursesQueryModel[]> {
+  getStudentCourses(studentIndex: string): Observable<StudentCoursesQueryModel[]> {
     let queryParams = new HttpParams();
-    queryParams = queryParams.append("studentId", studentId);
-    return this.http.get<StudentCoursesQueryModel[]>(this.enrollmentUrl + '/courses', {params: queryParams})
+    queryParams = queryParams.append("studentIndex", studentIndex);
+    return this.http.get<StudentCoursesQueryModel[]>(this.enrollmentUrl + '/getCoursesForStudent', {params: queryParams})
       .pipe(
         catchError(error => {
           console.error('Data not received from server', error);
@@ -30,7 +30,7 @@ export class EnrollmentRestService {
   getClassesByCourseCode(courseCode: string): Observable<ClassesQueryModel[]> {
     let queryParams = new HttpParams();
     queryParams = queryParams.append("courseCode", courseCode);
-    return this.http.get<ClassesQueryModel[]>(this.enrollmentUrl + '/classes', {params: queryParams})
+    return this.http.get<ClassesQueryModel[]>(this.enrollmentUrl + '/getClassesForCourse', {params: queryParams})
       .pipe(
         catchError(error => {
           console.error('Data not received from server', error);
@@ -41,6 +41,8 @@ export class EnrollmentRestService {
 
   enrollToClass(enrollToClassCommand: EnrollToClassCommand) {
     // TODO WB: integration with backend
+    // post
+    // url/signForClass
   }
 
   private loadStudentCoursesFromFile(): Observable<StudentCoursesQueryModel[]> {

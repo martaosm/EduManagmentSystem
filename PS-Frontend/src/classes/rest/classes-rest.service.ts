@@ -11,13 +11,13 @@ export class ClassesRestService {
   constructor(private http: HttpClient) {
   }
 
-  classesUrl = 'http://localhost:8080/classes' // TODO WB: Adjust integration with backend
+  classesUrl = 'timetable-service.backend.svc.cluster.local:8080'
 
   getClasses(studyPlanId: string, semester: number): Observable<ClassesQueryModel[]> {
     let queryParams = new HttpParams();
     queryParams = queryParams.append("studyPlanCode", studyPlanId);
     queryParams = queryParams.append("semesterNumber", semester);
-    return this.http.get<ClassesQueryModel[]>(this.classesUrl, {params: queryParams})
+    return this.http.get<ClassesQueryModel[]>(this.classesUrl + '/getTimetableForStudyPlan', {params: queryParams})
       .pipe(
         catchError(error => {
           console.error('Data not received from server', error);

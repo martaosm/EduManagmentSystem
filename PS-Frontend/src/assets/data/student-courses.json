@@ -1,55 +1,55 @@
 [
   {
     "courseCode": "W13IST-SM0001W",
-    "courseNameInPolish": "Metody planowania i analizy eksperymentów",
+    "courseName": "Metody planowania i analizy eksperymentów",
     "classType": "Wykład",
     "isStudentEnrolled": true
   },
   {
     "courseCode": "W11IST-SM0001W",
-    "courseNameInPolish": "Fizyczne podstawy współczesnej informatyki",
+    "courseName": "Fizyczne podstawy współczesnej informatyki",
     "classType": "Wykład",
     "isStudentEnrolled": false
   },
   {
     "courseCode": "W04IST-SM0201L",
-    "courseNameInPolish": "Statystyka w zastosowaniach",
+    "courseName": "Statystyka w zastosowaniach",
     "classType": "Laboratorium",
     "isStudentEnrolled": false
   },
   {
     "courseCode": "W04IST-SM0204W",
-    "courseNameInPolish": "Analiza biznesowa i systemowa",
+    "courseName": "Analiza biznesowa i systemowa",
     "classType": "Wykład",
     "isStudentEnrolled": true
   },
   {
     "courseCode": "W04IST-SM0204L",
-    "courseNameInPolish": "Analiza biznesowa i systemowa",
+    "courseName": "Analiza biznesowa i systemowa",
     "classType": "Laboratorium",
     "isStudentEnrolled": false
   },
   {
     "courseCode": "W04IST-SM0205W",
-    "courseNameInPolish": "Projekt i implementacja systemów webowych",
+    "courseName": "Projekt i implementacja systemów webowych",
     "classType": "Wykład",
     "isStudentEnrolled": false
   },
   {
     "courseCode": "W04IST-SM0205L",
-    "courseNameInPolish": "Projekt i implementacja systemów webowych",
+    "courseName": "Projekt i implementacja systemów webowych",
     "classType": "Laboratorium",
     "isStudentEnrolled": false
   },
   {
     "courseCode": "W04IST-SM0210W",
-    "courseNameInPolish": "Programowanie współbieżne i funkcyjne",
+    "courseName": "Programowanie współbieżne i funkcyjne",
     "classType": "Wykład",
     "isStudentEnrolled": true
   },
   {
     "courseCode": "W04IST-SM0210L",
-    "courseNameInPolish": "Programowanie współbieżne i funkcyjne",
+    "courseName": "Programowanie współbieżne i funkcyjne",
     "classType": "Laboratorium",
     "isStudentEnrolled": true
   }
