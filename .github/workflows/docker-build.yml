@@ -39,5 +39,5 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/${{ steps.branch.outputs.BRANCH_NAME }}:${{ steps.timestamp.outputs.timestamp }}
-            ${{ secrets.DOCKERHUB_USERNAME }}/${{ steps.branch.outputs.BRANCH_NAME }}:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.BRANCH_NAME }}:${{ env.TIMESTAMP }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.BRANCH_NAME }}:latest
