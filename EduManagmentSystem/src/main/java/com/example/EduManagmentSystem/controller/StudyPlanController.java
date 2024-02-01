@@ -1,10 +1,8 @@
 package com.example.EduManagmentSystem.controller;
 
 
-import com.example.EduManagmentSystem.repository.SemesterRepository;
 import com.example.EduManagmentSystem.request.NewCourseRequest;
 import com.example.EduManagmentSystem.response.AddCourseResponse;
-import com.example.EduManagmentSystem.response.CourseResponse;
 import com.example.EduManagmentSystem.response.SemesterResponse;
 import com.example.EduManagmentSystem.response.StudyPlanResponse;
 import com.example.EduManagmentSystem.service.StudyPlanService;
@@ -14,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class StudyPlanController {
 
 
