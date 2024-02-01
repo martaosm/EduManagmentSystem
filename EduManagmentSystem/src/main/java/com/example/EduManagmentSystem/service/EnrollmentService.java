@@ -61,7 +61,7 @@ public class EnrollmentService {
         ResponseEntity<List<SemesterResponse>> courses
                 = new RestTemplate().exchange(
                 "http://".concat(System.getenv("STUDY_PLAN_SERVICE_HOST"))
-                        .concat(":").concat("STUDY_PLAN_SERVICE_PORT")
+                        .concat(":").concat(System.getenv("STUDY_PLAN_SERVICE_PORT"))
                         .concat("/getAllCoursesStudyPlan?studyPlanCode={studyPlanCode}"),
                 HttpMethod.GET, null,
                 new ParameterizedTypeReference<>(){},
@@ -101,7 +101,7 @@ public class EnrollmentService {
         ResponseEntity<List<ClassGroupResponse>> classes
                 = new RestTemplate().exchange(
                 "http://".concat(System.getenv("TIMETABLE_SERVICE_HOST"))
-                        .concat(":").concat("TIMETABLE_SERVICE_PORT")
+                        .concat(":").concat(System.getenv("TIMETABLE_SERVICE_PORT"))
                         .concat("/getTimetableForStudyPlan?studyPlanCode={studyPlanCode}&semesterNumber={semesterNumber}"),
                 HttpMethod.GET, null,
                 new ParameterizedTypeReference<>(){},
