@@ -58,10 +58,19 @@ jobs:
       - name: Aktualizacja deploymentu w k8s
         run: |
           IMAGE="${{ secrets.DOCKERHUB_USERNAME }}/${{ env.DOCKER_IMAGE_NAME }}:${{ env.TIMESTAMP }}"
-          find kubernetes/k8s/deployments/ -type f -name "*-deployment.yaml" | while read FILE
-          do
-              sed -i "s|image:.*|image: $IMAGE|g" $FILE
-          done
+          FILENAME=$(echo "${{ env.DOCKER_IMAGE_NAME }}" | tr '_' '-')
+          BACKEND_FILE="kubernetes/k8s/deployments/backend/${FILENAME}-deployment.yaml"
+          FRONTEND_FILE="kubernetes/k8s/deployments/frontend/${FILENAME}-deployment.yaml"
+          
+          if [ -f "$BACKEND_FILE" ]; then
+            sed -i "s|image:.*|image: $IMAGE|g" "$BACKEND_FILE"
+          elif [ -f "$FRONTEND_FILE" ]; then
+            sed -i "s|image:.*|image: $IMAGE|g" "$FRONTEND_FILE"
+          else
+            echo "Deployment file not found in backend or frontend directories."
+            exit 1
+          fi
+
 
 
       - name: Commit and push changes
