@@ -6,7 +6,7 @@
   </div>
   <div class="button-container">
     <ul class="nav-list">
-      <li><a routerLink="/classes">Moje zajęcia</a></li>
+      <li><a [ngClass]="{'disabled-style': !authenticationService.authenticatedLecturerId, 'enabled-style': authenticationService.authenticatedLecturerId}" routerLink="/classes">Moje zajęcia</a></li>
     </ul>
     <ul class="nav-list">
       <li *ngIf="!isUserLoggedIn" (click)="login()">Zaloguj</li>

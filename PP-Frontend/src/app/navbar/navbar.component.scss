@@ -46,3 +46,14 @@
   justify-content: space-between;
   width: 100%;
 }
+
+.disabled-style {
+  color: gray;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.enabled-style {
+  color: black;
+  cursor: pointer;
+}
