@@ -1,22 +1,32 @@
 package com.example.EduManagmentSystem.config;
 
-import io.opentracing.contrib.java.spring.jaeger.starter.TracerBuilderCustomizer;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
+import io.jaegertracing.Configuration;
+import io.jaegertracing.internal.samplers.ConstSampler;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.beans.factory.annotation.Value;
 
-@Configuration
+@org.springframework.context.annotation.Configuration
 public class TracingConfig {
 
     @Value("${opentracing.jaeger.service-name}")
     private String serviceName;
 
-    @Autowired
-    private io.jaegertracing.Configuration configuration;
+    @Value("${opentracing.jaeger.sampler-type}")
+    private String samplerType;
+
+    @Value("${opentracing.jaeger.sampler-param}")
+    private Number samplerParam;
 
     @Bean
-    public io.opentracing.Tracer tracer() {
-        return configuration.getTracer();
+    public io.opentracing.Tracer initTracer() {
+        return Configuration.fromEnv(serviceName)
+                .withSampler(new Configuration.SamplerConfiguration()
+                        .withType(samplerType)
+                        .withParam(samplerParam))
+                .withReporter(new Configuration.ReporterConfiguration()
+                        .withLogSpans(true)
+                        .withFlushInterval(1000)
+                        .withMaxQueueSize(10000))
+                .getTracer();
     }
 }
