@@ -1,0 +1,33 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+h1 {
+  text-align: center;
+  color: #1565c0;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+mat-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+button {
+  margin-left: 10px;
+}
+
+
+button[color="primary"] {
+  background-color: #1565c0;
+  color: #ffffff;
+}
+
+button[color="warn"] {
+  color: #1565c0;
+}

@@ -6,11 +6,10 @@
   </div>
   <div class="button-container">
     <ul class="nav-list">
-      <li><a routerLink="/study-plan">Plany studiów</a></li>
+      <li><a routerLink="/study-plan" [ngClass]="{'disabled-style': !authenticationService.authenticatedId, 'enabled-style': authenticationService.authenticatedId}">Plany studiów</a></li>
     </ul>
     <ul class="nav-list">
-      <li *ngIf="!isUserLoggedIn"><a routerLink="/login">Zaloguj</a></li>
-      <li *ngIf="!isUserLoggedIn"><a routerLink="/register">Zarejestruj</a></li>
+      <li *ngIf="!isUserLoggedIn" (click)="login()">Zaloguj</li>
       <li *ngIf="isUserLoggedIn">Wyloguj</li>
     </ul>
   </div>
