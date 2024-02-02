@@ -1,0 +1,39 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: mariadb-backup
+  namespace: database
+spec:
+  schedule: "0 0 * * *"  # Uruchom codziennie o północy
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: backup
+              image: mariadb:10.5.8
+              command:
+                - /bin/bash
+                - -c
+                - >
+                  mysqldump --all-databases --single-transaction --quick --lock-tables=false -u${MYSQL_USER} -p${MYSQL_PASSWORD} -h mariadb > /backup/all-databases.sql &&
+                  date > /backup/backup_timestamp.txt  # Oznacz czas kopii zapasowej
+              env:
+                - name: MYSQL_USER
+                  valueFrom:
+                    secretKeyRef:
+                      name: mariadb-secret
+                      key: mariadb-user
+                - name: MYSQL_PASSWORD
+                  valueFrom:
+                    secretKeyRef:
+                      name: mariadb-secret
+                      key: mariadb-user-password
+              volumeMounts:
+                - name: backup
+                  mountPath: /backup
+          volumes:
+            - name: backup
+              persistentVolumeClaim:
+                claimName: backup-pvc
+          restartPolicy: OnFailure
