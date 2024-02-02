@@ -16,8 +16,8 @@ export class ClassesRestService {
   constructor(private http: HttpClient) {
   }
 
-  timetableServiceUrl = 'http://a14165f188422408a841c9e6723554ac-884258971.us-east-1.elb.amazonaws.com:8080';
-  enrollmentServiceUrl = 'http://ab7918eb8aee2425cbe51628a44765d8-1854952267.us-east-1.elb.amazonaws.com:8080';
+  timetableServiceUrl = 'http://aecf9d3038eae4a948891e3a96cd27b0-206469482.us-east-1.elb.amazonaws.com:8080';
+  enrollmentServiceUrl = 'http://af99a1050eece4549b93c7d9dcc5d483-521296143.us-east-1.elb.amazonaws.com:8080';
 
   getClasses(studyPlanId: string, semester: number): Observable<ClassesQueryModel[]> {
     let queryParams = new HttpParams();
@@ -51,9 +51,6 @@ export class ClassesRestService {
         console.log(error)
       }
     )
-    // TODO WB: send update to backend
-    // post
-    // url/setTeacherForClassGroup
   }
 
   increaseLimitOfStudentsInGroup(increaseLimitOfStudentsInGroupCommand: IncreaseLimitOfStudentsInGroupCommand) {
@@ -66,8 +63,6 @@ export class ClassesRestService {
         console.log(error)
       }
     )
-    // TODO WB: send update to backend
-    // enrollmentUrl/increasePlaceLimit
   }
 
   private loadClassesFromFile(): Observable<ClassesQueryModel[]> {
