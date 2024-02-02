@@ -58,8 +58,10 @@ jobs:
       - name: Replace image in k8s files
         run: |
           IMAGE="${{ secrets.DOCKERHUB_USERNAME }}/${{ env.DOCKER_IMAGE_NAME }}:${{ env.TIMESTAMP }}"
-          grep -rl "${{ env.DOCKER_IMAGE_NAME }}" kubernetes/k8s/deployments | xargs sed -i "s|image:.*|image: $IMAGE|g"
-
+          FILE="kubernetes/k8s/deployments/*/${{ env.DOCKER_IMAGE_NAME }}-deployment.yaml"
+          if [ -f $FILE ]; then
+            sed -i "s|image:.*|image: $IMAGE|g" $FILE
+          fi
       - name: Commit and push changes
         run: |
           git add .
