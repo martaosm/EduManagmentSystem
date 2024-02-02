@@ -29,10 +29,8 @@ public class EnrollmentController {
     }
 
     @GetMapping("/getClassesForCourse")
-    public List<ClassGroupResponse> getClassesForCourse(@RequestParam String studyPlanCode,
-                                                        @RequestParam int semesterNumber,
-                                                        @RequestParam String courseCode) throws Exception {
-        return enrollmentService.getClassesForCourses(studyPlanCode, semesterNumber, courseCode);
+    public List<ClassGroupResponse> getClassesForCourse(@RequestParam String courseCode) throws Exception {
+        return enrollmentService.getClassesForCourses(courseCode);
     }
 
     @PostMapping("/signForClass")

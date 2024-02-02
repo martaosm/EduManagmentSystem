@@ -41,6 +41,15 @@ public class EnrollmentService {
     @Autowired
     CourseRepository courseRepository;
 
+    @Autowired
+    CourseMandBlockAssignRepository courseMandBlockAssignRepository;
+
+    @Autowired
+    SemesterRepository semesterRepository;
+
+    @Autowired
+    MandatoryBlockRepository mandatoryBlockRepository;
+
 
     public List<StudyMajorStudentResponse> getAllMajorsForStudent(String studentIndex){
         List<StudyMajorStudentResponse> response = new ArrayList<>();
@@ -89,13 +98,16 @@ public class EnrollmentService {
         return responses;
     }
 
-    public List<ClassGroupResponse> getClassesForCourses(String studyPlanCode, int semesterNumber, String courseCode) throws Exception {
+    public List<ClassGroupResponse> getClassesForCourses(String courseCode) throws Exception {
         //url/port do zmiany
+
+        MandatoryBlock mandatoryBlock = mandatoryBlockRepository.findById(courseMandBlockAssignRepository.findByCourseCode(courseCode).getMandBlockId()).get();
+        Semester semester = semesterRepository.findById(mandatoryBlock.getSemesterId()).get();
 
         //final String HOSTNAME = InetAddress.getLocalHost().getHostName();
         HashMap<String, Object> params = new HashMap<>();
-        params.put("studyPlanCode", studyPlanCode);
-        params.put("semesterNumber", semesterNumber);
+        params.put("studyPlanCode", semester.getStudyPlanCode());
+        params.put("semesterNumber", semester.getSemesterNumber());
         
         ResponseEntity<List<ClassGroupResponse>> classes
                 = new RestTemplate().exchange(
