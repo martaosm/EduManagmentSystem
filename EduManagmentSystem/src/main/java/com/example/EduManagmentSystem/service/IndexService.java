@@ -69,7 +69,7 @@ public class IndexService {
         ResponseEntity<List<SemesterResponse>> courses
                 = new RestTemplate().exchange(
                 "http://".concat(System.getenv("ENROLLMENT_SERVICE_HOST"))
-                                        .concat(":").concat("ENROLLMENT_SERVICE_PORT")
+                                        .concat(":").concat(System.getenv("ENROLLMENT_SERVICE_PORT"))
                                         .concat("/getCoursesForStudent?studyPlanCode={studyPlanCode}"),
                 HttpMethod.GET, null,
                 new ParameterizedTypeReference<>(){},
