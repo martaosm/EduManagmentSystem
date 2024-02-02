@@ -2,14 +2,7 @@ name: Docker Build and Push
 on:
   push:
     branches:
-      - timetable_service
-      - PP-Frontend
-      - PS-Frontend
-      - PZ-frontend
-      - account_service
-      - enrollment_service
-      - index_service
-      - study_plan_service
+      - '*'
 
 jobs:
   build-and-push:
