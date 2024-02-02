@@ -23,6 +23,7 @@ export class ClassesComponent {
 
   ngOnInit() {
     this.activatedRoute.data.subscribe(({classes}) => {
+      console.log(classes)
       this.classes = classes;
     })
   }
