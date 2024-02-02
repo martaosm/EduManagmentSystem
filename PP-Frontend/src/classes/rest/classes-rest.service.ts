@@ -13,7 +13,7 @@ export class ClassesRestService {
   constructor(private http: HttpClient) {
   }
 
-  indexServiceUrl = 'http://index-service.backend.svc.cluster.local:8080'
+  indexServiceUrl = 'http://a72a24690e7564c92b756e78b2a9e560-1856347894.us-east-1.elb.amazonaws.com:8080'
 
   getClassesForLecturer(teacherId: string): Observable<ClassesQueryModel[]> {
     let queryParams = new HttpParams();
@@ -40,9 +40,14 @@ export class ClassesRestService {
   }
 
   addGrade(addGradeCommand: AddGradeCommand) {
-    //TODO WB: Adjust integration with backend
-    // post
-    // url/addNewGrade
+    return this.http.post(this.indexServiceUrl + '/addNewGrade', addGradeCommand).subscribe(
+      response => {
+        console.log(response)
+      },
+      error => {
+        console.log(error)
+      }
+    )
   }
 
   private loadClassesFromFile(): Observable<ClassesQueryModel[]> {
