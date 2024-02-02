@@ -59,6 +59,7 @@ jobs:
         run: |
           git add .
           git commit -m "Update k8s deployment image by ${{ github.actor }}"
+          git remote set-url origin https://x-access-token:${{ secrets.GH_PAT }}@github.com/martaosm/EduManagmentSystem.git
           git push origin HEAD:@SK/feaute/kubernetes
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
