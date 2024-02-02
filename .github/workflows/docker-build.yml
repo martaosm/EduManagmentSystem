@@ -58,10 +58,11 @@ jobs:
       - name: Aktualizacja deploymentu w k8s
         run: |
           IMAGE="${{ secrets.DOCKERHUB_USERNAME }}/${{ env.DOCKER_IMAGE_NAME }}:${{ env.TIMESTAMP }}"
-          find kubernetes/k8s/deployments/ -type f -name "${{ env.DOCKER_IMAGE_NAME }}-deployment.yaml" | while read FILE
+          find kubernetes/k8s/deployments/ -type f -name "*-deployment.yaml" | while read FILE
           do
               sed -i "s|image:.*|image: $IMAGE|g" $FILE
           done
+
 
       - name: Commit and push changes
         run: |
