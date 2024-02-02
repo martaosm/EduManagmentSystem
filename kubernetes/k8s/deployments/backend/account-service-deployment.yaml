@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: account-service
-          image: kisiel75311/account_service:1706877821
+          image: kisiel75311/account_service:1706878594
           ports:
             - containerPort: 8080
           env:
