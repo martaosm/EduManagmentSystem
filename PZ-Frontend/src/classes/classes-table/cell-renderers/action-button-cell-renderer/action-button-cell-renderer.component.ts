@@ -40,7 +40,7 @@ export class ActionButtonCellRendererComponent implements ICellRendererAngularCo
 
   agInit(params: any): void {
     this.params = params;
-    this.shouldAddLecturerButtonBeActive = params.data.lecturer;
+    this.shouldAddLecturerButtonBeActive = params.data.teacherResponse.id;
     this.lecturers = params.lecturers;
   }
 
