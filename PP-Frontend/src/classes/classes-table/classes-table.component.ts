@@ -22,7 +22,7 @@ export class ClassesTableComponent {
     {field: "classType", headerName: "Typ zajęć"},
     {field: "courseCode", headerName: "Kod kursu"},
     {field: "classDate", headerName: "Data zajęć"},
-    {field: "registeredStudents", headerName: "Liczba zapisanych studentów"},
+    {field: "registeredStudent", headerName: "Liczba zapisanych studentów"},
     {
       field: "actions", headerName: "", width: 100,
       cellRenderer: ActionButtonCellRendererComponent,

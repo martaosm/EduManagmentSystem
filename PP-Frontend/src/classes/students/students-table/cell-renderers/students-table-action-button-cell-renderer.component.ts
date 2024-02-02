@@ -36,7 +36,7 @@ export class StudentsTableActionButtonCellRendererComponent implements ICellRend
 
   agInit(params: any): void {
     this.params = params;
-    this.shouldAddGradeButtonBeActive = params.data.grade;
+    this.shouldAddGradeButtonBeActive = params.data.gradeValue;
   }
 
   refresh(params: any): boolean {
