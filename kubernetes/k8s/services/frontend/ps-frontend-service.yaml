@@ -1,4 +1,4 @@
-#ps-frontend-service-monitoring.yaml
+#ps-frontend-service.yaml
 apiVersion: v1
 kind: Service
 metadata:

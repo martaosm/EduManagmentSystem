@@ -1,4 +1,4 @@
-#index-service-service-monitoring.yaml
+#index-service-service.yaml
 apiVersion: v1
 kind: Service
 metadata:
