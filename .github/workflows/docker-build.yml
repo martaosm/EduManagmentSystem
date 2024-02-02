@@ -55,18 +55,18 @@ jobs:
         with:
           ref: '@SK/feaute/kubernetes'
 
-      - name: Replace image in k8s files
+      - name: Aktualizacja deploymentu w k8s
         run: |
           IMAGE="${{ secrets.DOCKERHUB_USERNAME }}/${{ env.DOCKER_IMAGE_NAME }}:${{ env.TIMESTAMP }}"
-          FILE="kubernetes/k8s/deployments/*/${{ env.DOCKER_IMAGE_NAME }}-deployment.yaml"
-          if [ -f $FILE ]; then
-            sed -i "s|image:.*|image: $IMAGE|g" $FILE
-          fi
+          find kubernetes/k8s/deployments/ -type f -name "${{ env.DOCKER_IMAGE_NAME }}-deployment.yaml" | while read FILE
+          do
+              sed -i "s|image:.*|image: $IMAGE|g" $FILE
+          done
+
       - name: Commit and push changes
         run: |
           git add .
           git commit -m "Update k8s deployment image by ${{ github.actor }}"
-          git remote set-url origin https://x-access-token:${{ secrets.GH_PAT }}@github.com/martaosm/EduManagmentSystem.git
           git push origin HEAD:@SK/feaute/kubernetes
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
