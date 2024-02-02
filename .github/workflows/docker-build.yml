@@ -3,8 +3,6 @@ on:
   push:
     branches:
       - '*'
-      - '!main'
-      - '!@SK/feaute/kubernetes'
 
 jobs:
   build-and-push:
