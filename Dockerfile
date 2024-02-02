@@ -13,7 +13,6 @@ RUN mvn clean install -DskipTests
 # Stage 2: Create the final Docker image
 FROM eclipse-temurin:17-jdk-alpine
 
-# Create a volume and expose port 8080
 VOLUME /tmp
 EXPOSE 8080
 COPY --from=builder "/app/target/*.jar" account-app.jar
