@@ -1,10 +1,10 @@
-apiVersion: batch/v1beta1
+apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: mariadb-backup
   namespace: database
 spec:
-  schedule: "0 0 * * *"  # Uruchom codziennie o północy
+  schedule: "0 0 * * *"
   jobTemplate:
     spec:
       template:
