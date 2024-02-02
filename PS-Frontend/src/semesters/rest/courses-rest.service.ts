@@ -11,7 +11,7 @@ export class CoursesRestService {
   constructor(private http: HttpClient) {
   }
 
-  coursesUrl = 'http://ac9ab1e1a723b4f60930fb644b3ab8aa-90188893.us-east-1.elb.amazonaws.com:8080'
+  coursesUrl = 'http://a3cf26222ba364edeaee30998ea74d4e-24029332.us-east-1.elb.amazonaws.com:8080'
 
   getCourses(studyPlanCode: string): Observable<SemesterCoursesQueryModel[]> {
     let queryParams = new HttpParams();

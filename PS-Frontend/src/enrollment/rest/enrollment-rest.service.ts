@@ -10,7 +10,7 @@ import {EnrollToClassCommand} from "../enrollment-classes-table/command/enroll-t
 })
 export class EnrollmentRestService {
 
-  enrollmentUrl = 'http://ab7918eb8aee2425cbe51628a44765d8-1854952267.us-east-1.elb.amazonaws.com:8080'
+  enrollmentUrl = 'http://af99a1050eece4549b93c7d9dcc5d483-521296143.us-east-1.elb.amazonaws.com:8080'
 
   constructor(private http: HttpClient) {
   }
