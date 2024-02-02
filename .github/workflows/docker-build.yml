@@ -41,6 +41,11 @@ jobs:
             ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.DOCKER_IMAGE_NAME }}:${{ env.TIMESTAMP }}
             ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.DOCKER_IMAGE_NAME }}:latest
 
+      - name: Checkout specific branch
+        uses: actions/checkout@v2
+        with:
+          ref: '@SK/feaute/kubernetes'
+
       - name: Replace image in k8s files
         if: github.ref == 'refs/heads/@SK/feaute/kubernetes'
         run: |
