@@ -23,6 +23,7 @@ export class StudyPlanComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.data.subscribe(({studyPlans}) => {
+      console.log(studyPlans);
       this.studyPlans = studyPlans;
     })
   }
