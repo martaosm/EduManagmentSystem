@@ -1,8 +1,9 @@
 name: Docker Build and Push
 on:
   push:
-    branches:
-      - '*'
+    branches-ignore:
+      - 'main'
+      - '@SK/feaute/kubernetes'
 
 jobs:
   build-and-push:
