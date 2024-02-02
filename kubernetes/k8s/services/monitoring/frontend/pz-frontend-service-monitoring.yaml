@@ -1,0 +1,14 @@
+#pz-frontend-service-monitoring.yaml
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: pz-frontend
+  labels:
+    team: frontend
+  namespace: monitoring
+spec:
+  selector:
+    matchLabels:
+      app: pz-frontend
+  endpoints:
+    - port: 80

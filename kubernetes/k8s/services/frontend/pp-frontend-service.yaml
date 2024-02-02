@@ -1,4 +1,4 @@
-#pp-frontend-service.yaml
+#pp-frontend-service-monitoring.yaml
 apiVersion: v1
 kind: Service
 metadata:

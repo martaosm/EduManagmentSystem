@@ -1,0 +1,14 @@
+#index-service-service-monitoring.yaml
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: index-service
+  labels:
+    team: backend
+  namespace: monitoring
+spec:
+  selector:
+    matchLabels:
+      app: index-service
+  endpoints:
+    - port: 8080

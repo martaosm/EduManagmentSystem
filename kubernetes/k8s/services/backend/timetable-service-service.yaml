@@ -1,4 +1,4 @@
-#timetable-service-service.yaml
+#timetable-service-service-monitoring.yaml
 apiVersion: v1
 kind: Service
 metadata:

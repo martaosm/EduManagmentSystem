@@ -1,0 +1,14 @@
+#mariadb-clusterip-service.yaml
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: mariadb
+  labels:
+    team: database
+  namespace: monitoring
+spec:
+  selector:
+    matchLabels:
+      app: mariadb
+  endpoints:
+    - port: 3306

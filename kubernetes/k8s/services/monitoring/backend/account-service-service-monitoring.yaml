@@ -1,0 +1,14 @@
+#account-service-service-monitoring.yaml
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: account-service
+  labels:
+    team: backend
+  namespace: monitoring
+spec:
+  selector:
+    matchLabels:
+      app: account-service
+  endpoints:
+    - port: 8080
