@@ -21,7 +21,7 @@ export class EnrollmentClassesTableComponent {
 
   colDefs: ColDef[] = [
     {field: "courseCode", headerName: "Kod kursu"},
-    {field: "courseName", headerName: "Nazwa kursu"},
+    {field: "courseNameInPolish", headerName: "Nazwa kursu"},
     {field: "classType", headerName: "Forma zajęć"},
     {
       field: "isStudentEnrolled",

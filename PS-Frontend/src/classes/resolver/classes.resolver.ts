@@ -8,4 +8,4 @@ export const ClassesResolver: ResolveFn<ClassesQueryModel[]> = (
   route: ActivatedRouteSnapshot,
   state: RouterStateSnapshot,
   classesRestService: ClassesRestService = inject(ClassesRestService)
-): Observable<ClassesQueryModel[]> => classesRestService.getClasses(route.params['studyPlanId'], route.params['semester']);
+): Observable<ClassesQueryModel[]> => classesRestService.getClasses(route.params['studyPlanCode'], route.params['semester']);
