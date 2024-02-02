@@ -59,13 +59,18 @@ jobs:
         run: |
           IMAGE="${{ secrets.DOCKERHUB_USERNAME }}/${{ env.DOCKER_IMAGE_NAME }}:${{ env.TIMESTAMP }}"
           FILENAME=$(echo "${{ env.DOCKER_IMAGE_NAME }}" | tr '_' '-')
-          DEPLOYMENT_FILE="kubernetes/k8s/deployments/backend/${FILENAME}-deployment.yaml"
-          if [ -f "$DEPLOYMENT_FILE" ]; then
-            sed -i "s|image:.*|image: $IMAGE|g" "$DEPLOYMENT_FILE"
+          BACKEND_FILE="kubernetes/k8s/deployments/backend/${FILENAME}-deployment.yaml"
+          FRONTEND_FILE="kubernetes/k8s/deployments/frontend/${FILENAME}-deployment.yaml"
+          
+          if [ -f "$BACKEND_FILE" ]; then
+            sed -i "s|image:.*|image: $IMAGE|g" "$BACKEND_FILE"
+          elif [ -f "$FRONTEND_FILE" ]; then
+            sed -i "s|image:.*|image: $IMAGE|g" "$FRONTEND_FILE"
           else
-            echo "Deployment file not found."
+            echo "Deployment file not found in backend or frontend directories."
             exit 1
           fi
+
 
 
       - name: Commit and push changes
