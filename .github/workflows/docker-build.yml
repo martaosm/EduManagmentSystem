@@ -1,0 +1,72 @@
+name: Docker Build and Push
+on:
+  push:
+    branches-ignore:
+      - 'main'
+      - '@SK/feaute/kubernetes'
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Configure Git
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "${{ github.actor }}"
+          git remote set-url origin https://x-access-token:${{ secrets.GH_PAT }}@github.com/martaosm/EduManagmentSystem.git
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Get docker image name
+        id: get_image_name
+        run: |
+          BRANCH_NAME=$(echo "${GITHUB_REF#refs/heads/}" | tr '[:upper:]' '[:lower:]' | tr '-' '_')
+          echo "DOCKER_IMAGE_NAME=$BRANCH_NAME" >> $GITHUB_ENV
+
+      - name: Get the version
+        id: timestamp
+        run: echo "TIMESTAMP=$(date +%s)" >> $GITHUB_ENV
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: |
+            ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.DOCKER_IMAGE_NAME }}:${{ env.TIMESTAMP }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.DOCKER_IMAGE_NAME }}:latest
+
+      - name: Checkout specific branch
+        uses: actions/checkout@v2
+        with:
+          ref: '@SK/feaute/kubernetes'
+
+      - name: Replace image in k8s files
+        run: |
+          IMAGE="${{ secrets.DOCKERHUB_USERNAME }}/${{ env.DOCKER_IMAGE_NAME }}:${{ env.TIMESTAMP }}"
+          FILE="kubernetes/k8s/deployments/*/${{ env.DOCKER_IMAGE_NAME }}-deployment.yaml"
+          if [ -f $FILE ]; then
+            sed -i "s|image:.*|image: $IMAGE|g" $FILE
+          fi
+      - name: Commit and push changes
+        run: |
+          git add .
+          git commit -m "Update k8s deployment image by ${{ github.actor }}"
+          git remote set-url origin https://x-access-token:${{ secrets.GH_PAT }}@github.com/martaosm/EduManagmentSystem.git
+          git push origin HEAD:@SK/feaute/kubernetes
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
