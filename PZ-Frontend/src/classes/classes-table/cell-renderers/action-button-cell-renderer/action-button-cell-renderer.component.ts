@@ -62,8 +62,8 @@ export class ActionButtonCellRendererComponent implements ICellRendererAngularCo
       dialogRef.afterClosed().subscribe(selectedLecturer => {
         if (selectedLecturer) {
           const assignLecturerToClassCommand = {
-            lecturerId: selectedLecturer.lecturerId,
-            classId: this.params.data.classId
+            lecturerId: selectedLecturer.id,
+            classId: this.params.data.groupCode
           } as AssignLecturerToClassCommand;
           this.classesRestService.assignLecturerToClass(assignLecturerToClassCommand)
         }
@@ -76,14 +76,14 @@ export class ActionButtonCellRendererComponent implements ICellRendererAngularCo
       width: '500px',
       height: 'auto',
       data: {
-        initialValue: this.params.data.numberOfPlacesOverall
+        initialValue: this.params.data.placeLimit
       }
     });
 
     dialogRef.afterClosed().subscribe(newGroupOccupancyLimit => {
       const increaseLimitOfStudentsInGroupCommand = {
         newClassPlaceLimit: newGroupOccupancyLimit,
-        classId: this.params.data.classId
+        classId: this.params.data.groupCode
       } as IncreaseLimitOfStudentsInGroupCommand;
       this.classesRestService.increaseLimitOfStudentsInGroup(increaseLimitOfStudentsInGroupCommand)
 

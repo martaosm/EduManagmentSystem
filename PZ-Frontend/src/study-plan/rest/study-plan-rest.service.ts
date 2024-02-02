@@ -24,6 +24,18 @@ export class StudyPlanRestService {
   }
 
   archivePlan(studyPlanCode: string) {
+    const params = {
+      studyPlanCode: studyPlanCode,
+    };
+    return this.http.put(this.studyPlanUrl + '/archiveStudyPlan', null, {params}).subscribe(
+      response => {
+        console.log(response)
+      },
+      error => {
+        console.log(error)
+      }
+    )
+
     // TODO WB: Send http request to backend to archive the plan //put
     // url/archiveStudyPlan
   }

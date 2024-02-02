@@ -38,6 +38,14 @@ export class CoursesRestService {
   }
 
   addGeneralEducationCourseToStudyPlan(addCourseToStudyPlanCommand: AddCourseToStudyPlanCommand) {
+    return this.http.post(this.coursesUrl + '/addCourseToStudyPlan', addCourseToStudyPlanCommand).subscribe(
+      response => {
+        console.log(response)
+      },
+      error => {
+        console.log(error)
+      }
+    )
     //TODO WB: integration with backend
     // post
     // url/addCourseToStudyPlan

@@ -49,7 +49,7 @@ export class ActionButtonCellRendererComponent implements ICellRendererAngularCo
     dialogRef.afterClosed().subscribe(
       confirmation => {
         if (confirmation) {
-          const studyPlanCode = this.params.node.data.id;
+          const studyPlanCode = this.params.node.data.studyPlanCode;
           this.restService.archivePlan(studyPlanCode)
         }
       }

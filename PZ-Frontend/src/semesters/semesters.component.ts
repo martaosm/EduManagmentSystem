@@ -69,7 +69,7 @@ export class SemestersComponent implements OnInit {
         if (selectedCourse) {
           const studyPlanId = this.activatedRoute.snapshot.paramMap.get('studyPlanId');
           const addCourseToStudyPlanCommand = {
-            courseId: selectedCourse.courseId,
+            courseId: selectedCourse.courseCode,
             studyPlanId: studyPlanId,
             semester: semester
           } as AddCourseToStudyPlanCommand;

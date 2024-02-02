@@ -43,7 +43,14 @@ export class ClassesRestService {
   }
 
   assignLecturerToClass(assignLecturerToClassCommand: AssignLecturerToClassCommand) {
-    console.log(assignLecturerToClassCommand);
+    return this.http.post(this.timetableServiceUrl + '/setTeacherForClassGroup', assignLecturerToClassCommand).subscribe(
+      response => {
+        console.log(response)
+      },
+      error => {
+        console.log(error)
+      }
+    )
     // TODO WB: send update to backend
     // post
     // url/setTeacherForClassGroup
@@ -51,6 +58,14 @@ export class ClassesRestService {
 
   increaseLimitOfStudentsInGroup(increaseLimitOfStudentsInGroupCommand: IncreaseLimitOfStudentsInGroupCommand) {
     console.log(increaseLimitOfStudentsInGroupCommand);
+    return this.http.put(this.enrollmentServiceUrl + '/increasePlaceLimit', increaseLimitOfStudentsInGroupCommand).subscribe(
+      response => {
+        console.log(response)
+      },
+      error => {
+        console.log(error)
+      }
+    )
     // TODO WB: send update to backend
     // enrollmentUrl/increasePlaceLimit
   }
