@@ -17,4 +17,6 @@ FROM eclipse-temurin:17-jdk-alpine
 VOLUME /tmp
 EXPOSE 8080
 COPY --from=builder "/app/target/*.jar" account-app.jar
+ADD https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/download/v1.7.0/opentelemetry-javaagent-all.jar /opentelemetry-javaagent-all.jar
+ENV JAVA_TOOL_OPTIONS="-javaagent:/opentelemetry-javaagent-all.jar"
 CMD [ "java", "-jar",  "/account-app.jar"]
