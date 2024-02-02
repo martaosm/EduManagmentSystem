@@ -7,13 +7,19 @@
   <div class="button-container">
     <div class="navigation-buttons">
     <ul class="nav-list">
-      <li><a routerLink="/study-plans">Plany studiów</a></li>
+      <li><a routerLink="/study-plans"
+             [ngClass]="{'disabled-style': !authenticationService.authenticatedStudentId, 'enabled-style': authenticationService.authenticatedStudentId}">Plany
+        studiów</a></li>
     </ul>
     <ul class="nav-list">
-      <li><a routerLink="/grades">Moje oceny</a></li>
+      <li><a routerLink="/grades"
+             [ngClass]="{'disabled-style': !authenticationService.authenticatedStudentId, 'enabled-style': authenticationService.authenticatedStudentId}">Moje
+        oceny</a></li>
     </ul>
     <ul class="nav-list">
-      <li><a routerLink="/enrollment">Zapisy</a></li>
+      <li><a routerLink="/enrollment"
+             [ngClass]="{'disabled-style': !authenticationService.authenticatedStudentId, 'enabled-style': authenticationService.authenticatedStudentId}">Zapisy</a>
+      </li>
     </ul>
     </div>
     <ul class="nav-list">

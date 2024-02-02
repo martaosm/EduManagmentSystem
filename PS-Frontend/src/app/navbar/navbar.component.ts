@@ -3,6 +3,7 @@ import {RouterLink} from "@angular/router";
 import {CommonModule} from "@angular/common";
 import {MatDialog} from "@angular/material/dialog";
 import {LoginDialogComponent} from "../dialog/login-dialog.component";
+import {AuthenticationService} from "../authentication.service";
 
 @Component({
   selector: 'app-navbar',
@@ -18,7 +19,8 @@ export class NavbarComponent {
   isUserLoggedIn: boolean = false;
 
 
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog,
+              public authenticationService: AuthenticationService) {
   }
 
   login() {
