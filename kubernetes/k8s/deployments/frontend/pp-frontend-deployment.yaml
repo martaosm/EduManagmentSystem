@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: pp-frontend
-          image: kisiel75311/pp_frontend:1706844091
+          image: kisiel75311/pp_frontend:1706875295
           ports:
             - containerPort: 80
           env:
