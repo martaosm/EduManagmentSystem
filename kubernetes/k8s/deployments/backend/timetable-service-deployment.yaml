@@ -7,7 +7,7 @@ metadata:
   labels:
     app: timetable-service
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: timetable-service
