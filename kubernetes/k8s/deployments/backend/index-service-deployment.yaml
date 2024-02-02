@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: index-service
-          image: kisiel75311/index_service:1706842787
+          image: kisiel75311/index_service:1706885029
           ports:
             - containerPort: 8080
           env:
