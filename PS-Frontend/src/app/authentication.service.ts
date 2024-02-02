@@ -5,5 +5,9 @@ import {Injectable} from "@angular/core";
 })
 export class AuthenticationService {
 
-  authenticatedStudentId: string = "studentId" //TODO WB: hardcoded studentId
+  authenticatedStudentId!: string;
+
+  setAuthenticatedStudentId(studentId: string) {
+    this.authenticatedStudentId = studentId;
+  }
 }

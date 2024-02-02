@@ -10,7 +10,7 @@ import {EnrollToClassCommand} from "../enrollment-classes-table/command/enroll-t
 })
 export class EnrollmentRestService {
 
-  enrollmentUrl = 'enrollment-service.backend.svc.cluster.local:8080'
+  enrollmentUrl = 'http://ab7918eb8aee2425cbe51628a44765d8-1854952267.us-east-1.elb.amazonaws.com:8080'
 
   constructor(private http: HttpClient) {
   }
@@ -40,9 +40,14 @@ export class EnrollmentRestService {
   }
 
   enrollToClass(enrollToClassCommand: EnrollToClassCommand) {
-    // TODO WB: integration with backend
-    // post
-    // url/signForClass
+    return this.http.post(this.enrollmentUrl + '/signForClass', enrollToClassCommand).subscribe(
+      response => {
+        console.log(response)
+      },
+      error => {
+        console.log(error)
+      }
+    )
   }
 
   private loadStudentCoursesFromFile(): Observable<StudentCoursesQueryModel[]> {

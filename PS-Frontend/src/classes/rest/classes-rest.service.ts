@@ -11,7 +11,7 @@ export class ClassesRestService {
   constructor(private http: HttpClient) {
   }
 
-  classesUrl = 'timetable-service.backend.svc.cluster.local:8080'
+  classesUrl = 'http://a14165f188422408a841c9e6723554ac-884258971.us-east-1.elb.amazonaws.com:8080'
 
   getClasses(studyPlanId: string, semester: number): Observable<ClassesQueryModel[]> {
     let queryParams = new HttpParams();

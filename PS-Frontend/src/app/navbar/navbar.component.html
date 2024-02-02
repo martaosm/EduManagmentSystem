@@ -17,7 +17,7 @@
     </ul>
     </div>
     <ul class="nav-list">
-      <li *ngIf="!isUserLoggedIn"><a routerLink="/login">Zaloguj</a></li>
+      <li *ngIf="!isUserLoggedIn" (click)="login()">Zaloguj</li>
       <li *ngIf="isUserLoggedIn">Wyloguj</li>
     </ul>
   </div>

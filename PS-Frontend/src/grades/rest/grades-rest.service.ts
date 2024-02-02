@@ -8,7 +8,7 @@ import {SemesterGradesQueryModel} from "../interface/semester-grades-query-model
 })
 export class GradesRestService {
 
-  gradesUrl = 'index-service.backend.svc.cluster.local:8080'
+  gradesUrl = 'http://a72a24690e7564c92b756e78b2a9e560-1856347894.us-east-1.elb.amazonaws.com:8080'
 
 
   constructor(private http: HttpClient) {
