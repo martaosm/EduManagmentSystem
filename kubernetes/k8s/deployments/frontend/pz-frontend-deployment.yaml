@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: pz-frontend
-          image: kisiel75311/timetable_service:1706842257
+          image: kisiel75311/pz_frontend:1706843957
           ports:
             - containerPort: 80
           env:
