@@ -64,7 +64,7 @@ public class IndexService {
 //
         final String HOSTNAME = InetAddress.getLocalHost().getHostName();
         HashMap<String, Object> params1 = new HashMap<>();
-        params1.put("studyPlanCode", studyPlanRepository.findByMajorCode(majors.get(0).getStudyMajorCode()).getStudyPlanCode());
+        params1.put("studentIndex", studentIndex);
 //comment
 
 
@@ -73,7 +73,7 @@ public class IndexService {
                 = new RestTemplate().exchange(
                 "http://".concat(System.getenv("ENROLLMENT_SERVICE_HOST"))
                                         .concat(":").concat(System.getenv("ENROLLMENT_SERVICE_PORT"))
-                                        .concat("/getCoursesForStudent?studyPlanCode={studyPlanCode}"),
+                                        .concat("/getCoursesForStudent?studentIndex={studentIndex}"),
                 HttpMethod.GET, null,
                 new ParameterizedTypeReference<>(){},
                 params1);
