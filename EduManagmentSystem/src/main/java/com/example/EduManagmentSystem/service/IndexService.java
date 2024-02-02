@@ -65,6 +65,9 @@ public class IndexService {
         final String HOSTNAME = InetAddress.getLocalHost().getHostName();
         HashMap<String, Object> params1 = new HashMap<>();
         params1.put("studyPlanCode", studyPlanRepository.findByMajorCode(majors.get(0).getStudyMajorCode()).getStudyPlanCode());
+//comment
+
+
 
         ResponseEntity<List<SemesterResponse>> courses
                 = new RestTemplate().exchange(
