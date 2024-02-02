@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: ps-frontend
-          image: kisiel75311/timetable_service:1706842257
+          image: kisiel75311/ps_frontend:1706844063
           ports:
             - containerPort: 80
           env:
