@@ -134,9 +134,9 @@ public class StudyPlanService {
         StudyMajor studyMajor = studyMajorRepository.getStudyMajorByMajorCode(studyPlan.getMajorCode());
         //Semester semester = semesterRepository.findByStudyPlanCodeAndSemesterNumber(studyPlan.getStudyPlanCode(), semesterNumber).get();
         return new StudyPlanResponse(studyPlan.getStudyPlanCode(), studyMajor.getName(), studyMajor.getMajorCode(),
-                studyPlan.getEducationLevel(), PlanStatus.values()[studyPlan.getPlanStatusId().intValue()-1],
-                studyPlan.getDepartment(), studyPlan.getStudyForm(),
-                studyPlan.getEducationLevel(), studyPlan.getSpecialization());
+                studyPlan.getInMotionSinceEduCycle(), PlanStatus.values()[studyPlan.getPlanStatusId().intValue() - 1],
+                studyPlan.getDepartment(), studyPlan.getEducationLevel(),
+                studyPlan.getStudyForm(), studyPlan.getSpecialization());
     }
 
     public CourseResponse CourseMapper(Course course){
