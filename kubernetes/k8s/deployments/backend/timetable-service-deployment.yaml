@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: timetable-service
-          image: kisiel75311/timetable_service:latest #change this to your own image
+          image: kisiel75311/timetable_service:1706838249
           ports:
             - containerPort: 8080
           env:
