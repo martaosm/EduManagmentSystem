@@ -47,7 +47,6 @@ jobs:
           ref: '@SK/feaute/kubernetes'
 
       - name: Replace image in k8s files
-        if: github.ref == 'refs/heads/@SK/feaute/kubernetes'
         run: |
           IMAGE="${{ secrets.DOCKERHUB_USERNAME }}/${{ env.DOCKER_IMAGE_NAME }}:${{ env.TIMESTAMP }}"
           grep -rl "${{ env.DOCKER_IMAGE_NAME }}" kubernetes/k8s/deployments | xargs sed -i "s|image:.*|image: $IMAGE|g"
