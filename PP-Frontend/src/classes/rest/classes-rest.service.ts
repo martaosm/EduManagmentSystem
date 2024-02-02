@@ -13,7 +13,7 @@ export class ClassesRestService {
   constructor(private http: HttpClient) {
   }
 
-  indexServiceUrl = 'http://a72a24690e7564c92b756e78b2a9e560-1856347894.us-east-1.elb.amazonaws.com:8080'
+  indexServiceUrl = 'http://a9c49b46a1d524044b716ea2ac355f93-1071897422.us-east-1.elb.amazonaws.com:8080'
 
   getClassesForLecturer(teacherId: string): Observable<ClassesQueryModel[]> {
     let queryParams = new HttpParams();
