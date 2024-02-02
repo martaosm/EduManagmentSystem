@@ -1,19 +1,22 @@
 package com.example.EduManagmentSystem.config;
 
-import io.opentracing.Tracer;
-import io.opentracing.util.GlobalTracer;
+import io.opentracing.contrib.java.spring.jaeger.starter.TracerBuilderCustomizer;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import io.jaegertracing.internal.JaegerTracer;
 
 @Configuration
 public class TracingConfig {
 
+    @Value("${opentracing.jaeger.service-name}")
+    private String serviceName;
+
+    @Autowired
+    private io.jaegertracing.Configuration configuration;
+
     @Bean
-    public Tracer tracer() {
-        // Configuration and initialization of Jaeger Tracer
-        Tracer tracer = JaegerTracer.builder().build(); // Create an instance of Jaeger Tracer
-        GlobalTracer.registerIfAbsent(tracer);
-        return tracer;
+    public io.opentracing.Tracer tracer() {
+        return configuration.getTracer();
     }
 }
