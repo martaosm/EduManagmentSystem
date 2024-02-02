@@ -10,37 +10,26 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
+        
       - name: Login to DockerHub
         uses: docker/login-action@v1
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+          
       - name: Get docker image name
+        id: get_image_name
         run: |
-          if [[ "${{ github.ref_name }}" == "timetable_service" ]]; then
-            echo "IMAGE_NAME=timetable_service" >> $GITHUB_ENV
-          elif [[ "${{ github.ref_name }}" == "PP-Frontend" ]]; then
-            echo "IMAGE_NAME=pp_frontend" >> $GITHUB_ENV
-          elif [[ "${{ github.ref_name }}" == "PS-Frontend" ]]; then
-            echo "IMAGE_NAME=ps_frontend" >> $GITHUB_ENV
-          elif [[ "${{ github.ref_name }}" == "PZ-frontend" ]]; then
-            echo "IMAGE_NAME=pz_frontend" >> $GITHUB_ENV
-          elif [[ "${{ github.ref_name }}" == "account_service" ]]; then
-            echo "IMAGE_NAME=account_service" >> $GITHUB_ENV
-          elif [[ "${{ github.ref_name }}" == "enrollment_service" ]]; then
-            echo "IMAGE_NAME=enrollment_service" >> $GITHUB_ENV
-          elif [[ "${{ github.ref_name }}" == "index_service" ]]; then
-            echo "IMAGE_NAME=index_service" >> $GITHUB_ENV
-          elif [[ "${{ github.ref_name }}" == "study_plan_service" ]]; then
-            echo "IMAGE_NAME=study_plan_service" >> $GITHUB_ENV
-          else
-            echo "IMAGE_NAME=${{ github.ref_name }}" >> $GITHUB_ENV
-          fi
+          BRANCH_NAME=$(echo "${GITHUB_REF#refs/heads/}" | tr '[:upper:]' '[:lower:]' | tr '-' '_')
+          echo "DOCKER_IMAGE_NAME=$BRANCH_NAME" >> $GITHUB_ENV
+          
       - name: Get the version
         id: timestamp
         run: echo "TIMESTAMP=$(date +%s)" >> $GITHUB_ENV
+        
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
         with:
@@ -48,5 +37,5 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.BRANCH_NAME }}:${{ env.TIMESTAMP }}
-            ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.BRANCH_NAME }}:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.DOCKER_IMAGE_NAME }}:${{ env.TIMESTAMP }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.DOCKER_IMAGE_NAME }}:latest
