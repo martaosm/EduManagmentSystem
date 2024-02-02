@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: enrollment-service
-          image: kisiel75311/timetable_service:1706838249
+          image: kisiel75311/timetable_service:1706842257
           ports:
             - containerPort: 8080
           env:
