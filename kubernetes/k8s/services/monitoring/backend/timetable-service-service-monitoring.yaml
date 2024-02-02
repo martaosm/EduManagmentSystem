@@ -11,4 +11,4 @@ spec:
     matchLabels:
       app: timetable-service
   endpoints:
-    - port: 8080
+    - port: "http"

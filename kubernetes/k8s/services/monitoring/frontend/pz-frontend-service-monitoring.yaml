@@ -11,4 +11,4 @@ spec:
     matchLabels:
       app: pz-frontend
   endpoints:
-    - port: 80
+    - port: "http"

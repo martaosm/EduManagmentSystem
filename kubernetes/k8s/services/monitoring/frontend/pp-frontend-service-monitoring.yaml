@@ -11,4 +11,4 @@ spec:
     matchLabels:
       app: pp-frontend
   endpoints:
-    - port: 80
+    - port: "http"

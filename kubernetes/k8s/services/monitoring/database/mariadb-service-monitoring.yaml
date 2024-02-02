@@ -11,4 +11,4 @@ spec:
     matchLabels:
       app: mariadb
   endpoints:
-    - port: 3306
+    - port: "mysql"

@@ -11,4 +11,4 @@ spec:
     matchLabels:
       app: study-plan-service
   endpoints:
-    - port: 8080
+    - port: "http"
