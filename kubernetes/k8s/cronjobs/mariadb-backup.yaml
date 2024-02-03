@@ -4,7 +4,7 @@ metadata:
   name: mariadb-backup
   namespace: database
 spec:
-  schedule: "34 8 * * *"
+  schedule: "41 8 * * *"
   jobTemplate:
     spec:
       template:
@@ -14,7 +14,7 @@ spec:
               image: mariadb:10.5.8
               command:
                 - /bin/bash
-                - -c
+                - -ckubec
                 - >
                   mysqldump --all-databases --single-transaction --quick --lock-tables=false -u${MYSQL_USER} -p${MYSQL_PASSWORD} -h mariadb > /backup/all-databases.sql &&
                   date > /backup/backup_timestamp.txt  # Oznacz czas kopii zapasowej
