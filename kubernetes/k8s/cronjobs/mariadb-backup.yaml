@@ -4,7 +4,7 @@ metadata:
   name: mariadb-backup
   namespace: database
 spec:
-  schedule: "14 19 * * *"
+  schedule: "34 8 * * *"
   jobTemplate:
     spec:
       template:
